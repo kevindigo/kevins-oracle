@@ -370,39 +370,60 @@
             return '<br>&nbsp;';
         }
 
-        // Yes/No Oracle
-        function askYesNo() {
-            const results = [
-                'Strong yes', 'Strong no', 
-                'Yes', 'No', 'Yes', 'No', 'Yes', 'No', 'Yes', 'No', 'Yes', 'No', 'Yes', 'No', 'Yes', 'No', 
-                'Yes, and...', 'No, and...', 
-                'Yes, but...', 'No, but...'
-            ];
+        // Shared Yes/No Oracle Response Generator
+        function generateYesNoResponse(probabilityType) {
+            let results;
+            
+            switch(probabilityType) {
+                case 'likely':
+                    // 10 yes, 4 no (1 each of special responses + 9 plain yes, 3 plain no)
+                    results = [
+                        'Strong yes', 'Yes, and...', 'Yes, but...',
+                        'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes',
+                        'Strong no', 'No, and...', 'No, but...',
+                        'No', 'No', 'No'
+                    ];
+                    break;
+                case 'unlikely':
+                    // 4 yes, 10 no (1 each of special responses + 3 plain yes, 9 plain no)
+                    results = [
+                        'Strong yes', 'Yes, and...', 'Yes, but...',
+                        'Yes', 'Yes', 'Yes',
+                        'Strong no', 'No, and...', 'No, but...',
+                        'No', 'No', 'No', 'No', 'No', 'No', 'No', 'No', 'No'
+                    ];
+                    break;
+                case 'even':
+                default:
+                    // 7 yes, 7 no (1 each of special responses + 6 plain yes, 6 plain no)
+                    results = [
+                        'Strong yes', 'Yes, and...', 'Yes, but...',
+                        'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes',
+                        'Strong no', 'No, and...', 'No, but...',
+                        'No', 'No', 'No', 'No', 'No', 'No'
+                    ];
+                    break;
+            }
+            
             const result = results[Math.floor(Math.random() * results.length)];
             const twistText = getTwistText();
             
+            return { result, twistText };
+        }
+
+        // Yes/No Oracle
+        function askYesNo() {
+            const { result, twistText } = generateYesNoResponse('even');
             showResultWithFlash('Yes/No Oracle (even)', `${result}${twistText}`);
         }
 
         function askYesNoWithOdds() {
-            const results = [
-                'Yes', 'Yes', 'Yes', 'Yes', 'No',
-                'Yes, and...', 'No, and...', 'Yes, but...'
-            ];
-            const result = results[Math.floor(Math.random() * results.length)];
-            const twistText = getTwistText();
-            
+            const { result, twistText } = generateYesNoResponse('likely');
             showResultWithFlash('Yes/No Oracle (likely)', `${result}${twistText}`);
         }
 
         function askYesNoWithUnlikely() {
-            const results = [
-                'No', 'No', 'No', 'No', 'Yes',
-                'Yes, and...', 'No, and...', 'Yes, but...'
-            ];
-            const result = results[Math.floor(Math.random() * results.length)];
-            const twistText = getTwistText();
-            
+            const { result, twistText } = generateYesNoResponse('unlikely');
             showResultWithFlash('Yes/No Oracle (unlikely)', `${result}${twistText}`);
         }
 
