@@ -49,6 +49,8 @@ You may choose either license for your use of this software.
 
 This page was created with AI assistance.
 
+The contents were heavily inspired by other oracles, as listed below.
+
 ## Technical Details
 
 - **Single HTML File**: Everything is contained in one file for easy distribution
@@ -65,5 +67,19 @@ create an issue on GitHub. Or make the change(s) yourself, and create a pull req
 
 - [Mythic Game Master Emulator](https://wordmillgames.com/mythic-game-master-emulator.html) - The brilliant solo RPG system that inspired much of this tool
 - [One Page Solo Engine](https://watabou.itch.io/one-page-solo-engine) - Compact solo RPG toolkit
+- [Solo Sheets](https://perplexingruins.itch.io/solo-gaming-sheets) - Great solo RPG tool
+
+## Background/history
+
+While playing solo RPGs, I found myself bouncing between various online and offline tools. This page is my attempt to have everything I need in one place. 
+
+The systems I have used for solo RPG play, and which I think should mostly be supported by the tools included, are:
+
+- [Solodark](https://www.thearcanelibrary.com/products/solodark-solo-rules-for-shadowdark-rpg-pdf) (Shadowdark)
+- [Microlite20](https://microlite20.fandom.com/wiki/Microlite20_Wiki)
+- [Tricube Tales](https://www.drivethrurpg.com/en/product/294202/tricube-tales)
+- My own unpublished RPG design, StarFlit
+
+
 
 *May your rolls be fortunate and your stories epic!*
