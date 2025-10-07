@@ -212,9 +212,13 @@
             <section class="dice-section">
                 <h2>Dice Roller</h2>
                 <div class="button-group">
+                    <button onclick="rollD4()">d4</button>
                     <button onclick="roll1d6()">1d6</button>
                     <button onclick="roll2d6()">2d6</button>
                     <button onclick="roll3d6()">3d6</button>
+                    <button onclick="rollD8()">d8</button>
+                    <button onclick="rollD10()">d10</button>
+                    <button onclick="rollD12()">d12</button>
                     <button onclick="rollD20()">d20</button>
                     <button onclick="rollD100()">d100</button>
                 </div>
@@ -1113,13 +1117,22 @@
                  <div class="result-content">${alterationType}: ${topic}</div>`;
         }
 
+        // d4 Dice Roller
+        function rollD4() {
+            const die = Math.floor(Math.random() * 4) + 1;
+            
+            document.getElementById('sharedResult').innerHTML = 
+                `<div class="result-header">d4 Dice Roll</div>
+                 <div class="result-content">${die}<br>&nbsp;</div>`;
+        }
+
         // 1d6 Dice Roller
         function roll1d6() {
             const die = Math.floor(Math.random() * 6) + 1;
             
             document.getElementById('sharedResult').innerHTML = 
                 `<div class="result-header">1d6 Dice Roll</div>
-                 <div class="result-content">${die}<br><span style="font-size: 0.8em; opacity: 0.8;">${die}</span></div>`;
+                 <div class="result-content">${die}<br>&nbsp;</div>`;
         }
 
         // 2d6 Dice Roller
@@ -1145,13 +1158,40 @@
                  <div class="result-content">${total}<br><span style="font-size: 0.8em; opacity: 0.8;">${die1} + ${die2} + ${die3}</span></div>`;
         }
 
+        // d8 Dice Roller
+        function rollD8() {
+            const die = Math.floor(Math.random() * 8) + 1;
+            
+            document.getElementById('sharedResult').innerHTML = 
+                `<div class="result-header">d8 Dice Roll</div>
+                 <div class="result-content">${die}<br>&nbsp;</div>`;
+        }
+
+        // d10 Dice Roller
+        function rollD10() {
+            const die = Math.floor(Math.random() * 10) + 1;
+            
+            document.getElementById('sharedResult').innerHTML = 
+                `<div class="result-header">d10 Dice Roll</div>
+                 <div class="result-content">${die}<br>&nbsp;</div>`;
+        }
+
+        // d12 Dice Roller
+        function rollD12() {
+            const die = Math.floor(Math.random() * 12) + 1;
+            
+            document.getElementById('sharedResult').innerHTML = 
+                `<div class="result-header">d12 Dice Roll</div>
+                 <div class="result-content">${die}<br>&nbsp;</div>`;
+        }
+
         // d20 Dice Roller
         function rollD20() {
             const die = Math.floor(Math.random() * 20) + 1;
             
             document.getElementById('sharedResult').innerHTML = 
                 `<div class="result-header">d20 Dice Roll</div>
-                 <div class="result-content">${die}<br><span style="font-size: 0.8em; opacity: 0.8;">${die}</span></div>`;
+                 <div class="result-content">${die}<br>&nbsp;</div>`;
         }
 
         // d100 Dice Roller
@@ -1160,7 +1200,7 @@
             
             document.getElementById('sharedResult').innerHTML = 
                 `<div class="result-header">d100 Dice Roll</div>
-                 <div class="result-content">${die}<br><span style="font-size: 0.8em; opacity: 0.8;">${die}</span></div>`;
+                 <div class="result-content">${die}<br>&nbsp;</div>`;
         }
     </script>
 </body>
