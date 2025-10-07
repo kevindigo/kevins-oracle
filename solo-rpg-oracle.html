@@ -225,6 +225,10 @@
         <section class="feature-section">
             <h2>Additional Oracles</h2>
             <div class="feature-grid">
+                <div class="feature-card" onclick="alterScene()">
+                    <h3>Scene Alteration</h3>
+                    <p>Alter or interrupt the current scene</p>
+                </div>
                 <div class="feature-card" onclick="generateAction()">
                     <h3>Action & Theme</h3>
                     <p>Generate random actions and themes</p>
@@ -392,6 +396,44 @@
             document.getElementById('sharedResult').innerHTML = 
                 `<div class="result-header">Random Event</div>
                  <div class="result-content">${event}</div>`;
+        }
+
+        // Scene Alteration Oracle
+        function alterScene() {
+            // Scene alteration types
+            const alterationTypes = ['Alter', 'Interrupt'];
+            
+            // Mythic GM Emulator scene alteration topics
+            const topics = [
+                'NPC action', 'Remote event', 'Move toward a thread', 'Move away from a thread',
+                'Close a thread', 'PC negative', 'PC positive', 'Ambiguous event',
+                'NPC negative', 'NPC positive', 'Introduce a new NPC', 'Introduce a new thread',
+                'Focus on NPC', 'Focus on location', 'Focus on object', 'Focus on event'
+            ];
+            
+            // Action/Focus pairs
+            const actions = [
+                'Attack', 'Defend', 'Investigate', 'Negotiate', 'Explore',
+                'Create', 'Destroy', 'Protect', 'Betray', 'Help',
+                'Hide', 'Reveal', 'Transform', 'Escape', 'Confront',
+                'Pursue', 'Evade', 'Ambush', 'Rescue', 'Sabotage'
+            ];
+            
+            const focuses = [
+                'NPCs', 'PCs', 'Location', 'Object', 'Event',
+                'Knowledge', 'Wealth', 'Reputation', 'Relationship', 'Goal',
+                'Plan', 'Secret', 'Memory', 'Dream', 'Fear',
+                'Hope', 'Belief', 'Duty', 'Honor', 'Freedom'
+            ];
+            
+            const alterationType = alterationTypes[Math.floor(Math.random() * alterationTypes.length)];
+            const topic = topics[Math.floor(Math.random() * topics.length)];
+            const action = actions[Math.floor(Math.random() * actions.length)];
+            const focus = focuses[Math.floor(Math.random() * focuses.length)];
+            
+            document.getElementById('sharedResult').innerHTML = 
+                `<div class="result-header">Scene Alteration</div>
+                 <div class="result-content">${alterationType}: ${topic}<br><span style="font-size: 0.8em; opacity: 0.8;">${action} / ${focus}</span></div>`;
         }
 
         // 2d6 Dice Roller
