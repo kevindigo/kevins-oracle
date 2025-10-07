@@ -322,16 +322,31 @@
             return themes[Math.floor(Math.random() * themes.length)];
         }
 
+        // Helper function to get twist text
+        function getTwistText() {
+            const twistRoll = Math.floor(Math.random() * 12) + 1;
+            if (twistRoll === 1) {
+                const action = getRandomAction();
+                const theme = getRandomTheme();
+                return `<div style="font-size: 0.8em; opacity: 0.7; margin-top: 8px;">Twist: ${action} ${theme}</div>`;
+            }
+            return '';
+        }
+
         // Yes/No Oracle
         function askYesNo() {
             const results = [
-                'Yes', 'No', 'Yes, and...', 'No, and...', 
-                'Yes, but...', 'No, but...', 'Maybe', 'Ask again later'
+                'Strong yes', 'Strong no', 
+                'Yes', 'No', 'Yes', 'No', 'Yes', 'No', 'Yes', 'No', 'Yes', 'No', 'Yes', 'No', 'Yes', 'No', 
+                'Yes, and...', 'No, and...', 
+                'Yes, but...', 'No, but...'
             ];
             const result = results[Math.floor(Math.random() * results.length)];
+            const twistText = getTwistText();
+            
             document.getElementById('sharedResult').innerHTML = 
                 `<div class="result-header">Yes/No Oracle (even)</div>
-                 <div class="result-content">${result}</div>`;
+                 <div class="result-content">${result}${twistText}</div>`;
         }
 
         function askYesNoWithOdds() {
@@ -340,9 +355,11 @@
                 'Yes, and...', 'No, and...', 'Yes, but...'
             ];
             const result = results[Math.floor(Math.random() * results.length)];
+            const twistText = getTwistText();
+            
             document.getElementById('sharedResult').innerHTML = 
                 `<div class="result-header">Yes/No Oracle (likely)</div>
-                 <div class="result-content">${result}</div>`;
+                 <div class="result-content">${result}${twistText}</div>`;
         }
 
         function askYesNoWithUnlikely() {
@@ -351,9 +368,11 @@
                 'Yes, and...', 'No, and...', 'Yes, but...'
             ];
             const result = results[Math.floor(Math.random() * results.length)];
+            const twistText = getTwistText();
+            
             document.getElementById('sharedResult').innerHTML = 
                 `<div class="result-header">Yes/No Oracle (unlikely)</div>
-                 <div class="result-content">${result}</div>`;
+                 <div class="result-content">${result}${twistText}</div>`;
         }
 
         // Action & Theme Generator
