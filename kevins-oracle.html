@@ -694,6 +694,35 @@
                  <div class="result-content">${location}</div>`;
         }
 
+        // Fantasy Name Generator
+        function generateFantasyName() {
+            const fantasyNames = [
+                'Aelar', 'Brianna', 'Caelum', 'Darian', 'Elara',
+                'Faelan', 'Gwendolyn', 'Haldir', 'Isolde', 'Jareth',
+                'Kaelen', 'Liora', 'Maeve', 'Niamh', 'Orin',
+                'Pryderi', 'Quinn', 'Rhiannon', 'Soren', 'Tamsin',
+                'Urien', 'Vespera', 'Wynne', 'Xander', 'Yvaine',
+                'Zephyr', 'Alistair', 'Branwen', 'Cassian', 'Daphne',
+                'Eamon', 'Fiora', 'Gareth', 'Helena', 'Ivor',
+                'Jocelyn', 'Kael', 'Lysander', 'Morgana', 'Nyx',
+                'Oberon', 'Persephone', 'Quentin', 'Rowan', 'Seraphina',
+                'Tristan', 'Ursula', 'Vance', 'Willow', 'Xanthe',
+                'Yara', 'Zelda', 'Arion', 'Bryn', 'Cora',
+                'Draven', 'Elowen', 'Finnian', 'Ginevra', 'Haven',
+                'Ione', 'Juno', 'Kaelith', 'Luna', 'Mireille',
+                'Nerys', 'Orla', 'Percival', 'Quorra', 'Riven',
+                'Sable', 'Thalia', 'Umbriel', 'Varian', 'Wren',
+                'Xylia', 'Yarrow', 'Zinnia', 'Aurelia', 'Bastian',
+                'Cressida', 'Dorian', 'Eira', 'Fenris', 'Galen',
+                'Hazel', 'Iris', 'Jasper', 'Kaida', 'Lilith',
+                'Morwen', 'Nova', 'Orion', 'Phaedra', 'Raven',
+                'Sylvia', 'Theron', 'Una', 'Violet', 'Wyatt',
+                'Xenia', 'Yseult', 'Zane', 'Aster', 'Briar',
+                'Cyrus', 'Delphine', 'Evan', 'Freya', 'Griffin'
+            ];
+            return fantasyNames[Math.floor(Math.random() * fantasyNames.length)];
+        }
+
         // Fantasy NPC Generator
         function generateFantasyNPC() {
             const personalities = [
@@ -726,13 +755,40 @@
                 'Explorer', 'Hunter', 'Fisher', 'Miner', 'Scholar', 'Diplomat'
             ];
             
+            const name = generateFantasyName();
             const personality = personalities[Math.floor(Math.random() * personalities.length)];
             const descriptor = descriptors[Math.floor(Math.random() * descriptors.length)];
             const role = roles[Math.floor(Math.random() * roles.length)];
             
             document.getElementById('sharedResult').innerHTML = 
                 `<div class="result-header">Fantasy NPC</div>
-                 <div class="result-content">${descriptor} ${personality} ${role}</div>`;
+                 <div class="result-content">${name}<br><span style="font-size: 0.8em; opacity: 0.8;">${descriptor} ${personality} ${role}</span></div>`;
+        }
+
+        // Space Name Generator
+        function generateSpaceName() {
+            const nameFragments = [
+                'zi', 'del', 'laa', 'vor', 'nex', 'qua',
+                'tri', 'zen', 'kor', 'vax', 'ryl', 'nys',
+                'pax', 'tor', 'lyn', 'vex', 'dra', 'syl',
+                'fen', 'gar', 'hyl', 'jax', 'kyl', 'mor',
+                'nor', 'pyr', 'qor', 'ryn', 'syn', 'tyr',
+                'val', 'wyn', 'xan', 'yor', 'zyl', 'arn'
+            ];
+            
+            // Randomly choose between 2 or 3 parts
+            const numParts = Math.random() < 0.7 ? 2 : 3;
+            const parts = [];
+            
+            for (let i = 0; i < numParts; i++) {
+                let fragment;
+                do {
+                    fragment = nameFragments[Math.floor(Math.random() * nameFragments.length)];
+                } while (parts.includes(fragment)); // Avoid duplicate fragments
+                parts.push(fragment);
+            }
+            
+            return parts.join('');
         }
 
         // Space NPC Generator
@@ -767,13 +823,14 @@
                 'Android', 'Cyborg', 'Alien', 'Mutant', 'Augmented', 'Specialist'
             ];
             
+            const name = generateSpaceName();
             const personality = personalities[Math.floor(Math.random() * personalities.length)];
             const descriptor = descriptors[Math.floor(Math.random() * descriptors.length)];
             const role = roles[Math.floor(Math.random() * roles.length)];
             
             document.getElementById('sharedResult').innerHTML = 
                 `<div class="result-header">Space NPC</div>
-                 <div class="result-content">${descriptor} ${personality} ${role}</div>`;
+                 <div class="result-content">${name}<br><span style="font-size: 0.8em; opacity: 0.8;">${descriptor} ${personality} ${role}</span></div>`;
         }
 
         // Fantasy Random Event Generator
