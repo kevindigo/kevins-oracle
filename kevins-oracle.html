@@ -638,26 +638,24 @@
             ];
             
             const suffixes = [
-                'wood', 'forest', 'glade', 'grove', 'vale', 'valley', 'hill', 'mountain',
-                'peak', 'ridge', 'cliff', 'crag', 'stone', 'rock', 'boulder', 'cave',
-                'cavern', 'grotto', 'den', 'lair', 'nest', 'hollow', 'burrow', 'warren',
-                'brook', 'stream', 'river', 'lake', 'pond', 'pool', 'spring', 'well',
+                'wood', ' forest', 'glade', 'grove', 'vale', ' valley', ' hill', ' mountain',
+                'peak', 'ridge', 'cliff', 'crag', 'stone', 'cave',
+                ' cavern', ' grotto', 'hollow', 'burrow', 'warren',
+                'brook', 'stream', ' river', ' lake', ' spring',
                 'field', 'meadow', 'plain', 'prairie', 'marsh', 'swamp', 'bog', 'fen',
-                'shore', 'beach', 'coast', 'bay', 'harbor', 'port', 'dock', 'pier',
-                'town', 'city', 'burg', 'ville', 'hamlet', 'village', 'settlement', 'colony',
-                'keep', 'fort', 'castle', 'tower', 'palace', 'manor', 'estate', 'hall',
-                'bridge', 'crossing', 'ford', 'pass', 'gate', 'door', 'arch', 'way',
-                'temple', 'shrine', 'altar', 'sanctuary', 'abbey', 'monastery', 'cathedral', 'chapel',
-                'academy', 'school', 'college', 'library', 'archive', 'museum', 'gallery', 'theater',
-                'market', 'bazaar', 'fair', 'festival', 'carnival', 'celebration', 'feast', 'banquet',
-                'garden', 'park', 'orchard', 'vineyard', 'farm', 'ranch', 'mill', 'forge',
-                'mine', 'quarry', 'workshop', 'factory', 'laboratory', 'observatory', 'planetarium', 'arena'
+                'shore', 'beach', 'bay', 'harbor', 'port', 'dock', 'pier',
+                'ton', ' town', ' city', 'burg', 'ville', ' colony',
+                ' keep', ' fort', ' castle', ' tower', ' palace', ' manor', ' estate', 'hall',
+                'bridge', 'crossing', 'ford', ' pass', 'gate', 'way',
+                ' temple', 'shrine', ' altar', ' sanctuary', ' abbey', ' monastery', ' cathedral', ' chapel',
+                ' academy', 'garden', 'park', 'vineyard', 'farm', 'mill', 'forge',
+                'mine', ' quarry', 
             ];
             
             const prefix = prefixes[Math.floor(Math.random() * prefixes.length)];
             const suffix = suffixes[Math.floor(Math.random() * suffixes.length)];
             
-            return `${prefix} ${suffix}`;
+            return `${prefix}${suffix}`;
         }
 
         // Fantasy Location Generator
