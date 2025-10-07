@@ -621,6 +621,45 @@
                  <div class="result-content">${quest}</div>`;
         }
 
+        // Fantasy Place Name Generator
+        function generateFantasyPlaceName() {
+            const prefixes = [
+                'Silver', 'Golden', 'Iron', 'Crystal', 'Shadow', 'Light', 'Dark', 'Bright',
+                'Moon', 'Sun', 'Star', 'Sky', 'Cloud', 'Storm', 'Wind', 'River',
+                'Forest', 'Wood', 'Stone', 'Mountain', 'Valley', 'Hill', 'Lake', 'Sea',
+                'Oak', 'Pine', 'Willow', 'Maple', 'Cedar', 'Birch', 'Ash', 'Elm',
+                'Ancient', 'Old', 'New', 'Great', 'Little', 'High', 'Low', 'Deep',
+                'White', 'Black', 'Red', 'Blue', 'Green', 'Gray', 'Purple', 'Gold',
+                'Dragon', 'Phoenix', 'Griffin', 'Unicorn', 'Wolf', 'Bear', 'Eagle', 'Hawk',
+                'Royal', 'Imperial', 'Noble', 'Common', 'Sacred', 'Holy', 'Blessed', 'Cursed',
+                'Mystic', 'Magic', 'Enchanted', 'Eldritch', 'Arcane', 'Divine', 'Celestial', 'Infernal',
+                'Whispering', 'Silent', 'Echoing', 'Singing', 'Dancing', 'Flying', 'Running', 'Sleeping',
+                'Lost', 'Forgotten', 'Hidden', 'Secret', 'Forbidden', 'Abandoned', 'Ruined', 'Deserted'
+            ];
+            
+            const suffixes = [
+                'wood', 'forest', 'glade', 'grove', 'vale', 'valley', 'hill', 'mountain',
+                'peak', 'ridge', 'cliff', 'crag', 'stone', 'rock', 'boulder', 'cave',
+                'cavern', 'grotto', 'den', 'lair', 'nest', 'hollow', 'burrow', 'warren',
+                'brook', 'stream', 'river', 'lake', 'pond', 'pool', 'spring', 'well',
+                'field', 'meadow', 'plain', 'prairie', 'marsh', 'swamp', 'bog', 'fen',
+                'shore', 'beach', 'coast', 'bay', 'harbor', 'port', 'dock', 'pier',
+                'town', 'city', 'burg', 'ville', 'hamlet', 'village', 'settlement', 'colony',
+                'keep', 'fort', 'castle', 'tower', 'palace', 'manor', 'estate', 'hall',
+                'bridge', 'crossing', 'ford', 'pass', 'gate', 'door', 'arch', 'way',
+                'temple', 'shrine', 'altar', 'sanctuary', 'abbey', 'monastery', 'cathedral', 'chapel',
+                'academy', 'school', 'college', 'library', 'archive', 'museum', 'gallery', 'theater',
+                'market', 'bazaar', 'fair', 'festival', 'carnival', 'celebration', 'feast', 'banquet',
+                'garden', 'park', 'orchard', 'vineyard', 'farm', 'ranch', 'mill', 'forge',
+                'mine', 'quarry', 'workshop', 'factory', 'laboratory', 'observatory', 'planetarium', 'arena'
+            ];
+            
+            const prefix = prefixes[Math.floor(Math.random() * prefixes.length)];
+            const suffix = suffixes[Math.floor(Math.random() * suffixes.length)];
+            
+            return `${prefix} ${suffix}`;
+        }
+
         // Fantasy Location Generator
         function generateFantasyLocation() {
             const locations = [
@@ -651,9 +690,10 @@
             ];
             
             const location = locations[Math.floor(Math.random() * locations.length)];
+            const placeName = generateFantasyPlaceName();
             document.getElementById('sharedResult').innerHTML = 
                 `<div class="result-header">Fantasy Location</div>
-                 <div class="result-content">${location}</div>`;
+                 <div class="result-content">${location}<br>at ${placeName}</div>`;
         }
 
         // Space Location Generator
@@ -689,9 +729,10 @@
             ];
             
             const location = locations[Math.floor(Math.random() * locations.length)];
+            const placeName = generateSpaceName();
             document.getElementById('sharedResult').innerHTML = 
                 `<div class="result-header">Space Location</div>
-                 <div class="result-content">${location}</div>`;
+                 <div class="result-content">${location}<br>at ${placeName}</div>`;
         }
 
         // Fantasy Name Generator
@@ -765,15 +806,20 @@
                  <div class="result-content">${name}<br><span style="font-size: 0.8em; opacity: 0.8;">${descriptor} ${personality} ${role}</span></div>`;
         }
 
-        // Space Name Generator
+        // Space Name Generator (100 syllables)
         function generateSpaceName() {
             const nameFragments = [
-                'zi', 'del', 'laa', 'vor', 'nex', 'qua',
-                'tri', 'zen', 'kor', 'vax', 'ryl', 'nys',
-                'pax', 'tor', 'lyn', 'vex', 'dra', 'syl',
-                'fen', 'gar', 'hyl', 'jax', 'kyl', 'mor',
-                'nor', 'pyr', 'qor', 'ryn', 'syn', 'tyr',
-                'val', 'wyn', 'xan', 'yor', 'zyl', 'arn'
+                'zi', 'del', 'laa', 'vor', 'nex', 'qua', 'tri', 'zen', 'kor', 'vax',
+                'ryl', 'nys', 'pax', 'tor', 'lyn', 'vex', 'dra', 'syl', 'fen', 'gar',
+                'hyl', 'jax', 'kyl', 'mor', 'nor', 'pyr', 'qor', 'ryn', 'syn', 'tyr',
+                'val', 'wyn', 'xan', 'yor', 'zyl', 'arn', 'bor', 'cet', 'dak', 'el',
+                'fir', 'gol', 'hal', 'ion', 'jot', 'kra', 'lor', 'mek', 'nil', 'or',
+                'pel', 'qix', 'rak', 'sol', 'tir', 'ul', 'var', 'wol', 'xir', 'yul',
+                'zir', 'ban', 'cor', 'dun', 'eth', 'fal', 'gur', 'han', 'ir', 'jon',
+                'kel', 'lan', 'mir', 'ner', 'ol', 'par', 'qun', 'ran', 'sar', 'tan',
+                'ur', 'van', 'wel', 'xen', 'yol', 'zar', 'bel', 'cron', 'dax', 'el',
+                'fen', 'gorn', 'hax', 'il', 'jorn', 'karn', 'lorn', 'max', 'norn', 'or',
+                'peln', 'qarn', 'reln', 'sorn', 'teln', 'urn', 'veln', 'worn', 'xeln', 'yorn'
             ];
             
             // Randomly choose between 2 or 3 parts
