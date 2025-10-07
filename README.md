@@ -68,6 +68,7 @@ create an issue on GitHub. Or make the change(s) yourself, and create a pull req
 - [Mythic Game Master Emulator](https://wordmillgames.com/mythic-game-master-emulator.html) - The brilliant solo RPG system that inspired much of this tool
 - [One Page Solo Engine](https://watabou.itch.io/one-page-solo-engine) - Compact solo RPG toolkit
 - [Solo Sheets](https://perplexingruins.itch.io/solo-gaming-sheets) - Great solo RPG tool
+- [Solodark](https://www.thearcanelibrary.com/products/solodark-solo-rules-for-shadowdark-rpg-pdf) (Shadowdark)
 
 ## Background/history
 
@@ -75,7 +76,7 @@ While playing solo RPGs, I found myself bouncing between various online and offl
 
 The systems I have used for solo RPG play, and which I think should mostly be supported by the tools included, are:
 
-- [Solodark](https://www.thearcanelibrary.com/products/solodark-solo-rules-for-shadowdark-rpg-pdf) (Shadowdark)
+- [Shadowdark](https://www.thearcanelibrary.com/pages/shadowdark)
 - [Microlite20](https://microlite20.fandom.com/wiki/Microlite20_Wiki)
 - [Tricube Tales](https://www.drivethrurpg.com/en/product/294202/tricube-tales)
 - My own unpublished RPG design, StarFlit
