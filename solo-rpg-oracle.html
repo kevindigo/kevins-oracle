@@ -246,9 +246,12 @@
                         <button onclick="generateSpacePlotHook()" style="padding: 6px 10px; font-size: 0.8em;">Space</button>
                     </div>
                 </div>
-                <div class="feature-card" onclick="generateLocation()">
+                <div class="feature-card">
                     <h3>Location</h3>
-                    <p>Discover new places</p>
+                    <div class="button-group" style="margin-top: 8px;">
+                        <button onclick="generateFantasyLocation()" style="padding: 6px 10px; font-size: 0.8em;">Fantasy</button>
+                        <button onclick="generateSpaceLocation()" style="padding: 6px 10px; font-size: 0.8em;">Space</button>
+                    </div>
                 </div>
                 <div class="feature-card">
                     <h3>NPC</h3>
@@ -257,9 +260,12 @@
                         <button onclick="generateSpaceNPC()" style="padding: 6px 10px; font-size: 0.8em;">Space</button>
                     </div>
                 </div>
-                <div class="feature-card" onclick="generateEvent()">
+                <div class="feature-card">
                     <h3>Random Event</h3>
-                    <p>Unexpected developments</p>
+                    <div class="button-group" style="margin-top: 8px;">
+                        <button onclick="generateFantasyEvent()" style="padding: 6px 10px; font-size: 0.8em;">Fantasy</button>
+                        <button onclick="generateSpaceEvent()" style="padding: 6px 10px; font-size: 0.8em;">Space</button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -613,18 +619,76 @@
                  <div class="result-content">${quest}</div>`;
         }
 
-        // Location Generator
-        function generateLocation() {
+        // Fantasy Location Generator
+        function generateFantasyLocation() {
             const locations = [
                 'Ancient ruins', 'Bustling market', 'Secluded forest', 'Underground cavern',
                 'Floating island', 'Desert oasis', 'Mountain peak', 'Abandoned temple',
                 'Crystal cave', 'Sunken city', 'Floating market', 'Whispering woods',
-                'Volcanic forge', 'Celestial observatory', 'Time-lost library'
+                'Volcanic forge', 'Celestial observatory', 'Time-lost library',
+                'Enchanted grove', 'Dragon lair', 'Royal castle', 'Wizard tower',
+                'Haunted mansion', 'Sacred temple', 'Goblin camp', 'Elven city',
+                'Dwarven mine', 'Orc fortress', 'Fairy circle', 'Mystic waterfall',
+                'Cursed swamp', 'Golden palace', 'Silver lake', 'Iron fortress',
+                'Crystal palace', 'Shadow realm', 'Dream realm', 'Elemental plane',
+                'Celestial realm', 'Infernal pit', 'Feywild', 'Shadowfell',
+                'Astral sea', 'Ethereal plane', 'Material plane', 'Divine realm',
+                'Ancient battlefield', 'Lost civilization', 'Hidden valley', 'Forbidden city',
+                'Mystic academy', 'Alchemist lab', 'Necromancer tower', 'Paladin stronghold',
+                'Ranger outpost', 'Bard college', 'Druid circle', 'Monk monastery',
+                'Rogue hideout', 'Warrior guild', 'Merchant caravan', 'Pilgrim shrine',
+                'Oracle cave', 'Prophet temple', 'Seer tower', 'Witch hut',
+                'Sorcerer sanctum', 'Warlock pact', 'Cleric cathedral', 'Priest abbey',
+                'Knight barracks', 'Squire training ground', 'Royal court', 'Noble estate',
+                'Common village', 'Farming hamlet', 'Fishing port', 'Mining town',
+                'Trading post', 'Border fort', 'Coastal city', 'Mountain pass',
+                'River crossing', 'Forest path', 'Desert caravan', 'Jungle temple',
+                'Arctic outpost', 'Volcano crater', 'Undersea city', 'Sky island',
+                'Cloud palace', 'Star observatory', 'Moon temple', 'Sun altar',
+                'Planetarium', 'Cosmic gateway', 'Time portal', 'Dimension rift'
             ];
             
             const location = locations[Math.floor(Math.random() * locations.length)];
             document.getElementById('sharedResult').innerHTML = 
-                `<div class="result-header">Location</div>
+                `<div class="result-header">Fantasy Location</div>
+                 <div class="result-content">${location}</div>`;
+        }
+
+        // Space Location Generator
+        function generateSpaceLocation() {
+            const locations = [
+                'Space station', 'Asteroid field', 'Planet surface', 'Moon base',
+                'Wormhole', 'Nebula', 'Black hole', 'Solar system',
+                'Galaxy cluster', 'Dyson sphere', 'Ring world', 'Orbital habitat',
+                'Research outpost', 'Mining colony', 'Trading hub', 'Military base',
+                'Alien ruins', 'Derelict ship', 'Generation ship', 'Colony ship',
+                'Battlecruiser', 'Exploration vessel', 'Cargo freighter', 'Science lab',
+                'Observatory', 'Comms relay', 'Fuel depot', 'Repair dock',
+                'Shipyard', 'Dry dock', 'Jump gate', 'Warp point',
+                'Gravity well', 'Quantum anomaly', 'Temporal rift', 'Parallel dimension',
+                'Virtual reality', 'Cyberspace', 'Data stream', 'Network hub',
+                'AI core', 'Mainframe', 'Server farm', 'Database',
+                'Archive', 'Library', 'Museum', 'Memorial',
+                'Embassy', 'Consulate', 'Diplomatic station', 'Neutral zone',
+                'Border outpost', 'Frontier world', 'Core world', 'Homeworld',
+                'Capital city', 'Metropolis', 'Megastructure', 'Arcology',
+                'Biodome', 'Terraforming project', 'Atmospheric processor', 'Weather control',
+                'Gravity generator', 'Life support', 'Reactor core', 'Engine room',
+                'Bridge', 'Command center', 'Control room', 'Operations deck',
+                'Medical bay', 'Science lab', 'Engineering bay', 'Cargo bay',
+                'Hangar bay', 'Launch bay', 'Docking port', 'Airlock',
+                'Corridor', 'Quarters', 'Mess hall', 'Recreation area',
+                'Cryo chamber', 'Stasis pod', 'Cloning facility', 'Genetic lab',
+                'Robotics factory', 'Nanite swarm', 'Drone hive', 'Android colony',
+                'Cyborg enclave', 'Augmentation clinic', 'Neural interface', 'Mind network',
+                'Telepathic nexus', 'Psionic chamber', 'Precog facility', 'Clairvoyance lab',
+                'Time dilation field', 'Space warp', 'Reality bubble', 'Pocket dimension',
+                'Simulation world', 'Holographic environment', 'Projection field', 'Illusion matrix'
+            ];
+            
+            const location = locations[Math.floor(Math.random() * locations.length)];
+            document.getElementById('sharedResult').innerHTML = 
+                `<div class="result-header">Space Location</div>
                  <div class="result-content">${location}</div>`;
         }
 
@@ -710,8 +774,8 @@
                  <div class="result-content">${descriptor} ${personality} ${role}</div>`;
         }
 
-        // Random Event Generator
-        function generateEvent() {
+        // Fantasy Random Event Generator
+        function generateFantasyEvent() {
             const events = [
                 'A sudden storm approaches', 'A mysterious stranger appears',
                 'An important item is discovered', 'A secret passage is revealed',
@@ -719,12 +783,122 @@
                 'The environment shifts unexpectedly', 'A vision reveals hidden truth',
                 'A celebration begins', 'A conflict breaks out',
                 'A natural phenomenon occurs', 'A message arrives',
-                'A barrier appears', 'A transformation takes place'
+                'A barrier appears', 'A transformation takes place',
+                'A magical anomaly manifests', 'A curse is lifted or placed',
+                'A prophecy is fulfilled', 'A ritual is completed',
+                'A dragon flies overhead', 'A ghost appears',
+                'A treasure is found', 'A trap is sprung',
+                'A spell backfires', 'A potion spills',
+                'A magical creature appears', 'A divine intervention occurs',
+                'A portal opens', 'A time loop begins',
+                'A memory returns', 'A secret is revealed',
+                'A betrayal occurs', 'A sacrifice is made',
+                'A resurrection happens', 'A transformation occurs',
+                'A curse is broken', 'A blessing is granted',
+                'A quest is given', 'A challenge is issued',
+                'A tournament begins', 'A festival starts',
+                'A market opens', 'A caravan arrives',
+                'A messenger arrives', 'A royal decree is announced',
+                'A rebellion starts', 'A peace treaty is signed',
+                'A war begins', 'A siege is lifted',
+                'A city falls', 'A kingdom rises',
+                'A hero emerges', 'A villain reveals themselves',
+                'A monster attacks', 'A guardian awakens',
+                'A temple is desecrated', 'A sacred site is discovered',
+                'A magical storm hits', 'An earthquake occurs',
+                'A volcano erupts', 'A flood comes',
+                'A drought ends', 'A plague spreads',
+                'A cure is found', 'A healing occurs',
+                'A death happens', 'A birth occurs',
+                'A marriage takes place', 'A coronation happens',
+                'A funeral occurs', 'A memorial is built',
+                'A legend is born', 'A myth is proven true',
+                'A mystery is solved', 'A puzzle is completed',
+                'A riddle is answered', 'A code is broken',
+                'A map is found', 'A key is discovered',
+                'A door opens', 'A gate closes',
+                'A bridge collapses', 'A wall falls',
+                'A tower is built', 'A castle is besieged',
+                'A forest grows', 'A river changes course',
+                'A star falls', 'A moon eclipses',
+                'A comet appears', 'An omen is seen'
             ];
             
             const event = events[Math.floor(Math.random() * events.length)];
             document.getElementById('sharedResult').innerHTML = 
-                `<div class="result-header">Random Event</div>
+                `<div class="result-header">Fantasy Random Event</div>
+                 <div class="result-content">${event}</div>`;
+        }
+
+        // Space Random Event Generator
+        function generateSpaceEvent() {
+            const events = [
+                'A solar flare occurs', 'A meteor shower begins',
+                'A distress signal is received', 'An alien transmission is detected',
+                'A ship malfunction occurs', 'A system failure happens',
+                'A power surge happens', 'A life support alert sounds',
+                'A quarantine is declared', 'A lockdown is initiated',
+                'An evacuation is ordered', 'A rescue mission is launched',
+                'A first contact situation', 'A diplomatic incident occurs',
+                'A trade agreement is made', 'A peace treaty is signed',
+                'A war declaration is made', 'A ceasefire is called',
+                'A rebellion starts', 'A coup occurs',
+                'A mutiny happens', 'A betrayal occurs',
+                'A secret is revealed', 'A conspiracy is uncovered',
+                'A discovery is made', 'An invention is created',
+                'A breakthrough happens', 'A failure occurs',
+                'An experiment goes wrong', 'A prototype is tested',
+                'A new technology emerges', 'An old system fails',
+                'A wormhole opens', 'A black hole appears',
+                'A time dilation occurs', 'A reality shift happens',
+                'A parallel universe contact', 'A dimensional rift opens',
+                'A telepathic message received', 'A psychic phenomenon occurs',
+                'A precognitive vision', 'A clairvoyant insight',
+                'An AI becomes sentient', 'A robot gains consciousness',
+                'A cyborg malfunctions', 'An android rebels',
+                'A nanite swarm forms', 'A virus outbreak occurs',
+                'A plague spreads', 'A cure is found',
+                'A medical emergency', 'A healing breakthrough',
+                'A genetic mutation', 'An evolution occurs',
+                'An alien encounter', 'A first contact protocol',
+                'A cultural exchange', 'A misunderstanding occurs',
+                'A translation error', 'A communication breakthrough',
+                'A signal is jammed', 'A comms are restored',
+                'A sensor ghost appears', 'A false reading occurs',
+                'A navigation error', 'A course correction needed',
+                'A fuel shortage', 'A resource discovery',
+                'A mining accident', 'A resource windfall',
+                'A trade opportunity', 'A market crash',
+                'A economic boom', 'A financial crisis',
+                'A political scandal', 'A leadership change',
+                'A election happens', 'A appointment is made',
+                'A promotion occurs', 'A demotion happens',
+                'A retirement ceremony', 'A memorial service',
+                'A celebration event', 'A cultural festival',
+                'A sporting competition', 'A scientific conference',
+                'A military exercise', 'A security breach',
+                'A pirate attack', 'A bounty is placed',
+                'A smuggling operation', 'A black market deal',
+                'A hostage situation', 'A rescue operation',
+                'A escape attempt', 'A capture occurs',
+                'A interrogation session', 'A confession happens',
+                'A trial begins', 'A verdict is reached',
+                'A sentence is carried out', 'A pardon is granted',
+                'A amnesty declared', 'A revolution starts',
+                'A counter-revolution', 'A civil war begins',
+                'A peacekeeping mission', 'A humanitarian aid',
+                'A disaster relief', 'A reconstruction effort',
+                'A colonization attempt', 'A terraforming project',
+                'A environmental crisis', 'A ecological balance',
+                'A climate change', 'A atmospheric event',
+                'A geological activity', 'A planetary alignment',
+                'A cosmic phenomenon', 'A stellar event',
+                'A galactic occurrence', 'A universal constant'
+            ];
+            
+            const event = events[Math.floor(Math.random() * events.length)];
+            document.getElementById('sharedResult').innerHTML = 
+                `<div class="result-header">Space Random Event</div>
                  <div class="result-content">${event}</div>`;
         }
 
