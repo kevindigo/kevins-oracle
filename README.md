@@ -25,7 +25,7 @@ A web-based oracle tool for solo roleplaying games, providing dice rolling, yes/
 
 ## Usage
 
-Simply open `solo-rpg-oracle.html` in any modern web browser. No installation or dependencies required, and the page does not access any remote resources. It will 
+Simply open `kevins-oracle.html` in any modern web browser. No installation or dependencies required, and the page does not access any remote resources. It will 
 work offline. 
 
 ### How to Use in Solo Play
