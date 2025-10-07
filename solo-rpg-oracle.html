@@ -254,6 +254,60 @@
     </div>
 
     <script>
+        // Common word generators
+        function getRandomAction() {
+            const actions = [
+                'Attack', 'Defend', 'Investigate', 'Negotiate', 'Explore',
+                'Create', 'Destroy', 'Protect', 'Betray', 'Help',
+                'Hide', 'Reveal', 'Transform', 'Escape', 'Confront',
+                'Pursue', 'Evade', 'Ambush', 'Rescue', 'Sabotage',
+                'Infiltrate', 'Extract', 'Interrogate', 'Bargain', 'Threaten',
+                'Charm', 'Deceive', 'Persuade', 'Intimidate', 'Inspire',
+                'Heal', 'Curse', 'Bless', 'Summon', 'Banish',
+                'Teleport', 'Fly', 'Swim', 'Climb', 'Dig',
+                'Build', 'Repair', 'Break', 'Lock', 'Unlock',
+                'Search', 'Find', 'Lose', 'Gain', 'Give',
+                'Take', 'Steal', 'Buy', 'Sell', 'Trade',
+                'Learn', 'Teach', 'Study', 'Research', 'Experiment',
+                'Invent', 'Discover', 'Forget', 'Remember', 'Dream',
+                'Wake', 'Sleep', 'Rest', 'Work', 'Play',
+                'Celebrate', 'Mourn', 'Laugh', 'Cry', 'Sing',
+                'Dance', 'Fight', 'Flee', 'Stand', 'Fall',
+                'Rise', 'Ascend', 'Descend', 'Enter', 'Exit',
+                'Arrive', 'Depart', 'Follow', 'Lead', 'Guide',
+                'Command', 'Obey', 'Rebel', 'Submit', 'Resist',
+                'Change', 'Preserve', 'Adapt', 'Evolve', 'Regress'
+            ];
+            return actions[Math.floor(Math.random() * actions.length)];
+        }
+
+        function getRandomTheme() {
+            const themes = [
+                'Love', 'Betrayal', 'Power', 'Justice', 'Revenge',
+                'Discovery', 'Sacrifice', 'Redemption', 'Corruption', 'Hope',
+                'Fear', 'Loyalty', 'Freedom', 'Destiny', 'Chaos',
+                'Order', 'Balance', 'Imbalance', 'Harmony', 'Discord',
+                'Peace', 'War', 'Life', 'Death', 'Rebirth',
+                'Time', 'Space', 'Reality', 'Illusion', 'Truth',
+                'Deception', 'Wisdom', 'Ignorance', 'Knowledge', 'Secrets',
+                'Light', 'Darkness', 'Shadow', 'Radiance', 'Twilight',
+                'Nature', 'Civilization', 'Technology', 'Magic', 'Science',
+                'Faith', 'Doubt', 'Belief', 'Skepticism', 'Certainty',
+                'Courage', 'Cowardice', 'Bravery', 'Fearlessness', 'Timidity',
+                'Strength', 'Weakness', 'Power', 'Helplessness', 'Control',
+                'Freedom', 'Oppression', 'Liberation', 'Slavery', 'Independence',
+                'Friendship', 'Enmity', 'Alliance', 'Rivalry', 'Partnership',
+                'Family', 'Loneliness', 'Community', 'Isolation', 'Connection',
+                'Wealth', 'Poverty', 'Abundance', 'Scarcity', 'Prosperity',
+                'Health', 'Sickness', 'Vitality', 'Decay', 'Recovery',
+                'Youth', 'Age', 'Innocence', 'Experience', 'Naivete',
+                'Beauty', 'Ugliness', 'Grace', 'Clumsiness', 'Elegance',
+                'Honor', 'Dishonor', 'Integrity', 'Treachery', 'Nobility',
+                'Fate', 'Chance', 'Luck', 'Misfortune', 'Fortune'
+            ];
+            return themes[Math.floor(Math.random() * themes.length)];
+        }
+
         // Yes/No Oracle
         function askYesNo() {
             const results = [
@@ -290,55 +344,8 @@
 
         // Action & Theme Generator
         function generateAction() {
-            const actions = [
-                'Attack', 'Defend', 'Investigate', 'Negotiate', 'Explore',
-                'Create', 'Destroy', 'Protect', 'Betray', 'Help',
-                'Hide', 'Reveal', 'Transform', 'Escape', 'Confront',
-                'Pursue', 'Evade', 'Ambush', 'Rescue', 'Sabotage',
-                'Infiltrate', 'Extract', 'Interrogate', 'Bargain', 'Threaten',
-                'Charm', 'Deceive', 'Persuade', 'Intimidate', 'Inspire',
-                'Heal', 'Curse', 'Bless', 'Summon', 'Banish',
-                'Teleport', 'Fly', 'Swim', 'Climb', 'Dig',
-                'Build', 'Repair', 'Break', 'Lock', 'Unlock',
-                'Search', 'Find', 'Lose', 'Gain', 'Give',
-                'Take', 'Steal', 'Buy', 'Sell', 'Trade',
-                'Learn', 'Teach', 'Study', 'Research', 'Experiment',
-                'Invent', 'Discover', 'Forget', 'Remember', 'Dream',
-                'Wake', 'Sleep', 'Rest', 'Work', 'Play',
-                'Celebrate', 'Mourn', 'Laugh', 'Cry', 'Sing',
-                'Dance', 'Fight', 'Flee', 'Stand', 'Fall',
-                'Rise', 'Ascend', 'Descend', 'Enter', 'Exit',
-                'Arrive', 'Depart', 'Follow', 'Lead', 'Guide',
-                'Command', 'Obey', 'Rebel', 'Submit', 'Resist',
-                'Change', 'Preserve', 'Adapt', 'Evolve', 'Regress'
-            ];
-            
-            const themes = [
-                'Love', 'Betrayal', 'Power', 'Justice', 'Revenge',
-                'Discovery', 'Sacrifice', 'Redemption', 'Corruption', 'Hope',
-                'Fear', 'Loyalty', 'Freedom', 'Destiny', 'Chaos',
-                'Order', 'Balance', 'Imbalance', 'Harmony', 'Discord',
-                'Peace', 'War', 'Life', 'Death', 'Rebirth',
-                'Time', 'Space', 'Reality', 'Illusion', 'Truth',
-                'Deception', 'Wisdom', 'Ignorance', 'Knowledge', 'Secrets',
-                'Light', 'Darkness', 'Shadow', 'Radiance', 'Twilight',
-                'Nature', 'Civilization', 'Technology', 'Magic', 'Science',
-                'Faith', 'Doubt', 'Belief', 'Skepticism', 'Certainty',
-                'Courage', 'Cowardice', 'Bravery', 'Fearlessness', 'Timidity',
-                'Strength', 'Weakness', 'Power', 'Helplessness', 'Control',
-                'Freedom', 'Oppression', 'Liberation', 'Slavery', 'Independence',
-                'Friendship', 'Enmity', 'Alliance', 'Rivalry', 'Partnership',
-                'Family', 'Loneliness', 'Community', 'Isolation', 'Connection',
-                'Wealth', 'Poverty', 'Abundance', 'Scarcity', 'Prosperity',
-                'Health', 'Sickness', 'Vitality', 'Decay', 'Recovery',
-                'Youth', 'Age', 'Innocence', 'Experience', 'Naivete',
-                'Beauty', 'Ugliness', 'Grace', 'Clumsiness', 'Elegance',
-                'Honor', 'Dishonor', 'Integrity', 'Treachery', 'Nobility',
-                'Fate', 'Chance', 'Luck', 'Misfortune', 'Fortune'
-            ];
-            
-            const action = actions[Math.floor(Math.random() * actions.length)];
-            const theme = themes[Math.floor(Math.random() * themes.length)];
+            const action = getRandomAction();
+            const theme = getRandomTheme();
             
             document.getElementById('sharedResult').innerHTML = 
                 `<div class="result-header">Action & Theme</div>
@@ -411,29 +418,14 @@
                 'Focus on NPC', 'Focus on location', 'Focus on object', 'Focus on event'
             ];
             
-            // Action/Focus pairs
-            const actions = [
-                'Attack', 'Defend', 'Investigate', 'Negotiate', 'Explore',
-                'Create', 'Destroy', 'Protect', 'Betray', 'Help',
-                'Hide', 'Reveal', 'Transform', 'Escape', 'Confront',
-                'Pursue', 'Evade', 'Ambush', 'Rescue', 'Sabotage'
-            ];
-            
-            const focuses = [
-                'NPCs', 'PCs', 'Location', 'Object', 'Event',
-                'Knowledge', 'Wealth', 'Reputation', 'Relationship', 'Goal',
-                'Plan', 'Secret', 'Memory', 'Dream', 'Fear',
-                'Hope', 'Belief', 'Duty', 'Honor', 'Freedom'
-            ];
-            
             const alterationType = alterationTypes[Math.floor(Math.random() * alterationTypes.length)];
             const topic = topics[Math.floor(Math.random() * topics.length)];
-            const action = actions[Math.floor(Math.random() * actions.length)];
-            const focus = focuses[Math.floor(Math.random() * focuses.length)];
+            const action = getRandomAction();
+            const theme = getRandomTheme();
             
             document.getElementById('sharedResult').innerHTML = 
                 `<div class="result-header">Scene Alteration</div>
-                 <div class="result-content">${alterationType}: ${topic}<br><span style="font-size: 0.8em; opacity: 0.8;">${action} / ${focus}</span></div>`;
+                 <div class="result-content">${alterationType}: ${topic}<br><span style="font-size: 0.8em; opacity: 0.8;">${action} / ${theme}</span></div>`;
         }
 
         // 2d6 Dice Roller
