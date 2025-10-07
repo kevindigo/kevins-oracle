@@ -286,6 +286,23 @@
     </div>
 
     <script>
+        // Helper function to show result with flash effect
+        function showResultWithFlash(header, content) {
+            const resultDiv = document.getElementById('sharedResult');
+            
+            // Clear the content (flash effect)
+            resultDiv.innerHTML = 
+                `<div class="result-header">${header}</div>
+                 <div class="result-content">&nbsp;</div>`;
+            
+            // Wait 100ms (1/10 second) then show the actual result
+            setTimeout(() => {
+                resultDiv.innerHTML = 
+                    `<div class="result-header">${header}</div>
+                     <div class="result-content">${content}</div>`;
+            }, 100);
+        }
+
         // Common word generators
         function getRandomAction() {
             const actions = [
@@ -364,9 +381,7 @@
             const result = results[Math.floor(Math.random() * results.length)];
             const twistText = getTwistText();
             
-            document.getElementById('sharedResult').innerHTML = 
-                `<div class="result-header">Yes/No Oracle (even)</div>
-                 <div class="result-content">${result}${twistText}</div>`;
+            showResultWithFlash('Yes/No Oracle (even)', `${result}${twistText}`);
         }
 
         function askYesNoWithOdds() {
@@ -377,9 +392,7 @@
             const result = results[Math.floor(Math.random() * results.length)];
             const twistText = getTwistText();
             
-            document.getElementById('sharedResult').innerHTML = 
-                `<div class="result-header">Yes/No Oracle (likely)</div>
-                 <div class="result-content">${result}${twistText}</div>`;
+            showResultWithFlash('Yes/No Oracle (likely)', `${result}${twistText}`);
         }
 
         function askYesNoWithUnlikely() {
@@ -390,9 +403,7 @@
             const result = results[Math.floor(Math.random() * results.length)];
             const twistText = getTwistText();
             
-            document.getElementById('sharedResult').innerHTML = 
-                `<div class="result-header">Yes/No Oracle (unlikely)</div>
-                 <div class="result-content">${result}${twistText}</div>`;
+            showResultWithFlash('Yes/No Oracle (unlikely)', `${result}${twistText}`);
         }
 
         // Action & Theme Generator
@@ -400,9 +411,7 @@
             const action = getRandomAction();
             const theme = getRandomTheme();
             
-            document.getElementById('sharedResult').innerHTML = 
-                `<div class="result-header">Action & Theme</div>
-                 <div class="result-content">${action}<br>${theme}</div>`;
+            showResultWithFlash('Action & Theme', `${action}<br>${theme}`);
         }
 
         // Plot Hook / Quest Generator
@@ -513,9 +522,7 @@
             
             const quest = quests[Math.floor(Math.random() * quests.length)];
             
-            document.getElementById('sharedResult').innerHTML = 
-                `<div class="result-header">Fantasy Plot Hook</div>
-                 <div class="result-content">${quest}</div>`;
+            showResultWithFlash('Fantasy Plot Hook', quest);
         }
 
         // Space Plot Hook Generator
@@ -627,9 +634,7 @@
             
             const quest = quests[Math.floor(Math.random() * quests.length)];
             
-            document.getElementById('sharedResult').innerHTML = 
-                `<div class="result-header">Space Plot Hook</div>
-                 <div class="result-content">${quest}</div>`;
+            showResultWithFlash('Space Plot Hook', quest);
         }
 
         // Fantasy Place Name Generator
@@ -700,9 +705,7 @@
             
             const location = locations[Math.floor(Math.random() * locations.length)];
             const placeName = generateFantasyPlaceName();
-            document.getElementById('sharedResult').innerHTML = 
-                `<div class="result-header">Fantasy Location</div>
-                 <div class="result-content">${location}<br>at ${placeName}</div>`;
+            showResultWithFlash('Fantasy Location', `${location}<br>at ${placeName}`);
         }
 
         // Space Location Generator
@@ -739,9 +742,7 @@
             
             const location = locations[Math.floor(Math.random() * locations.length)];
             const placeName = generateSpaceName();
-            document.getElementById('sharedResult').innerHTML = 
-                `<div class="result-header">Space Location</div>
-                 <div class="result-content">${location}<br>at ${placeName}</div>`;
+            showResultWithFlash('Space Location', `${location}<br>at ${placeName}`);
         }
 
         // Fantasy Name Generator
@@ -810,9 +811,7 @@
             const descriptor = descriptors[Math.floor(Math.random() * descriptors.length)];
             const role = roles[Math.floor(Math.random() * roles.length)];
             
-            document.getElementById('sharedResult').innerHTML = 
-                `<div class="result-header">Fantasy NPC</div>
-                 <div class="result-content">${name}<br><span style="font-size: 0.8em; opacity: 0.8;">${descriptor} ${personality} ${role}</span></div>`;
+            showResultWithFlash('Fantasy NPC', `${name}<br><span style="font-size: 0.8em; opacity: 0.8;">${descriptor} ${personality} ${role}</span>`);
         }
 
         // Space Name Generator (100 syllables)
@@ -883,9 +882,7 @@
             const descriptor = descriptors[Math.floor(Math.random() * descriptors.length)];
             const role = roles[Math.floor(Math.random() * roles.length)];
             
-            document.getElementById('sharedResult').innerHTML = 
-                `<div class="result-header">Space NPC</div>
-                 <div class="result-content">${name}<br><span style="font-size: 0.8em; opacity: 0.8;">${descriptor} ${personality} ${role}</span></div>`;
+            showResultWithFlash('Space NPC', `${name}<br><span style="font-size: 0.8em; opacity: 0.8;">${descriptor} ${personality} ${role}</span>`);
         }
 
         // Fantasy Random Event Generator
@@ -989,9 +986,7 @@
             // Combine all categories
             const allEvents = [...encounters, ...hazards, ...obstructions, ...miscellaneous];
             const event = allEvents[Math.floor(Math.random() * allEvents.length)];
-            document.getElementById('sharedResult').innerHTML = 
-                `<div class="result-header">Fantasy Random Event</div>
-                 <div class="result-content">${event}</div>`;
+            showResultWithFlash('Fantasy Random Event', event);
         }
 
         // Space Random Event Generator
@@ -1095,9 +1090,7 @@
             // Combine all categories
             const allEvents = [...encounters, ...hazards, ...obstructions, ...miscellaneous];
             const event = allEvents[Math.floor(Math.random() * allEvents.length)];
-            document.getElementById('sharedResult').innerHTML = 
-                `<div class="result-header">Space Random Event</div>
-                 <div class="result-content">${event}</div>`;
+            showResultWithFlash('Space Random Event', event);
         }
 
         // Scene Alteration Oracle
@@ -1116,27 +1109,21 @@
             const alterationType = alterationTypes[Math.floor(Math.random() * alterationTypes.length)];
             const topic = topics[Math.floor(Math.random() * topics.length)];
             
-            document.getElementById('sharedResult').innerHTML = 
-                `<div class="result-header">Scene Alteration</div>
-                 <div class="result-content">${alterationType}: ${topic}</div>`;
+            showResultWithFlash('Scene Alteration', `${alterationType}: ${topic}`);
         }
 
         // d4 Dice Roller
         function rollD4() {
             const die = Math.floor(Math.random() * 4) + 1;
             
-            document.getElementById('sharedResult').innerHTML = 
-                `<div class="result-header">d4 Dice Roll</div>
-                 <div class="result-content">${die}<br>&nbsp;</div>`;
+            showResultWithFlash('d4 Dice Roll', `${die}<br>&nbsp;`);
         }
 
         // 1d6 Dice Roller
         function roll1d6() {
             const die = Math.floor(Math.random() * 6) + 1;
             
-            document.getElementById('sharedResult').innerHTML = 
-                `<div class="result-header">1d6 Dice Roll</div>
-                 <div class="result-content">${die}<br>&nbsp;</div>`;
+            showResultWithFlash('1d6 Dice Roll', `${die}<br>&nbsp;`);
         }
 
         // 2d6 Dice Roller
@@ -1145,9 +1132,7 @@
             const die2 = Math.floor(Math.random() * 6) + 1;
             const total = die1 + die2;
             
-            document.getElementById('sharedResult').innerHTML = 
-                `<div class="result-header">2d6 Dice Roll</div>
-                 <div class="result-content">${total}<br><span style="font-size: 0.8em; opacity: 0.8;">${die1} + ${die2}</span></div>`;
+            showResultWithFlash('2d6 Dice Roll', `${total}<br><span style="font-size: 0.8em; opacity: 0.8;">${die1} + ${die2}</span>`);
         }
 
         // 3d6 Dice Roller
@@ -1157,54 +1142,42 @@
             const die3 = Math.floor(Math.random() * 6) + 1;
             const total = die1 + die2 + die3;
             
-            document.getElementById('sharedResult').innerHTML = 
-                `<div class="result-header">3d6 Dice Roll</div>
-                 <div class="result-content">${total}<br><span style="font-size: 0.8em; opacity: 0.8;">${die1} + ${die2} + ${die3}</span></div>`;
+            showResultWithFlash('3d6 Dice Roll', `${total}<br><span style="font-size: 0.8em; opacity: 0.8;">${die1} + ${die2} + ${die3}</span>`);
         }
 
         // d8 Dice Roller
         function rollD8() {
             const die = Math.floor(Math.random() * 8) + 1;
             
-            document.getElementById('sharedResult').innerHTML = 
-                `<div class="result-header">d8 Dice Roll</div>
-                 <div class="result-content">${die}<br>&nbsp;</div>`;
+            showResultWithFlash('d8 Dice Roll', `${die}<br>&nbsp;`);
         }
 
         // d10 Dice Roller
         function rollD10() {
             const die = Math.floor(Math.random() * 10) + 1;
             
-            document.getElementById('sharedResult').innerHTML = 
-                `<div class="result-header">d10 Dice Roll</div>
-                 <div class="result-content">${die}<br>&nbsp;</div>`;
+            showResultWithFlash('d10 Dice Roll', `${die}<br>&nbsp;`);
         }
 
         // d12 Dice Roller
         function rollD12() {
             const die = Math.floor(Math.random() * 12) + 1;
             
-            document.getElementById('sharedResult').innerHTML = 
-                `<div class="result-header">d12 Dice Roll</div>
-                 <div class="result-content">${die}<br>&nbsp;</div>`;
+            showResultWithFlash('d12 Dice Roll', `${die}<br>&nbsp;`);
         }
 
         // d20 Dice Roller
         function rollD20() {
             const die = Math.floor(Math.random() * 20) + 1;
             
-            document.getElementById('sharedResult').innerHTML = 
-                `<div class="result-header">d20 Dice Roll</div>
-                 <div class="result-content">${die}<br>&nbsp;</div>`;
+            showResultWithFlash('d20 Dice Roll', `${die}<br>&nbsp;`);
         }
 
         // d100 Dice Roller
         function rollD100() {
             const die = Math.floor(Math.random() * 100) + 1;
             
-            document.getElementById('sharedResult').innerHTML = 
-                `<div class="result-header">d100 Dice Roll</div>
-                 <div class="result-content">${die}<br>&nbsp;</div>`;
+            showResultWithFlash('d100 Dice Roll', `${die}<br>&nbsp;`);
         }
     </script>
 </body>
