@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solo RPG Oracle</title>
+    <title>Dice</title>
     <style>
         * {
             margin: 0;
@@ -103,8 +103,10 @@
         }
 
         .button-group button {
-            padding: 8px 16px;
+            padding: 8px 12px;
             font-size: 0.9em;
+            min-width: auto;
+            white-space: nowrap;
         }
 
         button {
@@ -193,8 +195,8 @@
 <body>
     <div class="container">
         <header>
-            <h1>🎲 Solo RPG Oracle</h1>
-            <p class="subtitle">Your digital companion for solo roleplaying adventures</p>
+            <h1>🎲 Dice</h1>
+            <p class="subtitle">Your digital dice roller for all your gaming needs</p>
         </header>
 
         <div class="main-section">
@@ -208,9 +210,13 @@
             </section>
 
             <section class="dice-section">
-                <h2>2d6 Dice Roller</h2>
+                <h2>Dice Roller</h2>
                 <div class="button-group">
-                    <button onclick="roll2d6()">Roll 2d6</button>
+                    <button onclick="roll1d6()">1d6</button>
+                    <button onclick="roll2d6()">2d6</button>
+                    <button onclick="roll3d6()">3d6</button>
+                    <button onclick="rollD20()">d20</button>
+                    <button onclick="rollD100()">d100</button>
                 </div>
             </section>
         </div>
@@ -660,6 +666,15 @@
                  <div class="result-content">${alterationType}: ${topic}</div>`;
         }
 
+        // 1d6 Dice Roller
+        function roll1d6() {
+            const die = Math.floor(Math.random() * 6) + 1;
+            
+            document.getElementById('sharedResult').innerHTML = 
+                `<div class="result-header">1d6 Dice Roll</div>
+                 <div class="result-content">${die}<br><span style="font-size: 0.8em; opacity: 0.8;">${die}</span></div>`;
+        }
+
         // 2d6 Dice Roller
         function roll2d6() {
             const die1 = Math.floor(Math.random() * 6) + 1;
@@ -669,6 +684,36 @@
             document.getElementById('sharedResult').innerHTML = 
                 `<div class="result-header">2d6 Dice Roll</div>
                  <div class="result-content">${total}<br><span style="font-size: 0.8em; opacity: 0.8;">${die1} + ${die2}</span></div>`;
+        }
+
+        // 3d6 Dice Roller
+        function roll3d6() {
+            const die1 = Math.floor(Math.random() * 6) + 1;
+            const die2 = Math.floor(Math.random() * 6) + 1;
+            const die3 = Math.floor(Math.random() * 6) + 1;
+            const total = die1 + die2 + die3;
+            
+            document.getElementById('sharedResult').innerHTML = 
+                `<div class="result-header">3d6 Dice Roll</div>
+                 <div class="result-content">${total}<br><span style="font-size: 0.8em; opacity: 0.8;">${die1} + ${die2} + ${die3}</span></div>`;
+        }
+
+        // d20 Dice Roller
+        function rollD20() {
+            const die = Math.floor(Math.random() * 20) + 1;
+            
+            document.getElementById('sharedResult').innerHTML = 
+                `<div class="result-header">d20 Dice Roll</div>
+                 <div class="result-content">${die}<br><span style="font-size: 0.8em; opacity: 0.8;">${die}</span></div>`;
+        }
+
+        // d100 Dice Roller
+        function rollD100() {
+            const die = Math.floor(Math.random() * 100) + 1;
+            
+            document.getElementById('sharedResult').innerHTML = 
+                `<div class="result-header">d100 Dice Roll</div>
+                 <div class="result-content">${die}<br><span style="font-size: 0.8em; opacity: 0.8;">${die}</span></div>`;
         }
     </script>
 </body>
