@@ -289,13 +289,48 @@
             const actions = [
                 'Attack', 'Defend', 'Investigate', 'Negotiate', 'Explore',
                 'Create', 'Destroy', 'Protect', 'Betray', 'Help',
-                'Hide', 'Reveal', 'Transform', 'Escape', 'Confront'
+                'Hide', 'Reveal', 'Transform', 'Escape', 'Confront',
+                'Pursue', 'Evade', 'Ambush', 'Rescue', 'Sabotage',
+                'Infiltrate', 'Extract', 'Interrogate', 'Bargain', 'Threaten',
+                'Charm', 'Deceive', 'Persuade', 'Intimidate', 'Inspire',
+                'Heal', 'Curse', 'Bless', 'Summon', 'Banish',
+                'Teleport', 'Fly', 'Swim', 'Climb', 'Dig',
+                'Build', 'Repair', 'Break', 'Lock', 'Unlock',
+                'Search', 'Find', 'Lose', 'Gain', 'Give',
+                'Take', 'Steal', 'Buy', 'Sell', 'Trade',
+                'Learn', 'Teach', 'Study', 'Research', 'Experiment',
+                'Invent', 'Discover', 'Forget', 'Remember', 'Dream',
+                'Wake', 'Sleep', 'Rest', 'Work', 'Play',
+                'Celebrate', 'Mourn', 'Laugh', 'Cry', 'Sing',
+                'Dance', 'Fight', 'Flee', 'Stand', 'Fall',
+                'Rise', 'Ascend', 'Descend', 'Enter', 'Exit',
+                'Arrive', 'Depart', 'Follow', 'Lead', 'Guide',
+                'Command', 'Obey', 'Rebel', 'Submit', 'Resist',
+                'Change', 'Preserve', 'Adapt', 'Evolve', 'Regress'
             ];
             
             const themes = [
                 'Love', 'Betrayal', 'Power', 'Justice', 'Revenge',
                 'Discovery', 'Sacrifice', 'Redemption', 'Corruption', 'Hope',
-                'Fear', 'Loyalty', 'Freedom', 'Destiny', 'Chaos'
+                'Fear', 'Loyalty', 'Freedom', 'Destiny', 'Chaos',
+                'Order', 'Balance', 'Imbalance', 'Harmony', 'Discord',
+                'Peace', 'War', 'Life', 'Death', 'Rebirth',
+                'Time', 'Space', 'Reality', 'Illusion', 'Truth',
+                'Deception', 'Wisdom', 'Ignorance', 'Knowledge', 'Secrets',
+                'Light', 'Darkness', 'Shadow', 'Radiance', 'Twilight',
+                'Nature', 'Civilization', 'Technology', 'Magic', 'Science',
+                'Faith', 'Doubt', 'Belief', 'Skepticism', 'Certainty',
+                'Courage', 'Cowardice', 'Bravery', 'Fearlessness', 'Timidity',
+                'Strength', 'Weakness', 'Power', 'Helplessness', 'Control',
+                'Freedom', 'Oppression', 'Liberation', 'Slavery', 'Independence',
+                'Friendship', 'Enmity', 'Alliance', 'Rivalry', 'Partnership',
+                'Family', 'Loneliness', 'Community', 'Isolation', 'Connection',
+                'Wealth', 'Poverty', 'Abundance', 'Scarcity', 'Prosperity',
+                'Health', 'Sickness', 'Vitality', 'Decay', 'Recovery',
+                'Youth', 'Age', 'Innocence', 'Experience', 'Naivete',
+                'Beauty', 'Ugliness', 'Grace', 'Clumsiness', 'Elegance',
+                'Honor', 'Dishonor', 'Integrity', 'Treachery', 'Nobility',
+                'Fate', 'Chance', 'Luck', 'Misfortune', 'Fortune'
             ];
             
             const action = actions[Math.floor(Math.random() * actions.length)];
@@ -303,7 +338,7 @@
             
             document.getElementById('sharedResult').innerHTML = 
                 `<div class="result-header">Action & Theme</div>
-                 <div class="result-content">${action}<br><span style="font-size: 0.8em; opacity: 0.8;">Theme: ${theme}</span></div>`;
+                 <div class="result-content">${action}<br>${theme}</div>`;
         }
 
         // Location Generator
@@ -367,7 +402,7 @@
             
             document.getElementById('sharedResult').innerHTML = 
                 `<div class="result-header">2d6 Dice Roll</div>
-                 <div class="result-content">${total}<br><span style="font-size: 0.8em; opacity: 0.8;">(Rolls: ${die1} + ${die2})</span></div>`;
+                 <div class="result-content">${total}<br><span style="font-size: 0.8em; opacity: 0.8;">${die1} + ${die2}</span></div>`;
         }
     </script>
 </body>
