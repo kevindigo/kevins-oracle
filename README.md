@@ -4,24 +4,22 @@ A web-based oracle tool for solo roleplaying games, providing dice rolling, yes/
 
 ## Features
 
-### Dice Roller
-- **1d6, 2d6, 3d6**: Standard dice for various RPG systems
-- **d20**: Classic 20-sided die for D&D-style games
-- **d100**: Percentage dice for detailed probability checks
-
 ### Yes/No Oracle
 - **Unlikely**: Weighted toward "No" responses
 - **Even**: Balanced probability
 - **Likely**: Weighted toward "Yes" responses
 - Includes nuanced responses: "Yes, and...", "No, but...", etc.
 
+### Dice Roller
+- **One-button rollers** for some common dice used by various RPG systems
+
 ### Creative Generators
-- **Action & Theme**: Random combinations for general inspiration
+- **Scene Alteration**: Inspired by [Mythic Game Master Emulator](https://wordmillgames.com/mythic-game-master-emulator.html)
+- **Inspiration seeds**: Random combinations of action and theme
 - **Plot Hooks**: Fantasy and sci-fi adventure starters
 - **Locations**: Fantasy and space places
 - **NPCs**: Characters with appearance, personality and role
-- **Random Events**: Unexpected occurrences
-- **Scene Alteration**: [Mythic Game Master Emulator](https://wordmillgames.com/mythic-game-master-emulator.html)-style scene changes
+- **Random Events**: Unexpected occurrences for fantasy and space adventures
 
 ## Usage
 
