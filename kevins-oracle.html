@@ -882,55 +882,105 @@
 
         // Fantasy Random Event Generator
         function generateFantasyEvent() {
-            const events = [
-                'A sudden storm approaches', 'A mysterious stranger appears',
-                'An important item is discovered', 'A secret passage is revealed',
-                'An old ally returns', 'A new threat emerges',
-                'The environment shifts unexpectedly', 'A vision reveals hidden truth',
-                'A celebration begins', 'A conflict breaks out',
-                'A natural phenomenon occurs', 'A message arrives',
-                'A barrier appears', 'A transformation takes place',
-                'A magical anomaly manifests', 'A curse is lifted or placed',
-                'A prophecy is fulfilled', 'A ritual is completed',
-                'A dragon flies overhead', 'A ghost appears',
-                'A treasure is found', 'A trap is sprung',
-                'A spell backfires', 'A potion spills',
-                'A magical creature appears', 'A divine intervention occurs',
-                'A portal opens', 'A time loop begins',
-                'A memory returns', 'A secret is revealed',
-                'A betrayal occurs', 'A sacrifice is made',
-                'A resurrection happens', 'A transformation occurs',
-                'A curse is broken', 'A blessing is granted',
-                'A quest is given', 'A challenge is issued',
-                'A tournament begins', 'A festival starts',
-                'A market opens', 'A caravan arrives',
-                'A messenger arrives', 'A royal decree is announced',
-                'A rebellion starts', 'A peace treaty is signed',
-                'A war begins', 'A siege is lifted',
-                'A city falls', 'A kingdom rises',
-                'A hero emerges', 'A villain reveals themselves',
-                'A monster attacks', 'A guardian awakens',
-                'A temple is desecrated', 'A sacred site is discovered',
-                'A magical storm hits', 'An earthquake occurs',
-                'A volcano erupts', 'A flood comes',
-                'A drought ends', 'A plague spreads',
-                'A cure is found', 'A healing occurs',
-                'A death happens', 'A birth occurs',
-                'A marriage takes place', 'A coronation happens',
-                'A funeral occurs', 'A memorial is built',
-                'A legend is born', 'A myth is proven true',
-                'A mystery is solved', 'A puzzle is completed',
-                'A riddle is answered', 'A code is broken',
-                'A map is found', 'A key is discovered',
-                'A door opens', 'A gate closes',
-                'A bridge collapses', 'A wall falls',
-                'A tower is built', 'A castle is besieged',
-                'A forest grows', 'A river changes course',
-                'A star falls', 'A moon eclipses',
-                'A comet appears', 'An omen is seen'
+            // Encounters (36)
+            const encounters = [
+                'Bandits ambush the party', 'A friendly merchant offers goods',
+                'A lost child needs help', 'A rival adventuring party crosses paths',
+                'A wandering minstrel shares news', 'A group of pilgrims seeks protection',
+                'A bounty hunter is tracking someone', 'A patrol questions the party',
+                'A mysterious hermit offers wisdom', 'A group of refugees needs aid',
+                'A traveling healer offers services', 'A noble and their entourage pass by',
+                'A group of hunters shares their catch', 'A messenger with urgent news',
+                'A rival mage challenges to a duel', 'A group of smugglers at work',
+                'A lost scholar seeks ancient knowledge', 'A group of bards performs nearby',
+                'A wandering knight offers assistance', 'A suspicious merchant with rare goods',
+                'A group of cultists performing a ritual', 'A lone ranger tracking prey',
+                'A group of escaped prisoners', 'A traveling circus sets up camp',
+                'A mysterious fortune teller', 'A group of pilgrims on a holy quest',
+                'A rival thief trying to steal', 'A group of mercenaries for hire',
+                'A wandering monk shares teachings', 'A suspicious alchemist with potions',
+                'A group of rebels planning something', 'A lone survivor of an attack',
+                'A traveling diplomat needs escort', 'A group of miners with strange findings',
+                'A mysterious shapeshifter appears', 'A group of fishermen with a strange catch'
             ];
             
-            const event = events[Math.floor(Math.random() * events.length)];
+            // Hazards (36)
+            const hazards = [
+                'A sudden rockslide blocks the path', 'A magical storm causes confusion',
+                'A sinkhole opens nearby', 'A flash flood washes through',
+                'A forest fire spreads rapidly', 'A magical mist causes disorientation',
+                'A sudden blizzard hits', 'An earthquake shakes the ground',
+                'A swarm of insects attacks', 'A poisonous plant releases spores',
+                'A cursed area drains energy', 'A magical vortex appears',
+                'A sudden fog limits visibility', 'A thunderstorm with magical lightning',
+                'A geyser erupts nearby', 'A magical field causes illusions',
+                'A sudden temperature drop', 'A magical silence descends',
+                'A river suddenly changes course', 'A magical darkness envelops the area',
+                'A sudden sandstorm arises', 'A magical storm of feathers',
+                'A sudden ice storm hits', 'A magical field reverses gravity',
+                'A sudden mudslide occurs', 'A magical field causes time distortion',
+                'A sudden volcanic activity', 'A magical field causes memory loss',
+                'A sudden windstorm picks up', 'A magical field causes aging',
+                'A sudden hailstorm begins', 'A magical field causes youth',
+                'A sudden dust devil forms', 'A magical field causes laughter',
+                'A sudden lightning strike', 'A magical field causes sleep'
+            ];
+            
+            // Obstructions/Traps (36)
+            const obstructions = [
+                'A collapsed bridge blocks progress', 'A hidden pit trap is discovered',
+                'A magical barrier blocks the way', 'A complex lock needs picking',
+                'A riddle must be solved to proceed', 'A pressure plate triggers something',
+                'A magical seal needs breaking', 'A hidden door is found',
+                'A maze of corridors confuses', 'A magical puzzle must be solved',
+                'A portcullis drops suddenly', 'A magical ward must be dispelled',
+                'A false floor gives way', 'A magical mirror shows illusions',
+                'A swinging blade trap activates', 'A magical glyph must be deciphered',
+                'A rolling boulder blocks the path', 'A magical statue comes to life',
+                'A poison dart trap is triggered', 'A magical rune must be activated',
+                'A net trap captures someone', 'A magical door requires a password',
+                'A spike pit is revealed', 'A magical barrier requires a sacrifice',
+                'A falling ceiling trap', 'A magical lock requires a specific item',
+                'A tripwire triggers an alarm', 'A magical field requires a spell',
+                'A false treasure is a trap', 'A magical puzzle requires intuition',
+                'A hidden compartment is found', 'A magical test must be passed',
+                'A secret passage is blocked', 'A magical guardian must be defeated',
+                'A complex mechanism needs fixing', 'A magical illusion hides the path'
+            ];
+            
+            // Miscellaneous (36: 12 good, 12 neutral, 12 bad/scary)
+            const goodEvents = [
+                'A hidden cache of supplies is found', 'A friendly animal offers help',
+                'A forgotten shrine provides blessing', 'A lucky find provides advantage',
+                'A helpful NPC offers information', 'A magical item is discovered',
+                'A hidden talent is revealed', 'A helpful spirit appears',
+                'A magical blessing is received', 'A sudden ally appears',
+                'A magical gift is given', 'A sudden breakthrough occurs'
+            ];
+            
+            const neutralEvents = [
+                'A strange omen appears in the sky', 'A mysterious note is discovered',
+                'A sudden insight solves a problem', 'A sudden inspiration strikes',
+                'A stroke of good luck occurs', 'A sudden change in weather helps',
+                'A forgotten memory returns', 'A helpful coincidence occurs',
+                'A sudden realization helps', 'A helpful dream provides guidance',
+                'A helpful sign appears', 'A helpful discovery is made'
+            ];
+            
+            const badEvents = [
+                'A cursed item is discovered', 'A foreboding vision appears',
+                'A mysterious illness strikes', 'A bad omen is seen',
+                'A valuable item is lost', 'A trusted contact betrays',
+                'A magical curse is placed', 'A haunting presence appears',
+                'A terrible nightmare occurs', 'A dangerous secret is uncovered',
+                'A frightening prophecy is heard', 'A shadowy figure follows'
+            ];
+            
+            const miscellaneous = [...goodEvents, ...neutralEvents, ...badEvents];
+            
+            // Combine all categories
+            const allEvents = [...encounters, ...hazards, ...obstructions, ...miscellaneous];
+            const event = allEvents[Math.floor(Math.random() * allEvents.length)];
             document.getElementById('sharedResult').innerHTML = 
                 `<div class="result-header">Fantasy Random Event</div>
                  <div class="result-content">${event}</div>`;
@@ -938,71 +988,105 @@
 
         // Space Random Event Generator
         function generateSpaceEvent() {
-            const events = [
-                'A solar flare occurs', 'A meteor shower begins',
-                'A distress signal is received', 'An alien transmission is detected',
-                'A ship malfunction occurs', 'A system failure happens',
-                'A power surge happens', 'A life support alert sounds',
-                'A quarantine is declared', 'A lockdown is initiated',
-                'An evacuation is ordered', 'A rescue mission is launched',
-                'A first contact situation', 'A diplomatic incident occurs',
-                'A trade agreement is made', 'A peace treaty is signed',
-                'A war declaration is made', 'A ceasefire is called',
-                'A rebellion starts', 'A coup occurs',
-                'A mutiny happens', 'A betrayal occurs',
-                'A secret is revealed', 'A conspiracy is uncovered',
-                'A discovery is made', 'An invention is created',
-                'A breakthrough happens', 'A failure occurs',
-                'An experiment goes wrong', 'A prototype is tested',
-                'A new technology emerges', 'An old system fails',
-                'A wormhole opens', 'A black hole appears',
-                'A time dilation occurs', 'A reality shift happens',
-                'A parallel universe contact', 'A dimensional rift opens',
-                'A telepathic message received', 'A psychic phenomenon occurs',
-                'A precognitive vision', 'A clairvoyant insight',
-                'An AI becomes sentient', 'A robot gains consciousness',
-                'A cyborg malfunctions', 'An android rebels',
-                'A nanite swarm forms', 'A virus outbreak occurs',
-                'A plague spreads', 'A cure is found',
-                'A medical emergency', 'A healing breakthrough',
-                'A genetic mutation', 'An evolution occurs',
-                'An alien encounter', 'A first contact protocol',
-                'A cultural exchange', 'A misunderstanding occurs',
-                'A translation error', 'A communication breakthrough',
-                'A signal is jammed', 'A comms are restored',
-                'A sensor ghost appears', 'A false reading occurs',
-                'A navigation error', 'A course correction needed',
-                'A fuel shortage', 'A resource discovery',
-                'A mining accident', 'A resource windfall',
-                'A trade opportunity', 'A market crash',
-                'A economic boom', 'A financial crisis',
-                'A political scandal', 'A leadership change',
-                'A election happens', 'A appointment is made',
-                'A promotion occurs', 'A demotion happens',
-                'A retirement ceremony', 'A memorial service',
-                'A celebration event', 'A cultural festival',
-                'A sporting competition', 'A scientific conference',
-                'A military exercise', 'A security breach',
-                'A pirate attack', 'A bounty is placed',
-                'A smuggling operation', 'A black market deal',
-                'A hostage situation', 'A rescue operation',
-                'A escape attempt', 'A capture occurs',
-                'A interrogation session', 'A confession happens',
-                'A trial begins', 'A verdict is reached',
-                'A sentence is carried out', 'A pardon is granted',
-                'A amnesty declared', 'A revolution starts',
-                'A counter-revolution', 'A civil war begins',
-                'A peacekeeping mission', 'A humanitarian aid',
-                'A disaster relief', 'A reconstruction effort',
-                'A colonization attempt', 'A terraforming project',
-                'A environmental crisis', 'A ecological balance',
-                'A climate change', 'A atmospheric event',
-                'A geological activity', 'A planetary alignment',
-                'A cosmic phenomenon', 'A stellar event',
-                'A galactic occurrence', 'A universal constant'
+            // Encounters (36)
+            const encounters = [
+                'A pirate ship demands surrender', 'A friendly trader offers supplies',
+                'A distress call from a civilian ship', 'A rival bounty hunter crosses paths',
+                'A wandering merchant with rare tech', 'A group of refugees needs rescue',
+                'A corporate security patrol questions', 'A lone explorer shares discoveries',
+                'A mysterious alien offers help', 'A group of smugglers at work',
+                'A medical ship offers assistance', 'A diplomatic envoy needs escort',
+                'A group of miners with strange ore', 'A messenger drone with urgent data',
+                'A rival corporation ship challenges', 'A group of scavengers picking debris',
+                'A lost scientist seeks protection', 'A group of colonists celebrating',
+                'A wandering mercenary offers services', 'A suspicious dealer with illegal tech',
+                'A cult ship performing rituals', 'A lone scout tracking something',
+                'A group of escaped prisoners', 'A traveling entertainment ship',
+                'A mysterious psychic appears', 'A group of pilgrims on spiritual quest',
+                'A rival spy trying to infiltrate', 'A group of mercenaries for hire',
+                'A wandering monk shares wisdom', 'A suspicious scientist with experiments',
+                'A rebel cell planning operation', 'A lone survivor of attack',
+                'A diplomatic ship needs help', 'A group of asteroid miners',
+                'A shapeshifting alien appears', 'A group of researchers with discovery'
             ];
             
-            const event = events[Math.floor(Math.random() * events.length)];
+            // Hazards (36)
+            const hazards = [
+                'A solar flare threatens systems', 'A meteor swarm approaches',
+                'A gravity well pulls ship off course', 'A radiation storm hits',
+                'A nebula causes sensor interference', 'The gravity effect of a black hole affects a ship',
+                'A sudden ion storm damages electronics', 'A plasma discharge from nearby star',
+                'A rogue asteroid field appears', 'A quantum anomaly causes confusion',
+                'A temporal distortion field', 'A spatial rift opens nearby',
+                'A sudden EMP blast disables systems', 'A cosmic string affects navigation',
+                'A dark matter cloud obscures sensors', 'A wormhole instability',
+                'A sudden temperature fluctuation', 'A magnetic field disruption',
+                'A subspace interference pattern', 'A reality distortion field',
+                'A sudden pressure change', 'A chroniton radiation leak',
+                'A quantum foam disturbance', 'A dimensional instability',
+                'A sudden radiation spike', 'A psychic energy field',
+                'A gravitational anomaly', 'A temporal loop begins',
+                'A sudden energy drain', 'A phase variance occurs',
+                'A subspace rift appears', 'A quantum entanglement event',
+                'A sudden system overload', 'A reality bubble forms',
+                'A cosmic background radiation spike', 'A quantum probability shift'
+            ];
+            
+            // Obstructions/Traps (36)
+            const obstructions = [
+                'A debris field blocks navigation', 'A hidden minefield is detected',
+                'An energy barrier blocks the way', 'A complex security system activates',
+                'A computer puzzle must be solved', 'A proximity sensor triggers defense',
+                'A quantum lock needs bypassing', 'A hidden compartment is found',
+                'A maze of asteroid tunnels', 'A logic puzzle must be completed',
+                'A security door slams shut', 'A force field must be deactivated',
+                'A false floor gives way', 'A holographic illusion confuses',
+                'A laser grid trap activates', 'A data encryption must be broken',
+                'A collapsing tunnel blocks path', 'A security drone activates',
+                'A gas trap is triggered', 'A biometric lock needs access',
+                'A net launcher captures target', 'A voice recognition system',
+                'A pressure plate reveals trap', 'A neural interface challenge',
+                'A falling ceiling trap', 'A quantum encryption puzzle',
+                'A motion sensor triggers alarm', 'A DNA lock requires sample',
+                'A false data package is trap', 'A psychic barrier must be overcome',
+                'A hidden data cache found', 'A technological test must be passed',
+                'A secret passage is sealed', 'A robotic guardian must be defeated',
+                'A complex circuit needs repair', 'A cloaking field hides the path'
+            ];
+            
+            // Miscellaneous (36: 12 good, 12 neutral, 12 bad/scary)
+            const goodEvents = [
+                'A hidden supply cache is found', 'A friendly alien offers assistance',
+                'A forgotten outpost provides resources', 'A lucky scan reveals valuable data',
+                'A helpful AI offers information', 'An advanced technology is discovered',
+                'A hidden skill is revealed', 'A helpful hologram appears',
+                'A technological blessing received', 'A sudden ally ship appears',
+                'A technological gift is given', 'A sudden system breakthrough'
+            ];
+            
+            const neutralEvents = [
+                'A strange cosmic phenomenon appears', 'A mysterious data packet discovered',
+                'A sudden insight solves technical problem', 'A sudden breakthrough in research',
+                'A stroke of cosmic luck occurs', 'A sudden solar flare helps escape',
+                'A forgotten memory returns', 'A helpful coincidence in navigation',
+                'A sudden realization helps mission', 'A helpful dream simulation',
+                'A helpful signal appears', 'A helpful discovery in database'
+            ];
+            
+            const badEvents = [
+                'A corrupted data file is found', 'A terrifying vision appears on screen',
+                'A mysterious system virus infects', 'A bad transmission is received',
+                'A valuable component malfunctions', 'A trusted crew member acts strangely',
+                'A system curse is detected', 'A ghostly presence appears on sensors',
+                'A nightmare simulation occurs', 'A dangerous secret file is uncovered',
+                'A frightening prophecy is decoded', 'A shadowy ship follows at distance'
+            ];
+            
+            const miscellaneous = [...goodEvents, ...neutralEvents, ...badEvents];
+            
+            // Combine all categories
+            const allEvents = [...encounters, ...hazards, ...obstructions, ...miscellaneous];
+            const event = allEvents[Math.floor(Math.random() * allEvents.length)];
             document.getElementById('sharedResult').innerHTML = 
                 `<div class="result-header">Space Random Event</div>
                  <div class="result-content">${event}</div>`;
