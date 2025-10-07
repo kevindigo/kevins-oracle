@@ -251,9 +251,13 @@
                     <h3>Location</h3>
                     <p>Discover new places</p>
                 </div>
-                <div class="feature-card" onclick="generateNPC()">
-                    <h3>NPC Generator</h3>
-                    <p>Quickly create a character</p>
+                <div class="feature-card" onclick="generateFantasyNPC()">
+                    <h3>Fantasy NPC</h3>
+                    <p>Generate a fantasy character</p>
+                </div>
+                <div class="feature-card" onclick="generateSpaceNPC()">
+                    <h3>Space NPC</h3>
+                    <p>Generate a space character</p>
                 </div>
                 <div class="feature-card" onclick="generateEvent()">
                     <h3>Random Event</h3>
@@ -626,24 +630,86 @@
                  <div class="result-content">${location}</div>`;
         }
 
-        // NPC Generator
-        function generateNPC() {
+        // Fantasy NPC Generator
+        function generateFantasyNPC() {
+            const personalities = [
+                'Chivalrous', 'Cunning', 'Wise', 'Foolish', 'Noble',
+                'Common', 'Pious', 'Heretical', 'Brave', 'Cowardly',
+                'Loyal', 'Treacherous', 'Generous', 'Greedy', 'Honest',
+                'Deceitful', 'Humble', 'Arrogant', 'Patient', 'Impulsive',
+                'Stoic', 'Emotional', 'Mystical', 'Practical', 'Curious',
+                'Suspicious', 'Trusting', 'Witty', 'Serious', 'Playful',
+                'Traditional', 'Rebellious', 'Obedient', 'Ambitious', 'Content', 'Wanderlust'
+            ];
+            
             const descriptors = [
-                'Mysterious', 'Ancient', 'Youthful', 'Weathered', 'Noble',
-                'Ragged', 'Eccentric', 'Sinister', 'Radiant', 'Shadowy'
+                'Tall', 'Short', 'Slender', 'Stocky', 'Muscular',
+                'Lean', 'Broad-shouldered', 'Petite', 'Lanky', 'Stout',
+                'Bald', 'Long-haired', 'Curly-haired', 'Bearded', 'Clean-shaven',
+                'Scarred', 'Tattooed', 'Pale', 'Tanned', 'Freckled',
+                'Aged', 'Youthful', 'Middle-aged', 'Elderly', 'Vibrant',
+                'Weathered', 'Graceful', 'Clumsy', 'Agile', 'Imposing',
+                'Unassuming', 'Striking', 'Plain', 'Elegant', 'Rugged', 'Delicate'
             ];
             
             const roles = [
-                'Merchant', 'Guard', 'Scholar', 'Rogue', 'Priest',
-                'Warrior', 'Mage', 'Healer', 'Explorer', 'Diplomat'
+                'Knight', 'Mage', 'Rogue', 'Priest', 'Warrior',
+                'Healer', 'Ranger', 'Bard', 'Druid', 'Paladin',
+                'Monk', 'Necromancer', 'Sorcerer', 'Warlock', 'Wizard',
+                'Assassin', 'Spy', 'Mercenary', 'Guard', 'Soldier',
+                'Merchant', 'Trader', 'Artisan', 'Blacksmith', 'Farmer',
+                'Noble', 'Commoner', 'Peasant', 'Royal', 'Advisor',
+                'Explorer', 'Hunter', 'Fisher', 'Miner', 'Scholar', 'Diplomat'
             ];
             
+            const personality = personalities[Math.floor(Math.random() * personalities.length)];
             const descriptor = descriptors[Math.floor(Math.random() * descriptors.length)];
             const role = roles[Math.floor(Math.random() * roles.length)];
             
             document.getElementById('sharedResult').innerHTML = 
-                `<div class="result-header">NPC</div>
-                 <div class="result-content">${descriptor} ${role}</div>`;
+                `<div class="result-header">Fantasy NPC</div>
+                 <div class="result-content">${descriptor} ${personality} ${role}</div>`;
+        }
+
+        // Space NPC Generator
+        function generateSpaceNPC() {
+            const personalities = [
+                'Calculating', 'Impulsive', 'Logical', 'Intuitive', 'Confident',
+                'Anxious', 'Optimistic', 'Pessimistic', 'Friendly', 'Hostile',
+                'Curious', 'Indifferent', 'Honest', 'Deceptive', 'Brave',
+                'Cautious', 'Patient', 'Arrogant', 'Humble', 'Generous',
+                'Greedy', 'Loyal', 'Treacherous', 'Witty', 'Serious',
+                'Playful', 'Stoic', 'Emotional', 'Creative', 'Traditional',
+                'Rebellious', 'Obedient', 'Suspicious', 'Trusting', 'Ambitious', 'Methodical'
+            ];
+            
+            const descriptors = [
+                'Tall', 'Short', 'Slender', 'Stocky', 'Muscular',
+                'Lean', 'Broad-shouldered', 'Petite', 'Lanky', 'Stout',
+                'Bald', 'Short-haired', 'Slick-haired', 'Bearded', 'Clean-shaven',
+                'Scarred', 'Tattooed', 'Pale', 'Tanned', 'Freckled',
+                'Aged', 'Youthful', 'Middle-aged', 'Elderly', 'Vibrant',
+                'Weathered', 'Graceful', 'Clumsy', 'Agile', 'Imposing',
+                'Unassuming', 'Striking', 'Plain', 'Elegant', 'Rugged', 'Enhanced'
+            ];
+            
+            const roles = [
+                'Captain', 'Pilot', 'Engineer', 'Scientist', 'Medic',
+                'Soldier', 'Marine', 'Security', 'Diplomat', 'Ambassador',
+                'Merchant', 'Trader', 'Smuggler', 'Bounty Hunter', 'Pirate',
+                'Explorer', 'Scout', 'Surveyor', 'Colonist', 'Settler',
+                'Technician', 'Mechanic', 'Programmer', 'Hacker', 'Cyberneticist',
+                'Xenobiologist', 'Astrophysicist', 'Psychic', 'Telepath', 'Precog',
+                'Android', 'Cyborg', 'Alien', 'Mutant', 'Augmented', 'Specialist'
+            ];
+            
+            const personality = personalities[Math.floor(Math.random() * personalities.length)];
+            const descriptor = descriptors[Math.floor(Math.random() * descriptors.length)];
+            const role = roles[Math.floor(Math.random() * roles.length)];
+            
+            document.getElementById('sharedResult').innerHTML = 
+                `<div class="result-header">Space NPC</div>
+                 <div class="result-content">${descriptor} ${personality} ${role}</div>`;
         }
 
         // Random Event Generator
