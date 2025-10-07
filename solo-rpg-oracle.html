@@ -654,12 +654,10 @@
             
             const alterationType = alterationTypes[Math.floor(Math.random() * alterationTypes.length)];
             const topic = topics[Math.floor(Math.random() * topics.length)];
-            const action = getRandomAction();
-            const theme = getRandomTheme();
             
             document.getElementById('sharedResult').innerHTML = 
                 `<div class="result-header">Scene Alteration</div>
-                 <div class="result-content">${alterationType}: ${topic}<br><span style="font-size: 0.8em; opacity: 0.8;">${action} / ${theme}</span></div>`;
+                 <div class="result-content">${alterationType}: ${topic}</div>`;
         }
 
         // 2d6 Dice Roller
