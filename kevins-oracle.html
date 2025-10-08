@@ -437,7 +437,7 @@
 
         // Helper function to get twist text
         function getTwistText() {
-            const twistRoll = Math.floor(Math.random() * 12) + 1;
+            const twistRoll = Math.floor(Math.random() * 10) + 1;
             if (twistRoll === 1) {
                 const action = getRandomAction();
                 const theme = getRandomTheme();
@@ -450,9 +450,9 @@
         function generateYesNoResponse(probabilityType) {
             // Define probability configurations
             const probabilityConfigs = {
-                'likely': { yesCount: 10, noCount: 4 },
-                'unlikely': { yesCount: 4, noCount: 10 },
-                'even': { yesCount: 7, noCount: 7 }
+                'likely': { yesCount: 14, noCount: 6 },
+                'unlikely': { yesCount: 6, noCount: 14 },
+                'even': { yesCount: 10, noCount: 10 }
             };
             
             // Get configuration for the requested probability type
