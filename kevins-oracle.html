@@ -64,6 +64,50 @@
             padding: 20px;
         }
 
+        .theme-selector-section {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .theme-selector {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(50, 50, 50, 0.8);
+            border-radius: 25px;
+            padding: 10px 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .theme-selector label {
+            font-weight: bold;
+            font-size: 1em;
+            opacity: 0.9;
+        }
+
+        .theme-selector select {
+            background: #006666;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .theme-selector select:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .theme-selector select:focus {
+            outline: none;
+            transform: translateY(0);
+        }
+
         .shared-result-section {
             position: sticky;
             top: 20px;
@@ -206,6 +250,16 @@
             <p class="subtitle">Inspiration for solo RPG play</p>
         </header>
 
+        <section class="theme-selector-section">
+            <div class="theme-selector">
+                <label for="theme-select">Theme:</label>
+                <select id="theme-select">
+                    <option value="fantasy">Fantasy</option>
+                    <option value="space">Space</option>
+                </select>
+            </div>
+        </section>
+
         <section class="shared-result-section">
             <div class="shared-result" id="sharedResult">
                 <div class="result-header">Ready for adventure</div>
@@ -257,29 +311,25 @@
                 <div class="feature-card">
                     <h3>Plot Hook</h3>
                     <div class="button-group" style="margin-top: 8px;">
-                        <button onclick="generatePlotHook()" style="padding: 6px 10px; font-size: 0.8em;">Fantasy</button>
-                        <button onclick="generateSpacePlotHook()" style="padding: 6px 10px; font-size: 0.8em;">Space</button>
+                        <button onclick="generatePlotHook()" style="padding: 6px 10px; font-size: 0.8em;">Generate</button>
                     </div>
                 </div>
                 <div class="feature-card">
                     <h3>Location</h3>
                     <div class="button-group" style="margin-top: 8px;">
-                        <button onclick="generateFantasyLocation()" style="padding: 6px 10px; font-size: 0.8em;">Fantasy</button>
-                        <button onclick="generateSpaceLocation()" style="padding: 6px 10px; font-size: 0.8em;">Space</button>
+                        <button onclick="generateLocation()" style="padding: 6px 10px; font-size: 0.8em;">Generate</button>
                     </div>
                 </div>
                 <div class="feature-card">
                     <h3>NPC</h3>
                     <div class="button-group" style="margin-top: 8px;">
-                        <button onclick="generateFantasyNPC()" style="padding: 6px 10px; font-size: 0.8em;">Fantasy</button>
-                        <button onclick="generateSpaceNPC()" style="padding: 6px 10px; font-size: 0.8em;">Space</button>
+                        <button onclick="generateNPC()" style="padding: 6px 10px; font-size: 0.8em;">Generate</button>
                     </div>
                 </div>
                 <div class="feature-card">
                     <h3>Random Event</h3>
                     <div class="button-group" style="margin-top: 8px;">
-                        <button onclick="generateFantasyEvent()" style="padding: 6px 10px; font-size: 0.8em;">Fantasy</button>
-                        <button onclick="generateSpaceEvent()" style="padding: 6px 10px; font-size: 0.8em;">Space</button>
+                        <button onclick="generateEvent()" style="padding: 6px 10px; font-size: 0.8em;">Generate</button>
                     </div>
                 </div>
             </div>
@@ -444,113 +494,121 @@
 
         // Plot Hook / Quest Generator
         function generatePlotHook() {
-            const quests = [
-                'Rescue a kidnapped heir',
-                'Retrieve an ancient artifact',
-                'Stop a ritual summoning',
-                'Investigate a mysterious disappearances',
-                'Protect a frontier settlement',
-                'Sabotage an enemy weapon',
-                'Decode a cryptic message',
-                'Survive a magical storm',
-                'Negotiate a peace treaty',
-                'Find a lost colony',
-                'Destroy a corrupted creature',
-                'Explore a forgotten temple',
-                'Defend a sacred city',
-                'Uncover a royal conspiracy',
-                'Escape a cursed prison',
-                'Awaken a sleeping god',
-                'Break a ancient curse',
-                'Steal a legendary relic',
-                'Deliver a vital message',
-                'Hunt a rogue beast',
-                'Recover a stolen crown',
-                'Defeat a demonic lord',
-                'Create a magical amulet',
-                'Summon a elemental spirit',
-                'Banish a shadow creature',
-                'Heal a poisoned king',
-                'Cure a magical plague',
-                'Build a defensive wall',
-                'Repair a broken seal',
-                'Learn a forbidden spell',
-                'Discover a hidden library',
-                'Guard a royal wedding',
-                'Follow a prophetic dream',
-                'Destroy a cursed idol',
-                'Protect a sacred grove',
-                'Investigate a haunted ruins',
-                'Rescue a captured villagers',
-                'Find a lost prophecy',
-                'Stop an undead invasion',
-                'Recover a dragon egg',
-                'Defend a mountain pass',
-                'Uncover a spy network',
-                'Escape a collapsing mine',
-                'Awaken a stone guardian',
-                'Break a magical barrier',
-                'Steal enemy plans',
-                'Deliver a secret weapon',
-                'Hunt a monstrous predator',
-                'Recover a sunken treasure',
-                'Defeat a rival champion',
-                'Create a peace offering',
-                'Summon a celestial being',
-                'Banish a dark presence',
-                'Heal a wounded dragon',
-                'Cure a mind control',
-                'Build a magical bridge',
-                'Repair a time portal',
-                'Learn an ancient language',
-                'Discover a secret passage',
-                'Guard a magical fountain',
-                'Follow a star map',
-                'Destroy an evil cult',
-                'Protect an oracle',
-                'Investigate strange lights',
-                'Rescue an enslaved tribe',
-                'Find a philosopher stone',
-                'Stop a blood ritual',
-                'Recover stolen knowledge',
-                'Defend a crystal cave',
-                'Uncover a hidden identity',
-                'Escape a labyrinth',
-                'Awaken a forest spirit',
-                'Break a mind control',
-                'Steal a magic crystal',
-                'Deliver peace terms',
-                'Hunt a ghostly apparition',
-                'Recover a family heirloom',
-                'Defeat a rival mage',
-                'Create a protective ward',
-                'Summon a weather spirit',
-                'Banish a plague demon',
-                'Heal a cursed land',
-                'Cure a magical corruption',
-                'Build a underground sanctuary',
-                'Repair a magical device',
-                'Learn a secret technique',
-                'Discover a hidden city',
-                'Guard a sacred ritual',
-                'Follow an ancient map',
-                'Destroy a cursed tree',
-                'Protect a magical creature',
-                'Investigate a time anomaly',
-                'Rescue trapped spirits',
-                'Find a legendary sword',
-                'Stop a planar breach',
-                'Recover a stolen throne',
-                'Defend a holy site',
-                'Uncover a lost history',
-                'Escape a dream realm',
-                'Awaken a mountain giant',
-                'Break a soul contract'
-            ];
+            const themeSelect = document.getElementById('theme-select');
+            const selectedTheme = themeSelect.value;
             
-            const quest = quests[Math.floor(Math.random() * quests.length)];
-            
-            showResultWithFlash('Fantasy Plot Hook', quest);
+            if (selectedTheme === 'space') {
+                generateSpacePlotHook();
+            } else {
+                // Default to fantasy
+                const quests = [
+                    'Rescue a kidnapped heir',
+                    'Retrieve an ancient artifact',
+                    'Stop a ritual summoning',
+                    'Investigate a mysterious disappearances',
+                    'Protect a frontier settlement',
+                    'Sabotage an enemy weapon',
+                    'Decode a cryptic message',
+                    'Survive a magical storm',
+                    'Negotiate a peace treaty',
+                    'Find a lost colony',
+                    'Destroy a corrupted creature',
+                    'Explore a forgotten temple',
+                    'Defend a sacred city',
+                    'Uncover a royal conspiracy',
+                    'Escape a cursed prison',
+                    'Awaken a sleeping god',
+                    'Break a ancient curse',
+                    'Steal a legendary relic',
+                    'Deliver a vital message',
+                    'Hunt a rogue beast',
+                    'Recover a stolen crown',
+                    'Defeat a demonic lord',
+                    'Create a magical amulet',
+                    'Summon a elemental spirit',
+                    'Banish a shadow creature',
+                    'Heal a poisoned king',
+                    'Cure a magical plague',
+                    'Build a defensive wall',
+                    'Repair a broken seal',
+                    'Learn a forbidden spell',
+                    'Discover a hidden library',
+                    'Guard a royal wedding',
+                    'Follow a prophetic dream',
+                    'Destroy a cursed idol',
+                    'Protect a sacred grove',
+                    'Investigate a haunted ruins',
+                    'Rescue a captured villagers',
+                    'Find a lost prophecy',
+                    'Stop an undead invasion',
+                    'Recover a dragon egg',
+                    'Defend a mountain pass',
+                    'Uncover a spy network',
+                    'Escape a collapsing mine',
+                    'Awaken a stone guardian',
+                    'Break a magical barrier',
+                    'Steal enemy plans',
+                    'Deliver a secret weapon',
+                    'Hunt a monstrous predator',
+                    'Recover a sunken treasure',
+                    'Defeat a rival champion',
+                    'Create a peace offering',
+                    'Summon a celestial being',
+                    'Banish a dark presence',
+                    'Heal a wounded dragon',
+                    'Cure a mind control',
+                    'Build a magical bridge',
+                    'Repair a time portal',
+                    'Learn an ancient language',
+                    'Discover a secret passage',
+                    'Guard a magical fountain',
+                    'Follow a star map',
+                    'Destroy an evil cult',
+                    'Protect an oracle',
+                    'Investigate strange lights',
+                    'Rescue an enslaved tribe',
+                    'Find a philosopher stone',
+                    'Stop a blood ritual',
+                    'Recover stolen knowledge',
+                    'Defend a crystal cave',
+                    'Uncover a hidden identity',
+                    'Escape a labyrinth',
+                    'Awaken a forest spirit',
+                    'Break a mind control',
+                    'Steal a magic crystal',
+                    'Deliver peace terms',
+                    'Hunt a ghostly apparition',
+                    'Recover a family heirloom',
+                    'Defeat a rival mage',
+                    'Create a protective ward',
+                    'Summon a weather spirit',
+                    'Banish a plague demon',
+                    'Heal a cursed land',
+                    'Cure a magical corruption',
+                    'Build a underground sanctuary',
+                    'Repair a magical device',
+                    'Learn a secret technique',
+                    'Discover a hidden city',
+                    'Guard a sacred ritual',
+                    'Follow an ancient map',
+                    'Destroy a cursed tree',
+                    'Protect a magical creature',
+                    'Investigate a time anomaly',
+                    'Rescue trapped spirits',
+                    'Find a legendary sword',
+                    'Stop a planar breach',
+                    'Recover a stolen throne',
+                    'Defend a holy site',
+                    'Uncover a lost history',
+                    'Escape a dream realm',
+                    'Awaken a mountain giant',
+                    'Break a soul contract'
+                ];
+                
+                const quest = quests[Math.floor(Math.random() * quests.length)];
+                
+                showResultWithFlash('Fantasy Plot Hook', quest);
+            }
         }
 
         // Space Plot Hook Generator
@@ -736,6 +794,19 @@
             showResultWithFlash('Fantasy Location', `${location}<br>at ${placeName}`);
         }
 
+        // Location Generator
+        function generateLocation() {
+            const themeSelect = document.getElementById('theme-select');
+            const selectedTheme = themeSelect.value;
+            
+            if (selectedTheme === 'space') {
+                generateSpaceLocation();
+            } else {
+                // Default to fantasy
+                generateFantasyLocation();
+            }
+        }
+
         // Space Location Generator
         function generateSpaceLocation() {
             const locations = [
@@ -871,6 +942,19 @@
             }
             
             return parts.join('');
+        }
+
+        // NPC Generator
+        function generateNPC() {
+            const themeSelect = document.getElementById('theme-select');
+            const selectedTheme = themeSelect.value;
+            
+            if (selectedTheme === 'space') {
+                generateSpaceNPC();
+            } else {
+                // Default to fantasy
+                generateFantasyNPC();
+            }
         }
 
         // Space NPC Generator
@@ -1015,6 +1099,19 @@
             const allEvents = [...encounters, ...hazards, ...obstructions, ...miscellaneous];
             const event = allEvents[Math.floor(Math.random() * allEvents.length)];
             showResultWithFlash('Fantasy Random Event', event);
+        }
+
+        // Random Event Generator
+        function generateEvent() {
+            const themeSelect = document.getElementById('theme-select');
+            const selectedTheme = themeSelect.value;
+            
+            if (selectedTheme === 'space') {
+                generateSpaceEvent();
+            } else {
+                // Default to fantasy
+                generateFantasyEvent();
+            }
         }
 
         // Space Random Event Generator
