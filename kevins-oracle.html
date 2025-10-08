@@ -64,8 +64,14 @@
             padding: 20px;
         }
 
-        .shared-result {
+        .shared-result-section {
+            position: sticky;
+            top: 20px;
+            z-index: 100;
             margin: 20px 0;
+        }
+
+        .shared-result {
             height: 120px;
             background: rgba(60, 60, 60, 0.8);
             border-radius: 8px;
@@ -73,6 +79,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            backdrop-filter: blur(10px);
         }
 
         .result-header {
@@ -199,6 +206,13 @@
             <p class="subtitle">Inspiration for solo RPG play</p>
         </header>
 
+        <section class="shared-result-section">
+            <div class="shared-result" id="sharedResult">
+                <div class="result-header">Ready for adventure</div>
+                <div class="result-content">Ask a question or roll some dice...</div>
+            </div>
+        </section>
+
         <div class="main-section">
             <section class="oracle-section">
                 <h2>Yes/No Oracle</h2>
@@ -224,13 +238,6 @@
                 </div>
             </section>
         </div>
-
-        <section class="shared-result-section">
-            <div class="shared-result" id="sharedResult">
-                <div class="result-header">Ready for adventure</div>
-                <div class="result-content">Ask a question or roll some dice...</div>
-            </div>
-        </section>
 
         <section class="feature-section">
             <h2>Additional Oracles</h2>
