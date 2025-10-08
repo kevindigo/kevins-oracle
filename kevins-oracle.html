@@ -1256,72 +1256,64 @@
             showResultWithFlash('Scene Alteration', `${alterationType}: ${topic}`);
         }
 
-        // d4 Dice Roller
+        // Generic Dice Roller Function
+        function rollDice(sides, count = 1) {
+            let total = 0;
+            let rolls = [];
+            
+            for (let i = 0; i < count; i++) {
+                const roll = Math.floor(Math.random() * sides) + 1;
+                rolls.push(roll);
+                total += roll;
+            }
+            
+            return { total, rolls };
+        }
+
+        // Individual dice functions become simple wrappers
         function rollD4() {
-            const die = Math.floor(Math.random() * 4) + 1;
-            
-            showResultWithFlash('d4 Dice Roll', `${die}<br>&nbsp;`);
+            const { total } = rollDice(4);
+            showResultWithFlash('d4 Dice Roll', `${total}<br>&nbsp;`);
         }
 
-        // 1d6 Dice Roller
         function roll1d6() {
-            const die = Math.floor(Math.random() * 6) + 1;
-            
-            showResultWithFlash('1d6 Dice Roll', `${die}<br>&nbsp;`);
+            const { total } = rollDice(6);
+            showResultWithFlash('1d6 Dice Roll', `${total}<br>&nbsp;`);
         }
 
-        // 2d6 Dice Roller
         function roll2d6() {
-            const die1 = Math.floor(Math.random() * 6) + 1;
-            const die2 = Math.floor(Math.random() * 6) + 1;
-            const total = die1 + die2;
-            
-            showResultWithFlash('2d6 Dice Roll', `${total}<br><span class="text-muted">${die1} + ${die2}</span>`);
+            const { total, rolls } = rollDice(6, 2);
+            showResultWithFlash('2d6 Dice Roll', `${total}<br><span class="text-muted">${rolls.join(' + ')}</span>`);
         }
 
-        // 3d6 Dice Roller
         function roll3d6() {
-            const die1 = Math.floor(Math.random() * 6) + 1;
-            const die2 = Math.floor(Math.random() * 6) + 1;
-            const die3 = Math.floor(Math.random() * 6) + 1;
-            const total = die1 + die2 + die3;
-            
-            showResultWithFlash('3d6 Dice Roll', `${total}<br><span class="text-muted">${die1} + ${die2} + ${die3}</span>`);
+            const { total, rolls } = rollDice(6, 3);
+            showResultWithFlash('3d6 Dice Roll', `${total}<br><span class="text-muted">${rolls.join(' + ')}</span>`);
         }
 
-        // d8 Dice Roller
         function rollD8() {
-            const die = Math.floor(Math.random() * 8) + 1;
-            
-            showResultWithFlash('d8 Dice Roll', `${die}<br>&nbsp;`);
+            const { total } = rollDice(8);
+            showResultWithFlash('d8 Dice Roll', `${total}<br>&nbsp;`);
         }
 
-        // d10 Dice Roller
         function rollD10() {
-            const die = Math.floor(Math.random() * 10) + 1;
-            
-            showResultWithFlash('d10 Dice Roll', `${die}<br>&nbsp;`);
+            const { total } = rollDice(10);
+            showResultWithFlash('d10 Dice Roll', `${total}<br>&nbsp;`);
         }
 
-        // d12 Dice Roller
         function rollD12() {
-            const die = Math.floor(Math.random() * 12) + 1;
-            
-            showResultWithFlash('d12 Dice Roll', `${die}<br>&nbsp;`);
+            const { total } = rollDice(12);
+            showResultWithFlash('d12 Dice Roll', `${total}<br>&nbsp;`);
         }
 
-        // d20 Dice Roller
         function rollD20() {
-            const die = Math.floor(Math.random() * 20) + 1;
-            
-            showResultWithFlash('d20 Dice Roll', `${die}<br>&nbsp;`);
+            const { total } = rollDice(20);
+            showResultWithFlash('d20 Dice Roll', `${total}<br>&nbsp;`);
         }
 
-        // d100 Dice Roller
         function rollD100() {
-            const die = Math.floor(Math.random() * 100) + 1;
-            
-            showResultWithFlash('d100 Dice Roll', `${die}<br>&nbsp;`);
+            const { total } = rollDice(100);
+            showResultWithFlash('d100 Dice Roll', `${total}<br>&nbsp;`);
         }
     </script>
 </body>
