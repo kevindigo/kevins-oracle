@@ -92,6 +92,14 @@
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            padding-right: 32px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=US-ASCII,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'><path fill='white' d='M2 0L0 2h4zm0 5L0 3h4z'/></svg>");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 12px;
         }
 
         .theme-selector select:hover {
@@ -149,13 +157,13 @@
 
         .button-group {
             display: flex;
-            gap: 5px;
+            gap: 10px;
             justify-content: center;
             flex-wrap: wrap;
         }
 
         .button-group button {
-            padding: 8px 12px;
+            padding: 6px 10px;
             font-size: 0.9em;
             min-width: auto;
             white-space: nowrap;
@@ -165,7 +173,7 @@
             background: #006666;
             color: white;
             border: none;
-            padding: 12px 24px;
+            padding: 8px 20px;
             border-radius: 25px;
             font-size: 1em;
             font-weight: bold;
@@ -185,7 +193,7 @@
 
         /* Common button variations */
         .btn-small {
-            padding: 6px 10px !important;
+            padding: 4px 8px !important;
             font-size: 0.8em !important;
         }
 
