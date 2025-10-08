@@ -290,9 +290,9 @@
             <section class="section-card">
                 <h2>Yes/No Oracle</h2>
                 <div class="button-group">
-                    <button onclick="askYesNoWithUnlikely()">Unlikely</button>
-                    <button onclick="askYesNo()">Even</button>
-                    <button onclick="askYesNoWithOdds()">Likely</button>
+                    <button onclick="askYesNoUnlikely()">Unlikely</button>
+                    <button onclick="askYesNoEven()">Even</button>
+                    <button onclick="askYesNoLikely()">Likely</button>
                 </div>
             </section>
 
@@ -448,38 +448,27 @@
 
         // Shared Yes/No Oracle Response Generator
         function generateYesNoResponse(probabilityType) {
-            let results;
+            // Define probability configurations
+            const probabilityConfigs = {
+                'likely': { yesCount: 10, noCount: 4 },
+                'unlikely': { yesCount: 4, noCount: 10 },
+                'even': { yesCount: 7, noCount: 7 }
+            };
             
-            switch(probabilityType) {
-                case 'likely':
-                    // 10 yes, 4 no (1 each of special responses + 9 plain yes, 3 plain no)
-                    results = [
-                        'Strong yes', 'Yes, and...', 'Yes, but...',
-                        'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes',
-                        'Strong no', 'No, and...', 'No, but...',
-                        'No', 'No', 'No'
-                    ];
-                    break;
-                case 'unlikely':
-                    // 4 yes, 10 no (1 each of special responses + 3 plain yes, 9 plain no)
-                    results = [
-                        'Strong yes', 'Yes, and...', 'Yes, but...',
-                        'Yes', 'Yes', 'Yes',
-                        'Strong no', 'No, and...', 'No, but...',
-                        'No', 'No', 'No', 'No', 'No', 'No', 'No', 'No', 'No'
-                    ];
-                    break;
-                case 'even':
-                default:
-                    // 7 yes, 7 no (1 each of special responses + 6 plain yes, 6 plain no)
-                    results = [
-                        'Strong yes', 'Yes, and...', 'Yes, but...',
-                        'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes',
-                        'Strong no', 'No, and...', 'No, but...',
-                        'No', 'No', 'No', 'No', 'No', 'No'
-                    ];
-                    break;
-            }
+            // Get configuration for the requested probability type
+            const config = probabilityConfigs[probabilityType] || probabilityConfigs.even;
+            
+            // Build the results array dynamically
+            const results = [
+                // Special yes responses (always included)
+                'Strong yes', 'Yes, and...', 'Yes, but...',
+                // Regular yes responses
+                ...Array(config.yesCount - 3).fill('Yes'),
+                // Special no responses (always included)
+                'Strong no', 'No, and...', 'No, but...',
+                // Regular no responses
+                ...Array(config.noCount - 3).fill('No')
+            ];
             
             const result = results[Math.floor(Math.random() * results.length)];
             const twistText = getTwistText();
@@ -488,17 +477,17 @@
         }
 
         // Yes/No Oracle
-        function askYesNo() {
+        function askYesNoEven() {
             const { result, twistText } = generateYesNoResponse('even');
             showResultWithFlash('Yes/No Oracle (even)', `${result}${twistText}`);
         }
 
-        function askYesNoWithOdds() {
+        function askYesNoLikely() {
             const { result, twistText } = generateYesNoResponse('likely');
             showResultWithFlash('Yes/No Oracle (likely)', `${result}${twistText}`);
         }
 
-        function askYesNoWithUnlikely() {
+        function askYesNoUnlikely() {
             const { result, twistText } = generateYesNoResponse('unlikely');
             showResultWithFlash('Yes/No Oracle (unlikely)', `${result}${twistText}`);
         }
