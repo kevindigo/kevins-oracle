@@ -9,6 +9,7 @@ A web-based oracle tool for solo roleplaying games, providing dice rolling, yes/
 - **Even**: Balanced probability
 - **Likely**: Weighted toward "Yes" responses
 - Includes nuanced responses: "Yes, and...", "No, but...", etc.
+- **Twists**: 10% of rolls will also suggest a plot twist
 
 ### Dice Roller
 - **One-button rollers** for some common dice used by various RPG systems
@@ -61,12 +62,15 @@ The contents were heavily inspired by other oracles, as listed below.
 If you find a bug or have a suggestion, please 
 create an issue on GitHub. Or make the change(s) yourself, and create a pull request. 
 
+Note that this tool is primarily for my own use. 
+So I welcome input, but if any changes would make it worse for me, I might decline them. 
+
 ## Related Tools
 
 - [Mythic Game Master Emulator](https://wordmillgames.com/mythic-game-master-emulator.html) - The brilliant solo RPG system that inspired much of this tool
-- [One Page Solo Engine](https://watabou.itch.io/one-page-solo-engine) - Compact solo RPG toolkit
-- [Solo Sheets](https://perplexingruins.itch.io/solo-gaming-sheets) - Great solo RPG tool
-- [Solodark](https://www.thearcanelibrary.com/products/solodark-solo-rules-for-shadowdark-rpg-pdf) (Shadowdark)
+- [One Page Solo Engine](https://watabou.itch.io/one-page-solo-engine) - Great compact solo RPG toolkit
+- [Solo Sheets](https://perplexingruins.itch.io/solo-gaming-sheets) - Wonderful solo RPG tool
+- [Solodark](https://www.thearcanelibrary.com/products/solodark-solo-rules-for-shadowdark-rpg-pdf)  - For Shadowdark, an outstanding OSR-style RPG with modern features
 
 ## Background/history
 
