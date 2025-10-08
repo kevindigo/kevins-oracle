@@ -52,17 +52,13 @@
             margin-bottom: 20px;
         }
 
-        .oracle-section {
+        .section-card {
             background: rgba(50, 50, 50, 0.8);
             border-radius: 10px;
             padding: 20px;
         }
 
-        .dice-section {
-            background: rgba(50, 50, 50, 0.8);
-            border-radius: 10px;
-            padding: 20px;
-        }
+
 
         .theme-selector-section {
             margin: 20px 0;
@@ -146,6 +142,11 @@
             margin-top: 5px;
         }
 
+        .text-muted {
+            font-size: 0.8em;
+            opacity: 0.8;
+        }
+
         .button-group {
             display: flex;
             gap: 5px;
@@ -180,6 +181,12 @@
 
         button:active {
             transform: translateY(0);
+        }
+
+        /* Common button variations */
+        .btn-small {
+            padding: 6px 10px !important;
+            font-size: 0.8em !important;
         }
 
         .feature-section {
@@ -217,11 +224,23 @@
             opacity: 0.8;
         }
 
+        .mt-8 {
+            margin-top: 8px;
+        }
+
         footer {
             text-align: center;
             margin-top: 30px;
             opacity: 0.7;
             font-size: 0.9em;
+        }
+
+        .text-small {
+            font-size: 0.8em;
+        }
+
+        .opacity-6 {
+            opacity: 0.6;
         }
 
         @media (max-width: 600px) {
@@ -268,7 +287,7 @@
         </section>
 
         <div class="main-section">
-            <section class="oracle-section">
+            <section class="section-card">
                 <h2>Yes/No Oracle</h2>
                 <div class="button-group">
                     <button onclick="askYesNoWithUnlikely()">Unlikely</button>
@@ -277,7 +296,7 @@
                 </div>
             </section>
 
-            <section class="dice-section">
+            <section class="section-card">
                 <h2>Dice Roller</h2>
                 <div class="button-group">
                     <button onclick="rollD4()">d4</button>
@@ -298,38 +317,38 @@
             <div class="feature-grid">
                 <div class="feature-card">
                     <h3>Start Scene</h3>
-                    <div class="button-group" style="margin-top: 8px;">
-                        <button onclick="alterScene()" style="padding: 6px 10px; font-size: 0.8em;">Alteration</button>
+                    <div class="button-group mt-8">
+                        <button onclick="alterScene()" class="btn-small">Alteration</button>
                     </div>
                 </div>
                 <div class="feature-card">
                     <h3>Inspiration Seeds</h3>
-                    <div class="button-group" style="margin-top: 8px;">
-                        <button onclick="generateAction()" style="padding: 6px 10px; font-size: 0.8em;">Action & Theme</button>
+                    <div class="button-group mt-8">
+                        <button onclick="generateAction()" class="btn-small">Action & Theme</button>
                     </div>
                 </div>
                 <div class="feature-card">
                     <h3>Plot Hook</h3>
-                    <div class="button-group" style="margin-top: 8px;">
-                        <button onclick="generatePlotHook()" style="padding: 6px 10px; font-size: 0.8em;">Generate</button>
+                    <div class="button-group mt-8">
+                        <button onclick="generatePlotHook()" class="btn-small">Generate</button>
                     </div>
                 </div>
                 <div class="feature-card">
                     <h3>Location</h3>
-                    <div class="button-group" style="margin-top: 8px;">
-                        <button onclick="generateLocation()" style="padding: 6px 10px; font-size: 0.8em;">Generate</button>
+                    <div class="button-group mt-8">
+                        <button onclick="generateLocation()" class="btn-small">Generate</button>
                     </div>
                 </div>
                 <div class="feature-card">
                     <h3>NPC</h3>
-                    <div class="button-group" style="margin-top: 8px;">
-                        <button onclick="generateNPC()" style="padding: 6px 10px; font-size: 0.8em;">Generate</button>
+                    <div class="button-group mt-8">
+                        <button onclick="generateNPC()" class="btn-small">Generate</button>
                     </div>
                 </div>
                 <div class="feature-card">
                     <h3>Random Event</h3>
-                    <div class="button-group" style="margin-top: 8px;">
-                        <button onclick="generateEvent()" style="padding: 6px 10px; font-size: 0.8em;">Generate</button>
+                    <div class="button-group mt-8">
+                        <button onclick="generateEvent()" class="btn-small">Generate</button>
                     </div>
                 </div>
             </div>
@@ -338,7 +357,7 @@
         <footer>
             <p>© 2025 Kevin B. Smith</p>
             <p>Dual licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" style="color: mediumturquoise">CC BY 4.0</a> or <a href="https://opensource.org/licenses/MIT" target="_blank" style="color: mediumturquoise">MIT License</a></p>
-            <p style="font-size: 0.8em; opacity: 0.6;">This page was created with AI assistance</p>
+            <p class="text-small opacity-6">This page was created with AI assistance</p>
         </footer>
     </div>
 
@@ -422,7 +441,7 @@
             if (twistRoll === 1) {
                 const action = getRandomAction();
                 const theme = getRandomTheme();
-                return `<div style="font-size: 0.8em; opacity: 0.7; margin-top: 8px;">Twist: ${action} ${theme}</div>`;
+                return `<div class="text-muted" style="margin-top: 8px;">Twist: ${action} ${theme}</div>`;
             }
             return '<br>&nbsp;';
         }
@@ -910,7 +929,7 @@
             const descriptor = descriptors[Math.floor(Math.random() * descriptors.length)];
             const role = roles[Math.floor(Math.random() * roles.length)];
             
-            showResultWithFlash('Fantasy NPC', `${name}<br><span style="font-size: 0.8em; opacity: 0.8;">${descriptor} ${personality} ${role}</span>`);
+            showResultWithFlash('Fantasy NPC', `${name}<br><span class="text-muted">${descriptor} ${personality} ${role}</span>`);
         }
 
         // Space Name Generator (100 syllables)
@@ -994,7 +1013,7 @@
             const descriptor = descriptors[Math.floor(Math.random() * descriptors.length)];
             const role = roles[Math.floor(Math.random() * roles.length)];
             
-            showResultWithFlash('Space NPC', `${name}<br><span style="font-size: 0.8em; opacity: 0.8;">${descriptor} ${personality} ${role}</span>`);
+            showResultWithFlash('Space NPC', `${name}<br><span class="text-muted">${descriptor} ${personality} ${role}</span>`);
         }
 
         // Fantasy Random Event Generator
@@ -1257,7 +1276,7 @@
             const die2 = Math.floor(Math.random() * 6) + 1;
             const total = die1 + die2;
             
-            showResultWithFlash('2d6 Dice Roll', `${total}<br><span style="font-size: 0.8em; opacity: 0.8;">${die1} + ${die2}</span>`);
+            showResultWithFlash('2d6 Dice Roll', `${total}<br><span class="text-muted">${die1} + ${die2}</span>`);
         }
 
         // 3d6 Dice Roller
@@ -1267,7 +1286,7 @@
             const die3 = Math.floor(Math.random() * 6) + 1;
             const total = die1 + die2 + die3;
             
-            showResultWithFlash('3d6 Dice Roll', `${total}<br><span style="font-size: 0.8em; opacity: 0.8;">${die1} + ${die2} + ${die3}</span>`);
+            showResultWithFlash('3d6 Dice Roll', `${total}<br><span class="text-muted">${die1} + ${die2} + ${die3}</span>`);
         }
 
         // d8 Dice Roller
