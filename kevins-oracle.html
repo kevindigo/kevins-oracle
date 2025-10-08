@@ -1233,16 +1233,18 @@
             
             // Mythic GM Emulator scene alteration topics
             const topics = [
-                'NPC action', 'Remote event', 'Move toward a thread', 'Move away from a thread',
-                'Close a thread', 'PC negative', 'PC positive', 'Ambiguous event',
-                'NPC negative', 'NPC positive', 'Introduce a new NPC', 'Introduce a new thread',
-                'Focus on NPC', 'Focus on location', 'Focus on object', 'Focus on event'
+                'NPC action', 'NPC action', 'NPC action', 
+                'NPC negative', 'NPC positive', 
+                'PC negative', 'PC positive', 
+                'Remote event', 'Ambiguous event',
+                'Move toward a thread', 'Move away from or close a thread', 
+                'Introduce a new NPC', 'Introduce a new thread'
             ];
             
             const alterationType = alterationTypes[Math.floor(Math.random() * alterationTypes.length)];
             const topic = topics[Math.floor(Math.random() * topics.length)];
             
-            showResultWithFlash('Scene Alteration', `${alterationType}: ${topic}`);
+            showResultWithFlash('Scene Alteration', `${alterationType}<br><span class="text-muted">${topic}</muted>`);
         }
 
         // Generic Dice Roller Function
