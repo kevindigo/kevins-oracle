@@ -8,9 +8,10 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Kevin's Oracle">
+    <meta name="mobile-web-app-capable" content="yes">
     <link rel="manifest" href="manifest.json">
-    <link rel="icon" type="image/png" href="icons/icon-192x192.png">
-    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+    <link rel="icon" type="image/svg+xml" href="icons/icon-192x192.svg">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.svg">
     <title>Kevin's Oracle</title>
     <style>
         * {
@@ -1346,6 +1347,78 @@
                     });
             });
         }
+
+        // PWA Install Prompt Handling
+        let deferredPrompt;
+        const installButton = document.createElement('button');
+        
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // Prevent the mini-infobar from appearing on mobile
+            e.preventDefault();
+            // Stash the event so it can be triggered later
+            deferredPrompt = e;
+            
+            // Create and show install button
+            installButton.textContent = '📱 Install App';
+            installButton.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background: teal;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 25px;
+                font-weight: bold;
+                cursor: pointer;
+                z-index: 1000;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+                transition: all 0.3s ease;
+            `;
+            
+            installButton.addEventListener('mouseenter', () => {
+                installButton.style.background = 'darkcyan';
+                installButton.style.transform = 'translateY(-2px)';
+            });
+            
+            installButton.addEventListener('mouseleave', () => {
+                installButton.style.background = 'teal';
+                installButton.style.transform = 'translateY(0)';
+            });
+            
+            document.body.appendChild(installButton);
+            
+            installButton.addEventListener('click', async () => {
+                // Hide the install button
+                installButton.style.display = 'none';
+                // Show the install prompt
+                deferredPrompt.prompt();
+                // Wait for the user to respond to the prompt
+                const { outcome } = await deferredPrompt.userChoice;
+                console.log(`User response to the install prompt: ${outcome}`);
+                // We've used the prompt, and can't use it again, throw it away
+                deferredPrompt = null;
+            });
+        });
+
+        window.addEventListener('appinstalled', () => {
+            // Hide the install button after successful installation
+            if (installButton.parentNode) {
+                installButton.parentNode.removeChild(installButton);
+            }
+            console.log('PWA was installed');
+        });
+
+        // Check if app is already installed
+        window.addEventListener('load', () => {
+            if (window.matchMedia('(display-mode: standalone)').matches) {
+                console.log('App is running in standalone mode');
+                // App is already installed, don't show install button
+                if (installButton.parentNode) {
+                    installButton.parentNode.removeChild(installButton);
+                }
+            }
+        });
     </script>
 </body>
 </html>

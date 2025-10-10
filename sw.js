@@ -1,16 +1,17 @@
 const CACHE_NAME = 'kevins-oracle-v1.0.0';
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/manifest.json',
-  '/icons/icon-72x72.png',
-  '/icons/icon-96x96.png',
-  '/icons/icon-128x128.png',
-  '/icons/icon-144x144.png',
-  '/icons/icon-152x152.png',
-  '/icons/icon-192x192.png',
-  '/icons/icon-384x384.png',
-  '/icons/icon-512x512.png'
+  './',
+  './index.html',
+  './manifest.json',
+  './sw.js',
+  './icons/icon-72x72.svg',
+  './icons/icon-96x96.svg',
+  './icons/icon-128x128.svg',
+  './icons/icon-144x144.svg',
+  './icons/icon-152x152.svg',
+  './icons/icon-192x192.svg',
+  './icons/icon-384x384.svg',
+  './icons/icon-512x512.svg'
 ];
 
 // Install event - cache essential files
