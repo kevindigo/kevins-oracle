@@ -55,6 +55,7 @@ The contents were heavily inspired by other oracles, as listed below.
 - **Single HTML File**: Everything is contained in one file for easy distribution
 - **No Dependencies**: Pure HTML, CSS, and JavaScript
 - **Responsive Design**: Works on desktop and mobile devices
+- **Progressive Web App (PWA)**: Installable and works offline
 - **Offline Capable**: Works without internet connection once loaded
 
 ## Contributing
@@ -74,7 +75,18 @@ So I welcome input, but if any changes would make it worse for me, I might decli
 
 ## Background/history
 
-While playing solo RPGs, I found myself bouncing between various online and offline tools. This page is my attempt to have everything I need in one place. 
+While playing solo RPGs, I found myself bouncing between various online and offline tools. This page is my attempt to have everything I need in one place.
+
+## Progressive Web App (PWA) Features
+
+This application is a Progressive Web App, which means:
+
+- **Installable**: You can install it on your device like a native app
+- **Offline**: Works completely offline once loaded
+- **Fast**: Cached resources load instantly
+- **Cross-platform**: Works on desktop, mobile, and tablets
+
+To install, look for the "Add to Home Screen" or "Install" option in your browser. 
 
 The systems I have used for solo RPG play, and which I think should mostly be supported by the tools included, are:
 

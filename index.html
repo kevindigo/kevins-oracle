@@ -3,6 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="teal">
+    <meta name="description" content="Inspiration for solo RPG play - dice rolling, yes/no oracles, and creative generators">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Kevin's Oracle">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="icons/icon-192x192.png">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
     <title>Kevin's Oracle</title>
     <style>
         * {
@@ -1324,6 +1332,19 @@
         function rollD100() {
             const { total } = rollDice(100);
             showResultWithFlash('d100 Dice Roll', `${total}<br>&nbsp;`);
+        }
+
+        // PWA Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('sw.js')
+                    .then(function(registration) {
+                        console.log('Service Worker registered with scope:', registration.scope);
+                    })
+                    .catch(function(error) {
+                        console.log('Service Worker registration failed:', error);
+                    });
+            });
         }
     </script>
 </body>

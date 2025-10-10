@@ -1,0 +1,23 @@
+
+<svg width="152" height="152" viewBox="0 0 152 152" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#008080;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#006666;stop-opacity:1" />
+        </linearGradient>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="152" height="152" fill="url(#bg)" rx="22.8" ry="22.8"/>
+    
+    <!-- Dice -->
+    <rect x="30.400000000000002" y="30.400000000000002" width="91.2" height="91.2" 
+          fill="white" rx="15.200000000000001" ry="15.200000000000001" stroke="#333" stroke-width="3.04"/>
+    
+    <!-- Dots -->
+    <circle cx="53.199999999999996" cy="53.199999999999996" r="7.6000000000000005" fill="#333"/>
+    <circle cx="98.8" cy="98.8" r="7.6000000000000005" fill="#333"/>
+    <circle cx="53.199999999999996" cy="98.8" r="7.6000000000000005" fill="#333"/>
+    <circle cx="98.8" cy="53.199999999999996" r="7.6000000000000005" fill="#333"/>
+    <circle cx="76" cy="76" r="7.6000000000000005" fill="#333"/>
+</svg>
