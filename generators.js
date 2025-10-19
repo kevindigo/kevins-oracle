@@ -549,76 +549,70 @@ function generatePlotHook(theme = 'fantasy') {
 function generateSpaceEvent() {
     // Subjects for encounters
     const encounterSubjects = [
-        'Pirate ship', 'Friendly trader', 'Distress call', 'Rival bounty hunter',
-        'Wandering merchant', 'Group of refugees', 'Corporate security patrol', 'Lone explorer',
-        'Mysterious alien', 'Group of smugglers', 'Medical ship', 'Diplomatic envoy',
-        'Group of workers', 'Messenger drone', 'Rival corporation ship', 'Group of scavengers',
-        'Lost scientist', 'Group of colonists', 'Wandering mercenary', 'Suspicious dealer',
-        'Cult ship', 'Lone scout', 'Group of escaped prisoners', 'Traveling entertainment vessel',
-        'Mysterious psychic', 'Group of pilgrims', 'Rival spy', 'Group of mercenaries',
-        'Wandering monk', 'Suspicious scientist', 'Rebel cell', 'Lone survivor',
-        'Diplomatic ship', 'Group of asteroid workers', 'Shapeshifting alien', 'Group of researchers'
+        'Pirates', 'Friendly trader', 'Distress call', 'Bounty hunter',
+        'Merchant', 'Refugees', 'Security patrol', 'Lone explorer',
+        'Alien/stranger', 'Smugglers', 'Medics', 'Diplomatic envoy',
+        'Laborers', 'Messenger drone', 'Rivals', 'Scavengers',
+        'Lost scientist', 'Colonists', 'Suspicious dealer', 'Wormhole', 
+        'Cult ship', 'Lone scout', 'Escaped prisoners', 'Entertainers',
+        'Pilgrims', 'Spy', 'Mercenary(ies)', 'Suspicious character',
+        'Spiritual practitioner', 'Scientist', 'Rebel cell', 'Lone survivor',
+        'Diplomatic ship', 'Shapeshifter/master of disguise', 'Researchers', 'Hidden data cache', 
     ];
     
     // Additional info for encounters
     const encounterInfo = [
         'demands surrender?', 'offers supplies?', 'from civilian ship?', 'crosses paths?',
-        'with rare tech?', 'needs rescue?', 'questions?', 'shares discoveries?',
-        'offers help?', 'at work?', 'offers assistance?', 'needs escort?',
-        'with strange ore?', 'with urgent data?', 'challenges?', 'picking debris?',
+        'with rare tech?', 'needs rescue?', 'has questions?', 'shares discoveries?',
+        'offers help?', 'at work?', 'wants assistance?', 'needs escort?',
+        'has strange ore?', 'has urgent data?', 'makes threats?', 'scavenging debris?',
         'seeks protection?', 'celebrating?', 'offers services?', 'with illegal tech?',
-        'performing rituals?', 'tracking something?', 'escaped?', 'traveling?',
-        'appears?', 'on spiritual quest?', 'trying to infiltrate?', 'for hire?',
-        'shares wisdom?', 'with experiments?', 'planning operation?', 'of attack?',
-        'needs help?', 'working?', 'appears?', 'with discovery?'
+        'performing rituals?', 'tracking something?', 'escaped?', 'on a mission?',
+        'suddenly appears?', 'on spiritual quest?', 'infiltrating?', 'for hire?',
+        'shares wisdom?', 'performing experiments?', 'planning an operation?', 'attacking?',
+        'makes a discovery?'
     ];
     
     // Subjects for obstructions
     const obstructionSubjects = [
         'Debris field', 'Hidden minefield', 'Energy barrier', 'Complex security system',
-        'Computer puzzle', 'Proximity sensor', 'Quantum lock', 'Hidden compartment',
-        'Maze of asteroid tunnels', 'Logic puzzle', 'Security door', 'Force field',
+        'Computer malfunction', 'Proximity sensor', 'Hidden compartment',
+        'Tricky maze/asteroid field', 'Logic puzzle', 'Security door', 'Force field',
         'False floor', 'Holographic illusion', 'Laser grid trap', 'Data encryption',
         'Collapsing tunnel', 'Security drone', 'Gas trap', 'Biometric lock',
-        'Net launcher', 'Voice recognition system', 'Pressure plate', 'Neural interface',
-        'Falling ceiling', 'Quantum encryption puzzle', 'Motion sensor', 'DNA lock',
-        'False data package', 'Psychic barrier', 'Hidden data cache', 'Technological test',
-        'Secret passage', 'Robotic guardian', 'Complex circuit', 'Cloaking field'
+        'Honeypot', 'Voice recognition system', 'Pressure plate', 'Neural interface',
+        'Falling ceiling', 'Quantum encryption', 'Motion sensor', 'DNA lock',
+        'False data package', 'Psychic barrier', 'Technological test',
+        'Secret passage', 'Robotic guardian', 'Complex circuit', 'Cloaking field',
+        'Malfunctioning robot',
     ];
     
     // Additional info for obstructions
     const obstructionInfo = [
-        'blocks navigation?', 'detected?', 'blocks the way?', 'activates?',
-        'must be solved?', 'triggers defense?', 'needs bypassing?', 'found?',
-        'confuses?', 'must be completed?', 'slams shut?', 'must be deactivated?',
-        'gives way?', 'confuses?', 'activates?', 'must be broken?',
-        'blocks path?', 'activates?', 'triggered?', 'needs access?',
-        'captures target?', 'requires voice?', 'reveals trap?', 'challenges?',
-        'falls?', 'must be solved?', 'triggers alarm?', 'requires sample?',
-        'is trap?', 'must be overcome?', 'found?', 'must be passed?',
-        'sealed?', 'must be defeated?', 'needs repair?', 'hides the path?'
+        'suddenly appears?', 'detected?', 'activates?', 'triggers defenses?',
+        'confusing?', 'is broken?', 'sabotage?', 'double-cross?', 
+        'fails?', 'needs repair?', 'blocks the way?', 'fake?', 
     ];
     
     // Hazards
     const hazards = [
-        'Solar flare threatens systems', 'Meteor swarm approaches',
-        'Gravity well pulls ship off course', 'Radiation storm hits',
-        'Nebula causes sensor interference', 'Gravity effect of black hole affects ship',
-        'Sudden ion storm damages electronics', 'Plasma discharge from nearby star',
-        'Rogue asteroid field appears', 'Quantum anomaly causes confusion',
+        'Solar flare', 'Meteor swarm',
+        'Gravity well', 'Radiation storm',
+        'Sensor interference', 
+        'Sudden ion storm (damages electronics)', 'Plasma discharge',
+        'Rogue asteroid field', 'Confusing quantum anomaly',
         'Temporal distortion field', 'Spatial rift opens nearby',
-        'Sudden EMP blast disables systems', 'Cosmic string affects navigation',
-        'Dark matter cloud obscures sensors', 'Wormhole instability',
+        'Sudden EMP blast disables systems',
+        'Dark matter cloud obscures sensors', 
         'Sudden temperature fluctuation', 'Magnetic field disruption',
         'Subspace interference pattern', 'Reality distortion field',
-        'Sudden pressure change', 'Chroniton radiation leak',
-        'Quantum foam disturbance', 'Dimensional instability',
-        'Sudden radiation spike', 'Psychic energy field',
-        'Gravitational anomaly', 'Temporal loop begins',
-        'Sudden energy drain', 'Phase variance occurs',
-        'Subspace rift appears', 'Quantum entanglement event',
-        'Sudden system overload', 'Reality bubble forms',
-        'Cosmic background radiation spike', 'Quantum probability shift'
+        'Sudden pressure change', 'Radiation spike (leak?)',
+        'Dimensional instability',
+        'Psychic energy field',
+        'Gravitational anomaly', 
+        'Sudden energy drain', 
+        'Subspace rift appears',
+        'Sudden system overload',
     ];
     
     // Miscellaneous (36: 12 good, 12 neutral, 12 bad/scary)
