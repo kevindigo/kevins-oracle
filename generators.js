@@ -555,7 +555,7 @@ function generateSpaceEvent() {
         'Laborers', 'Messenger drone', 'Rivals', 'Scavengers',
         'Lost scientist', 'Colonists', 'Suspicious dealer', 'Wormhole', 
         'Cult ship', 'Lone scout', 'Escaped prisoners', 'Entertainers',
-        'Pilgrims', 'Spy', 'Mercenary(ies)', 'Suspicious character',
+        'Pilgrims', 'Spy', 'Mercenaries', 'Suspicious character',
         'Spiritual practitioner', 'Scientist', 'Rebel cell', 'Lone survivor',
         'Diplomatic ship', 'Shapeshifter/master of disguise', 'Researchers', 'Hidden data cache', 
     ];
@@ -617,30 +617,29 @@ function generateSpaceEvent() {
     
     // Miscellaneous (36: 12 good, 12 neutral, 12 bad/scary)
     const goodEvents = [
-        'Hidden supply cache found', 'Friendly alien offers assistance',
-        'Forgotten outpost provides resources', 'Lucky scan reveals valuable data',
-        'Helpful AI offers information', 'Advanced technology discovered',
+        'Hidden supply cache', 'Friendly alien/stranger',
+        'Unexpected resources', 'Valuable data',
+        'Helpful AI', 'Advanced technology',
         'Hidden skill revealed', 'Helpful hologram appears',
-        'Technological blessing received', 'Sudden ally ship appears',
-        'Technological gift given', 'Sudden system breakthrough'
+        'Ally ship appears', 'Ally offers help', 
+        'Sudden research breakthrough', 'Sudden insight', 
+        'Stroke of cosmic luck', 'Sudden realization', 'Helpful dream',
+        'Helpful signal appears', 'Found a shortcut',
     ];
     
     const neutralEvents = [
-        'Strange cosmic phenomenon appears', 'Mysterious data packet discovered',
-        'Sudden insight solves technical problem', 'Sudden breakthrough in research',
-        'Stroke of cosmic luck occurs', 'Sudden solar flare helps escape',
-        'Forgotten memory returns', 'Helpful coincidence in navigation',
-        'Sudden realization helps mission', 'Helpful dream simulation',
-        'Helpful signal appears', 'Helpful discovery in database'
+        'Strange phenomenon appears', 'Mysterious data packet discovered',
+        'Sudden solar flare', 'The situation is not as it appeared',
+        'Forgotten memory returns',
     ];
     
     const badEvents = [
-        'Corrupted data file found', 'Terrifying vision appears on screen',
-        'Mysterious system virus infects', 'Bad transmission received',
-        'Valuable component malfunctions', 'Trusted crew member acts strangely',
-        'System curse detected', 'Ghostly presence appears on sensors',
-        'Nightmare simulation occurs', 'Dangerous secret file uncovered',
-        'Frightening prophecy decoded', 'Shadowy ship follows at distance'
+        'Data is corrupted', 'Terrifying vision', 'Alarms ring out',
+        'Mysterious system virus', 'Unwanted transmission received',
+        'Valuable component malfunctions', 'Ally acts strangely',
+        'Sensors show intermittent ghost blips', 'Something/someone disappears',
+        'Nightmares', 'Dangerous data found', 'Crew member feels sick',
+        'Frightening prophecy/news decoded', 'Shadowy ship follows at distance',
     ];
     
     const miscellaneous = [...goodEvents, ...neutralEvents, ...badEvents];
