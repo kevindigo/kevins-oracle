@@ -124,3 +124,40 @@ function generateFantasyLocation() {
     const placeName = generateFantasyPlaceName();
     return { location, placeName };
 }
+
+// Space Location Generator
+function generateSpaceLocation() {
+    const locations = [
+        'Space station', 'Asteroid field', 'Planet surface', 'Moon base',
+        'Wormhole', 'Nebula', 'Black hole', 'Solar system',
+        'Galaxy cluster', 'Dyson sphere', 'Ring world', 'Orbital habitat',
+        'Research outpost', 'Mining colony', 'Trading hub', 'Military base',
+        'Alien ruins', 'Derelict ship', 'Generation ship', 'Colony ship',
+        'Battlecruiser', 'Exploration vessel', 'Cargo freighter', 'Science lab',
+        'Observatory', 'Comms relay', 'Fuel depot', 'Repair dock',
+        'Shipyard', 'Dry dock', 'Jump gate', 'Warp point',
+        'Gravity well', 'Quantum anomaly', 'Temporal rift', 'Parallel dimension',
+        'Virtual reality', 'Cyberspace', 'Data stream', 'Network hub',
+        'AI core', 'Mainframe', 'Server farm', 'Database',
+        'Archive', 'Library', 'Museum', 'Memorial',
+        'Embassy', 'Consulate', 'Diplomatic station', 'Neutral zone',
+        'Border outpost', 'Frontier world', 'Core world', 'Homeworld',
+        'Capital city', 'Metropolis', 'Megastructure', 'Arcology',
+        'Biodome', 'Terraforming project', 'Atmospheric processor', 'Weather control',
+        'Gravity generator', 'Life support', 'Reactor core', 'Engine room',
+        'Bridge', 'Command center', 'Control room', 'Operations deck',
+        'Medical bay', 'Science lab', 'Engineering bay', 'Cargo bay',
+        'Hangar bay', 'Launch bay', 'Docking port', 'Airlock',
+        'Corridor', 'Quarters', 'Mess hall', 'Recreation area',
+        'Cryo chamber', 'Stasis pod', 'Cloning facility', 'Genetic lab',
+        'Robotics factory', 'Nanite swarm', 'Drone hive', 'Android colony',
+        'Cyborg enclave', 'Augmentation clinic', 'Neural interface', 'Mind network',
+        'Telepathic nexus', 'Psionic chamber', 'Precog facility', 'Clairvoyance lab',
+        'Time dilation field', 'Space warp', 'Reality bubble', 'Pocket dimension',
+        'Simulation world', 'Holographic environment', 'Projection field', 'Illusion matrix'
+    ];
+    
+    const location = locations[Math.floor(Math.random() * locations.length)];
+    const placeName = generateSpaceName();
+    return { location, placeName };
+}
