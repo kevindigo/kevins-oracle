@@ -549,11 +549,11 @@
             
             if (selectedTheme === 'space') {
                 const event = window.generateSpaceEvent();
-                showResultWithFlash('Space Random Event', event);
+                showResultWithFlash(event.type, event.text);
             } else {
                 // Default to fantasy
                 const event = window.generateFantasyEvent();
-                showResultWithFlash('Fantasy Random Event', event);
+                showResultWithFlash(event.type, event.text);
             }
         }
 
