@@ -473,37 +473,67 @@ function generateFantasyPlotHook() {
 
 // Space Plot Hook Generator
 function generateSpacePlotHook() {
-    const quests = [
-        'Rescue a captured diplomat', 'Retrieve a stolen data core', 'Stop a pirate raid', 'Investigate a derelict starship',
-        'Protect a mining colony', 'Sabotage an enemy battlecruiser', 'Decode an alien transmission', 'Survive a solar flare',
-        'Negotiate a trade agreement', 'Find a lost generation ship', 'Destroy a rogue AI', 'Explore an asteroid field',
-        'Defend a space station', 'Uncover a corporate conspiracy', 'Escape a hostile sector', 'Awaken a cryo-sleep crew',
-        'Steal a prototype weapon', 'Deliver medical supplies', 'Hunt a space anomaly', 'Recover a black box',
-        'Defeat a rival mercenary group', 'Create a jump gate', 'Summon an alien fleet', 'Banish a cosmic entity',
-        'Heal a plague outbreak', 'Cure a nanite infection', 'Build an orbital defense', 'Repair a warp drive',
-        'Decode an alien language', 'Discover a wormhole', 'Guard a diplomatic summit', 'Follow a distress signal',
-        'Destroy a pirate base', 'Protect a terraforming project', 'Investigate a ghost ship', 'Rescue a stranded colonists',
-        'Find an ancient alien artifact', 'Stop a superweapon activation', 'Recover stolen experimental tech', 'Defend a research outpost',
-        'Find the origin of a spy satellite', 'Escape a gravity well', 'Awaken a dormant AI', 'Break a security system',
-        'Steal some star charts', 'Deliver a peace envoy', 'Explore a rogue asteroid', 'Recover a stolen ship',
-        'Defeat a rival corporation', 'Create a planetary shield', 'Summon a rescue fleet', 'Banish an energy being',
-        'Heal a radiation sickness', 'Cure a memory wipe', 'Build a space elevator', 'Repair a life support system',
-        'Learn a hacking protocol', 'Discover a hidden base', 'Guard a fuel depot', 'Follow an energy signature',
-        'Destroy a smuggling ring', 'Protect an ambassador', 'Investigate a time dilation', 'Rescue a captured scientist',
-        'Find a quantum computer', 'Deliver medical supplies', 'Transport a relic', 'Stop a reactor meltdown',
-        'Recover genetic samples', 'Defend a jump point', 'Uncover a false identity', 'Escape a nebula storm',
-        'Awaken a terraforming AI', 'Break an encryption code', 'Steal military plans', 'Deliver emergency supplies',
-        'Hunt a rogue drone swarm', 'Recover an alien specimen', 'Defeat a rival captain', 'Create a diplomatic channel',
-        'Summon a trading convoy', 'Banish a parasitic organism', 'Heal an ecosystem', 'Cure a cybernetic virus',
-        'Build a deep space relay', 'Repair a sensor array', 'Transport an alien technology', 'Discover a hidden colony',
-        'Guard a cargo shipment', 'Follow a comet trail', 'Destroy a listening post', 'Protect a generation ship',
-        'Investigate a signal source', 'Rescue a captured crew', 'Find a lost probe', 'Stop an asteroid impact',
-        'Recover stolen research', 'Defend a comms satellite', 'Uncover a hidden agenda', 'Escape a black hole',
-        'Explore an ancient starship', 'Break an illegal blockade'
+    const verbs = [
+        'Rescue', 'Retrieve', 'Stop', 'Investigate', 'Protect',
+        'Sabotage', 'Decode', 'Survive', 'Negotiate', 'Find',
+        'Destroy', 'Explore', 'Defend', 'Uncover', 'Escape',
+        'Awaken', 'Steal', 'Deliver', 'Hunt', 'Recover',
+        'Defeat', 'Create', 'Summon', 'Banish', 'Heal',
+        'Cure', 'Build', 'Repair', 'Learn', 'Discover',
+        'Guard', 'Follow', 'Transport', 'Break'
     ];
     
-    const quest = quests[Math.floor(Math.random() * quests.length)];
-    return quest;
+    const adjectives = [
+        'captured', 'stolen', 'pirate', 'derelict', 'mining',
+        'enemy', 'alien', 'solar', 'trade', 'lost',
+        'rogue', 'asteroid', 'space', 'corporate', 'hostile',
+        'cryo-sleep', 'prototype', 'medical', 'space', 'black',
+        'rival', 'jump', 'alien', 'cosmic', 'plague',
+        'nanite', 'orbital', 'warp', 'alien', 'wormhole',
+        'diplomatic', 'distress', 'pirate', 'terraforming', 'ghost',
+        'stranded', 'ancient', 'superweapon', 'stolen', 'research',
+        'spy', 'gravity', 'dormant', 'security', 'star',
+        'peace', 'rogue', 'stolen', 'rival', 'planetary',
+        'rescue', 'energy', 'radiation', 'memory', 'space',
+        'life support', 'hacking', 'hidden', 'fuel', 'energy',
+        'smuggling', 'ambassador', 'time', 'captured', 'quantum',
+        'medical', 'reactor', 'genetic', 'jump', 'false',
+        'nebula', 'terraforming', 'encryption', 'military', 'emergency',
+        'rogue', 'alien', 'rival', 'diplomatic', 'trading',
+        'parasitic', 'ecosystem', 'cybernetic', 'deep space', 'sensor',
+        'alien', 'hidden', 'cargo', 'comet', 'listening',
+        'generation', 'signal', 'captured', 'lost', 'asteroid',
+        'stolen', 'comms', 'hidden', 'black', 'ancient', 'illegal'
+    ];
+    
+    const nouns = [
+        'diplomat', 'data core', 'raid', 'starship', 'colony',
+        'battlecruiser', 'transmission', 'flare', 'agreement', 'generation ship',
+        'AI', 'asteroid field', 'space station', 'conspiracy', 'sector',
+        'crew', 'weapon', 'supplies', 'anomaly', 'black box',
+        'mercenary group', 'gate', 'fleet', 'entity', 'outbreak',
+        'infection', 'defense', 'drive', 'language', 'wormhole',
+        'summit', 'signal', 'base', 'project', 'ship',
+        'colonists', 'artifact', 'activation', 'tech', 'outpost',
+        'satellite', 'well', 'AI', 'system', 'charts',
+        'envoy', 'asteroid', 'ship', 'corporation', 'shield',
+        'fleet', 'being', 'sickness', 'wipe', 'elevator',
+        'system', 'protocol', 'base', 'depot', 'signature',
+        'ring', 'ambassador', 'dilation', 'scientist', 'computer',
+        'supplies', 'relic', 'meltdown', 'samples', 'point',
+        'identity', 'storm', 'AI', 'code', 'plans',
+        'supplies', 'drone swarm', 'specimen', 'captain', 'channel',
+        'convoy', 'organism', 'ecosystem', 'virus', 'relay',
+        'array', 'technology', 'colony', 'shipment', 'trail',
+        'post', 'ship', 'source', 'crew', 'probe',
+        'impact', 'research', 'satellite', 'agenda', 'hole', 'starship', 'blockade'
+    ];
+    
+    const verb = verbs[Math.floor(Math.random() * verbs.length)];
+    const adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
+    const noun = nouns[Math.floor(Math.random() * nouns.length)];
+    
+    return `${verb} - ${adjective} - ${noun}`;
 }
 
 // Main Plot Hook Generator (handles theme selection)
