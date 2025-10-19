@@ -547,106 +547,131 @@ function generatePlotHook(theme = 'fantasy') {
 
 // Space Random Event Generator
 function generateSpaceEvent() {
-    // Encounters (36)
-    const encounters = [
-        'A pirate ship demands surrender', 'A friendly trader offers supplies',
-        'A distress call from a civilian ship', 'A rival bounty hunter crosses paths',
-        'A wandering merchant with rare tech', 'A group of refugees needs rescue',
-        'A corporate security patrol questions', 'A lone explorer shares discoveries',
-        'A mysterious alien offers help', 'A group of smugglers at work',
-        'A medical ship offers assistance', 'A diplomatic envoy needs escort',
-        'A group of workers with strange ore', 'A messenger drone with urgent data',
-        'A rival corporation ship challenges', 'A group of scavengers picking debris',
-        'A lost scientist seeks protection', 'A group of colonists celebrating',
-        'A wandering mercenary offers services', 'A suspicious dealer with illegal tech',
-        'A cult ship performing rituals', 'A lone scout tracking something',
-        'A group of escaped prisoners', 'A traveling entertainment vessel',
-        'A mysterious psychic appears', 'A group of pilgrims on spiritual quest',
-        'A rival spy trying to infiltrate', 'A group of mercenaries for hire',
-        'A wandering monk shares wisdom', 'A suspicious scientist with experiments',
-        'A rebel cell planning operation', 'A lone survivor of attack',
-        'A diplomatic ship needs help', 'A group of asteroid workers',
-        'A shapeshifting alien appears', 'A group of researchers with discovery'
+    // Subjects for encounters
+    const encounterSubjects = [
+        'Pirate ship', 'Friendly trader', 'Distress call', 'Rival bounty hunter',
+        'Wandering merchant', 'Group of refugees', 'Corporate security patrol', 'Lone explorer',
+        'Mysterious alien', 'Group of smugglers', 'Medical ship', 'Diplomatic envoy',
+        'Group of workers', 'Messenger drone', 'Rival corporation ship', 'Group of scavengers',
+        'Lost scientist', 'Group of colonists', 'Wandering mercenary', 'Suspicious dealer',
+        'Cult ship', 'Lone scout', 'Group of escaped prisoners', 'Traveling entertainment vessel',
+        'Mysterious psychic', 'Group of pilgrims', 'Rival spy', 'Group of mercenaries',
+        'Wandering monk', 'Suspicious scientist', 'Rebel cell', 'Lone survivor',
+        'Diplomatic ship', 'Group of asteroid workers', 'Shapeshifting alien', 'Group of researchers'
     ];
     
-    // Hazards (36)
+    // Additional info for encounters
+    const encounterInfo = [
+        'demands surrender?', 'offers supplies?', 'from civilian ship?', 'crosses paths?',
+        'with rare tech?', 'needs rescue?', 'questions?', 'shares discoveries?',
+        'offers help?', 'at work?', 'offers assistance?', 'needs escort?',
+        'with strange ore?', 'with urgent data?', 'challenges?', 'picking debris?',
+        'seeks protection?', 'celebrating?', 'offers services?', 'with illegal tech?',
+        'performing rituals?', 'tracking something?', 'escaped?', 'traveling?',
+        'appears?', 'on spiritual quest?', 'trying to infiltrate?', 'for hire?',
+        'shares wisdom?', 'with experiments?', 'planning operation?', 'of attack?',
+        'needs help?', 'working?', 'appears?', 'with discovery?'
+    ];
+    
+    // Subjects for obstructions
+    const obstructionSubjects = [
+        'Debris field', 'Hidden minefield', 'Energy barrier', 'Complex security system',
+        'Computer puzzle', 'Proximity sensor', 'Quantum lock', 'Hidden compartment',
+        'Maze of asteroid tunnels', 'Logic puzzle', 'Security door', 'Force field',
+        'False floor', 'Holographic illusion', 'Laser grid trap', 'Data encryption',
+        'Collapsing tunnel', 'Security drone', 'Gas trap', 'Biometric lock',
+        'Net launcher', 'Voice recognition system', 'Pressure plate', 'Neural interface',
+        'Falling ceiling', 'Quantum encryption puzzle', 'Motion sensor', 'DNA lock',
+        'False data package', 'Psychic barrier', 'Hidden data cache', 'Technological test',
+        'Secret passage', 'Robotic guardian', 'Complex circuit', 'Cloaking field'
+    ];
+    
+    // Additional info for obstructions
+    const obstructionInfo = [
+        'blocks navigation?', 'detected?', 'blocks the way?', 'activates?',
+        'must be solved?', 'triggers defense?', 'needs bypassing?', 'found?',
+        'confuses?', 'must be completed?', 'slams shut?', 'must be deactivated?',
+        'gives way?', 'confuses?', 'activates?', 'must be broken?',
+        'blocks path?', 'activates?', 'triggered?', 'needs access?',
+        'captures target?', 'requires voice?', 'reveals trap?', 'challenges?',
+        'falls?', 'must be solved?', 'triggers alarm?', 'requires sample?',
+        'is trap?', 'must be overcome?', 'found?', 'must be passed?',
+        'sealed?', 'must be defeated?', 'needs repair?', 'hides the path?'
+    ];
+    
+    // Hazards
     const hazards = [
-        'A solar flare threatens systems', 'A meteor swarm approaches',
-        'A gravity well pulls ship off course', 'A radiation storm hits',
-        'A nebula causes sensor interference', 'The gravity effect of a black hole affects a ship',
-        'A sudden ion storm damages electronics', 'A plasma discharge from nearby star',
-        'A rogue asteroid field appears', 'A quantum anomaly causes confusion',
-        'A temporal distortion field', 'A spatial rift opens nearby',
-        'A sudden EMP blast disables systems', 'A cosmic string affects navigation',
-        'A dark matter cloud obscures sensors', 'A wormhole instability',
-        'A sudden temperature fluctuation', 'A magnetic field disruption',
-        'A subspace interference pattern', 'A reality distortion field',
-        'A sudden pressure change', 'A chroniton radiation leak',
-        'A quantum foam disturbance', 'A dimensional instability',
-        'A sudden radiation spike', 'A psychic energy field',
-        'A gravitational anomaly', 'A temporal loop begins',
-        'A sudden energy drain', 'A phase variance occurs',
-        'A subspace rift appears', 'A quantum entanglement event',
-        'A sudden system overload', 'A reality bubble forms',
-        'A cosmic background radiation spike', 'A quantum probability shift'
-    ];
-    
-    // Obstructions/Traps (36)
-    const obstructions = [
-        'A debris field blocks navigation', 'A hidden minefield is detected',
-        'An energy barrier blocks the way', 'A complex security system activates',
-        'A computer puzzle must be solved', 'A proximity sensor triggers defense',
-        'A quantum lock needs bypassing', 'A hidden compartment is found',
-        'A maze of asteroid tunnels', 'A logic puzzle must be completed',
-        'A security door slams shut', 'A force field must be deactivated',
-        'A false floor gives way', 'A holographic illusion confuses',
-        'A laser grid trap activates', 'A data encryption must be broken',
-        'A collapsing tunnel blocks path', 'A security drone activates',
-        'A gas trap is triggered', 'A biometric lock needs access',
-        'A net launcher captures target', 'A voice recognition system',
-        'A pressure plate reveals trap', 'A neural interface challenge',
-        'A falling ceiling trap', 'A quantum encryption puzzle',
-        'A motion sensor triggers alarm', 'A DNA lock requires sample',
-        'A false data package is trap', 'A psychic barrier must be overcome',
-        'A hidden data cache found', 'A technological test must be passed',
-        'A secret passage is sealed', 'A robotic guardian must be defeated',
-        'A complex circuit needs repair', 'A cloaking field hides the path'
+        'Solar flare threatens systems', 'Meteor swarm approaches',
+        'Gravity well pulls ship off course', 'Radiation storm hits',
+        'Nebula causes sensor interference', 'Gravity effect of black hole affects ship',
+        'Sudden ion storm damages electronics', 'Plasma discharge from nearby star',
+        'Rogue asteroid field appears', 'Quantum anomaly causes confusion',
+        'Temporal distortion field', 'Spatial rift opens nearby',
+        'Sudden EMP blast disables systems', 'Cosmic string affects navigation',
+        'Dark matter cloud obscures sensors', 'Wormhole instability',
+        'Sudden temperature fluctuation', 'Magnetic field disruption',
+        'Subspace interference pattern', 'Reality distortion field',
+        'Sudden pressure change', 'Chroniton radiation leak',
+        'Quantum foam disturbance', 'Dimensional instability',
+        'Sudden radiation spike', 'Psychic energy field',
+        'Gravitational anomaly', 'Temporal loop begins',
+        'Sudden energy drain', 'Phase variance occurs',
+        'Subspace rift appears', 'Quantum entanglement event',
+        'Sudden system overload', 'Reality bubble forms',
+        'Cosmic background radiation spike', 'Quantum probability shift'
     ];
     
     // Miscellaneous (36: 12 good, 12 neutral, 12 bad/scary)
     const goodEvents = [
-        'A hidden supply cache is found', 'A friendly alien offers assistance',
-        'A forgotten outpost provides resources', 'A lucky scan reveals valuable data',
-        'A helpful AI offers information', 'An advanced technology is discovered',
-        'A hidden skill is revealed', 'A helpful hologram appears',
-        'A technological blessing received', 'A sudden ally ship appears',
-        'A technological gift is given', 'A sudden system breakthrough'
+        'Hidden supply cache found', 'Friendly alien offers assistance',
+        'Forgotten outpost provides resources', 'Lucky scan reveals valuable data',
+        'Helpful AI offers information', 'Advanced technology discovered',
+        'Hidden skill revealed', 'Helpful hologram appears',
+        'Technological blessing received', 'Sudden ally ship appears',
+        'Technological gift given', 'Sudden system breakthrough'
     ];
     
     const neutralEvents = [
-        'A strange cosmic phenomenon appears', 'A mysterious data packet discovered',
-        'A sudden insight solves technical problem', 'A sudden breakthrough in research',
-        'A stroke of cosmic luck occurs', 'A sudden solar flare helps escape',
-        'A forgotten memory returns', 'A helpful coincidence in navigation',
-        'A sudden realization helps mission', 'A helpful dream simulation',
-        'A helpful signal appears', 'A helpful discovery in database'
+        'Strange cosmic phenomenon appears', 'Mysterious data packet discovered',
+        'Sudden insight solves technical problem', 'Sudden breakthrough in research',
+        'Stroke of cosmic luck occurs', 'Sudden solar flare helps escape',
+        'Forgotten memory returns', 'Helpful coincidence in navigation',
+        'Sudden realization helps mission', 'Helpful dream simulation',
+        'Helpful signal appears', 'Helpful discovery in database'
     ];
     
     const badEvents = [
-        'A corrupted data file is found', 'A terrifying vision appears on screen',
-        'A mysterious system virus infects', 'A bad transmission is received',
-        'A valuable component malfunctions', 'A trusted crew member acts strangely',
-        'A system curse is detected', 'A ghostly presence appears on sensors',
-        'A nightmare simulation occurs', 'A dangerous secret file is uncovered',
-        'A frightening prophecy is decoded', 'A shadowy ship follows at distance'
+        'Corrupted data file found', 'Terrifying vision appears on screen',
+        'Mysterious system virus infects', 'Bad transmission received',
+        'Valuable component malfunctions', 'Trusted crew member acts strangely',
+        'System curse detected', 'Ghostly presence appears on sensors',
+        'Nightmare simulation occurs', 'Dangerous secret file uncovered',
+        'Frightening prophecy decoded', 'Shadowy ship follows at distance'
     ];
     
     const miscellaneous = [...goodEvents, ...neutralEvents, ...badEvents];
     
     // Combine all categories
-    const allEvents = [...encounters, ...hazards, ...obstructions, ...miscellaneous];
-    const event = allEvents[Math.floor(Math.random() * allEvents.length)];
-    return event;
+    const allEvents = [...hazards, ...miscellaneous];
+    
+    // Randomly decide which format to use
+    const randomChoice = Math.random();
+    
+    if (randomChoice < 0.33) {
+        // Use the new "Subject (additional info?)" format for encounters
+        const subject = encounterSubjects[Math.floor(Math.random() * encounterSubjects.length)];
+        const info = encounterInfo[Math.floor(Math.random() * encounterInfo.length)];
+        return `${subject} (${info})`;
+    } else if (randomChoice < 0.66) {
+        // Use the new "Subject (additional info?)" format for obstructions
+        const subject = obstructionSubjects[Math.floor(Math.random() * obstructionSubjects.length)];
+        const info = obstructionInfo[Math.floor(Math.random() * obstructionInfo.length)];
+        return `${subject} (${info})`;
+    } else {
+        // Use existing format for hazards and miscellaneous events
+        const event = allEvents[Math.floor(Math.random() * allEvents.length)];
+        return event;
+    }
 }
 
 // Attach functions to window object for global access
