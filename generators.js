@@ -190,3 +190,43 @@ function generateSpaceLocation() {
     const placeName = generateSpaceName();
     return { location, placeName };
 }
+
+// Fantasy NPC Generator
+function generateFantasyNPC() {
+    const personalities = [
+        'Chivalrous', 'Cunning', 'Wise', 'Foolish', 'Noble',
+        'Common', 'Pious', 'Heretical', 'Brave', 'Cowardly',
+        'Loyal', 'Treacherous', 'Generous', 'Greedy', 'Honest',
+        'Deceitful', 'Humble', 'Arrogant', 'Patient', 'Impulsive',
+        'Stoic', 'Emotional', 'Mystical', 'Practical', 'Curious',
+        'Suspicious', 'Trusting', 'Witty', 'Serious', 'Playful',
+        'Traditional', 'Rebellious', 'Obedient', 'Ambitious', 'Content', 'Wanderlust'
+    ];
+    
+    const descriptors = [
+        'Tall', 'Short', 'Slender', 'Stocky', 'Muscular',
+        'Lean', 'Broad-shouldered', 'Petite', 'Lanky', 'Stout',
+        'Bald', 'Long-haired', 'Curly-haired', 'Bearded', 'Clean-shaven',
+        'Scarred', 'Tattooed', 'Pale', 'Tanned', 'Freckled',
+        'Aged', 'Youthful', 'Middle-aged', 'Elderly', 'Vibrant',
+        'Weathered', 'Graceful', 'Clumsy', 'Agile', 'Imposing',
+        'Unassuming', 'Striking', 'Plain', 'Elegant', 'Rugged', 'Delicate'
+    ];
+    
+    const roles = [
+        'Knight', 'Mage', 'Rogue', 'Priest', 'Warrior',
+        'Healer', 'Ranger', 'Bard', 'Druid', 'Paladin',
+        'Monk', 'Necromancer', 'Sorcerer', 'Warlock', 'Wizard',
+        'Assassin', 'Spy', 'Mercenary', 'Guard', 'Soldier',
+        'Merchant', 'Trader', 'Artisan', 'Blacksmith', 'Farmer',
+        'Noble', 'Commoner', 'Peasant', 'Royal', 'Advisor',
+        'Explorer', 'Hunter', 'Fisher', 'Miner', 'Scholar', 'Diplomat'
+    ];
+    
+    const name = generateFantasyName();
+    const personality = personalities[Math.floor(Math.random() * personalities.length)];
+    const descriptor = descriptors[Math.floor(Math.random() * descriptors.length)];
+    const role = roles[Math.floor(Math.random() * roles.length)];
+    
+    return { name, personality, descriptor, role };
+}
