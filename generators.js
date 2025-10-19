@@ -413,9 +413,9 @@ function generateFantasyPlotHook() {
         'Sabotage', 'Decode', 'Survive', 'Negotiate', 'Find',
         'Destroy', 'Explore', 'Defend', 'Uncover', 'Escape',
         'Awaken', 'Break', 'Steal', 'Deliver', 'Hunt',
-        'Recover', 'Defeat', 'Create', 'Summon', 'Banish',
-        'Heal', 'Cure', 'Build', 'Repair', 'Learn',
-        'Discover', 'Guard', 'Follow'
+        'Recover', 'Defeat', 'Banish',
+        'Heal', 'Cure', 'Repair',
+        'Discover', 'Guard', 'Follow', 'Transport', 'Break'
     ];
     
     const adjectives = [
@@ -478,8 +478,8 @@ function generateSpacePlotHook() {
         'Sabotage', 'Decode', 'Survive', 'Negotiate', 'Find',
         'Destroy', 'Explore', 'Defend', 'Uncover', 'Escape',
         'Awaken', 'Steal', 'Deliver', 'Hunt', 'Recover',
-        'Defeat', 'Create', 'Summon', 'Banish', 'Heal',
-        'Cure', 'Build', 'Repair', 'Learn', 'Discover',
+        'Defeat', 'Banish', 'Heal',
+        'Cure', 'Repair', 'Discover',
         'Guard', 'Follow', 'Transport', 'Break'
     ];
     
