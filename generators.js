@@ -313,7 +313,7 @@ function generateFantasyEvent() {
         'Lost scholar', 'Group of bards', 'Knight', 'Suspicious merchant',
         'Group of cultists', 'Ranger', 'Group of escaped prisoners', 'Entertainment troupe',
         'Mysterious fortune teller', 'Pilgrims on holy quest', 'Thief', 'Group of mercenaries',
-        'Monk', 'Suspicious alchemist', 'Group of rebels', 'Lone survivor',
+        'Monk', 'Alchemist', 'Group of rebels', 'Lone survivor',
         'Traveling diplomat', 'Group of workers', 'Shapeshifter', 'Locals with discovery'
     ];
     
