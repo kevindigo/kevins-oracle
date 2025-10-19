@@ -706,74 +706,9 @@
             showResultWithFlash('Space Plot Hook', quest);
         }
 
-        // Fantasy Place Name Generator
-        function generateFantasyPlaceName() {
-            const prefixes = [
-                'Silver', 'Golden', 'Iron', 'Crystal', 'Shadow', 'Light', 'Dark', 'Bright',
-                'Moon', 'Sun', 'Star', 'Sky', 'Cloud', 'Storm', 'Wind', 'River',
-                'Forest', 'Wood', 'Stone', 'Mountain', 'Valley', 'Hill', 'Lake', 'Sea',
-                'Oak', 'Pine', 'Willow', 'Maple', 'Cedar', 'Birch', 'Ash', 'Elm',
-                'Ancient', 'Old', 'New', 'Great', 'Little', 'High', 'Low', 'Deep',
-                'White', 'Black', 'Red', 'Blue', 'Green', 'Gray', 'Purple', 'Gold',
-                'Dragon', 'Phoenix', 'Griffin', 'Unicorn', 'Wolf', 'Bear', 'Eagle', 'Hawk',
-                'Royal', 'Imperial', 'Noble', 'Common', 'Sacred', 'Holy', 'Blessed', 'Cursed',
-                'Mystic', 'Magic', 'Enchanted', 'Eldritch', 'Arcane', 'Divine', 'Celestial ', 'Infernal ',
-                'Whispering ', 'Silent', 'Echo', 'Singing', 'Dancing', 'Flying', 'Running', 'Sleeping',
-                'Lost ', 'Forgotten ', 'Hidden ', 'Secret ', 'Forbidden ', 'Abandoned ', 'Ruined ', 'Deserted '
-            ];
-            
-            const suffixes = [
-                'wood', ' forest', 'glade', 'grove', 'vale', ' valley', ' hill', ' mountain',
-                'peak', 'ridge', 'cliff', 'crag', 'stone', 'cave',
-                ' cavern', ' grotto', 'hollow', 'burrow', 'warren',
-                'brook', 'stream', ' river', ' lake', ' spring',
-                'field', 'meadow', 'plain', 'prairie', 'marsh', 'swamp', 'bog', 'fen',
-                'shore', 'beach', 'bay', 'harbor', 'port', 'dock', 'pier',
-                'ton', ' town', ' city', 'burg', 'ville', ' colony',
-                ' keep', ' fort', ' castle', ' tower', ' palace', ' manor', ' estate', 'hall',
-                'bridge', 'crossing', 'ford', ' pass', 'gate', 'way',
-                ' temple', 'shrine', ' altar', ' sanctuary', ' abbey', ' monastery', ' cathedral', ' chapel',
-                ' academy', 'garden', 'park', ' vineyard', 'farm', 'mill', 'forge',
-                'mine', ' quarry', 
-            ];
-            
-            const prefix = prefixes[Math.floor(Math.random() * prefixes.length)];
-            const suffix = suffixes[Math.floor(Math.random() * suffixes.length)];
-            
-            return `${prefix}${suffix}`;
-        }
-
-        // Fantasy Location Generator
+        // Fantasy Location Generator (now uses imported function from generators.js)
         function generateFantasyLocation() {
-            const locations = [
-                'Ancient ruins', 'Bustling market', 'Secluded forest', 'Underground cavern',
-                'Floating island', 'Desert oasis', 'Mountain peak', 'Abandoned temple',
-                'Crystal cave', 'Sunken city', 'Floating market', 'Whispering woods',
-                'Volcanic forge', 'Lookout', 'Time-lost library',
-                'Enchanted grove', 'Dragon lair', 'Royal castle', 'Wizard tower',
-                'Haunted mansion', 'Sacred temple', 'Goblin camp', 'Elven city',
-                'Dwarven mine', 'Orc fortress', 'Fairy circle', 'Mystic waterfall',
-                'Cursed swamp', 'Golden palace', 'Silver lake', 'Iron fortress',
-                'Crystal palace', 'Shadow realm', 'Dream realm', 'Elemental plane',
-                'Celestial realm', 'Infernal pit', 'Feywild', 'Shadowfell',
-                'Astral sea', 'Ethereal plane', 'Material plane', 'Divine realm',
-                'Ancient battlefield', 'Lost civilization', 'Hidden valley', 'Forbidden city',
-                'Mystic academy', 'Alchemist lab', 'Necromancer tower', 'Paladin stronghold',
-                'Ranger outpost', 'Bard college', 'Druid circle', 'Monk monastery',
-                'Rogue hideout', 'Warrior guild', 'Merchant caravan', 'Pilgrim shrine',
-                'Oracle cave', 'Prophet temple', 'Seer tower', 'Witch hut',
-                'Sorcerer sanctum', 'Warlock pact', 'Cleric cathedral', 'Priest abbey',
-                'Knight barracks', 'Squire training ground', 'Royal court', 'Noble estate',
-                'Common village', 'Farming hamlet', 'Fishing port', 'Mining town',
-                'Trading post', 'Border fort', 'Coastal city', 'Mountain pass',
-                'River crossing', 'Forest path', 'Desert caravan', 'Jungle temple',
-                'Arctic outpost', 'Volcano crater', 'Undersea city', 'Remote island',
-                'Cloud palace', 'Star observatory', 'Moon temple', 'Sun altar',
-                'Dimension rift'
-            ];
-            
-            const location = locations[Math.floor(Math.random() * locations.length)];
-            const placeName = generateFantasyPlaceName();
+            const { location, placeName } = window.generateFantasyLocation();
             showResultWithFlash('Fantasy Location', `${location}<br>at ${placeName}`);
         }
 
