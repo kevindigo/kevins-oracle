@@ -1,6 +1,8 @@
 {
   "name": "Kevin's Oracle",
   "short_name": "Oracle",
+  "version": "1.0.0",
+  "manifest_version": 3,
   "description": "Inspiration for solo RPG play",
   "start_url": "/kevins-oracle",
   "scope": "/kevins-oracle",
