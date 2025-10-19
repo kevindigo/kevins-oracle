@@ -304,106 +304,131 @@ function generateSpaceNPC() {
 
 // Fantasy Random Event Generator
 function generateFantasyEvent() {
-    // Encounters (36)
-    const encounters = [
-        'Bandits ambush the party', 'A friendly merchant offers goods',
-        'A lost child needs help', 'A rival adventuring party crosses paths',
-        'A wandering minstrel shares news', 'A group of pilgrims seeks protection',
-        'A bounty hunter is tracking someone', 'A patrol questions the party',
-        'A mysterious hermit offers wisdom', 'A group of refugees needs aid',
-        'A traveling healer offers services', 'A noble and their entourage pass by',
-        'A group of locals shares their findings', 'A messenger with urgent news',
-        'A rival mage challenges to a duel', 'A group of smugglers at work',
-        'A lost scholar seeks ancient knowledge', 'A group of bards performs nearby',
-        'A wandering knight offers assistance', 'A suspicious merchant with rare goods',
-        'A group of cultists performing a ritual', 'A lone ranger tracking prey',
-        'A group of escaped prisoners', 'A traveling entertainment troupe sets up camp',
-        'A mysterious fortune teller', 'A group of pilgrims on a holy quest',
-        'A rival thief trying to steal', 'A group of mercenaries for hire',
-        'A wandering monk shares teachings', 'A suspicious alchemist with potions',
-        'A group of rebels planning something', 'A lone survivor of an attack',
-        'A traveling diplomat needs escort', 'A group of workers with strange findings',
-        'A mysterious shapeshifter appears', 'A group of locals with a strange discovery'
+    // Subjects for encounters
+    const encounterSubjects = [
+        'Bandits', 'Friendly merchant', 'Lost child', 'Rival adventuring party',
+        'Wandering minstrel', 'Group of pilgrims', 'Bounty hunter', 'Patrol',
+        'Mysterious hermit', 'Group of refugees', 'Traveling healer', 'Noble and entourage',
+        'Group of locals', 'Messenger', 'Rival mage', 'Group of smugglers',
+        'Lost scholar', 'Group of bards', 'Wandering knight', 'Suspicious merchant',
+        'Group of cultists', 'Lone ranger', 'Group of escaped prisoners', 'Entertainment troupe',
+        'Mysterious fortune teller', 'Pilgrims on holy quest', 'Rival thief', 'Group of mercenaries',
+        'Wandering monk', 'Suspicious alchemist', 'Group of rebels', 'Lone survivor',
+        'Traveling diplomat', 'Group of workers', 'Mysterious shapeshifter', 'Locals with discovery'
     ];
     
-    // Hazards (36)
+    // Additional info for encounters
+    const encounterInfo = [
+        'ambushes the party?', 'offers goods?', 'needs help?', 'crosses paths?',
+        'shares news?', 'seeks protection?', 'is tracking someone?', 'questions the party?',
+        'offers wisdom?', 'needs aid?', 'offers services?', 'passes by?',
+        'shares findings?', 'has urgent news?', 'challenges to duel?', 'at work?',
+        'seeks knowledge?', 'performs nearby?', 'offers assistance?', 'with rare goods?',
+        'performing ritual?', 'tracking prey?', 'escaped?', 'sets up camp?',
+        'tells fortunes?', 'on holy quest?', 'trying to steal?', 'for hire?',
+        'shares teachings?', 'with potions?', 'planning something?', 'of attack?',
+        'needs escort?', 'with strange findings?', 'appears?', 'with discovery?'
+    ];
+    
+    // Subjects for obstructions
+    const obstructionSubjects = [
+        'Collapsed bridge', 'Hidden pit trap', 'Magical barrier', 'Complex lock',
+        'Riddle', 'Pressure plate', 'Magical seal', 'Hidden door',
+        'Maze of corridors', 'Magical puzzle', 'Portcullis', 'Magical ward',
+        'False floor', 'Magical mirror', 'Swinging blade trap', 'Magical glyph',
+        'Rolling boulder', 'Magical statue', 'Poison dart trap', 'Magical rune',
+        'Net trap', 'Magical door', 'Spike pit', 'Magical barrier',
+        'Falling ceiling trap', 'Magical lock', 'Tripwire', 'Magical field',
+        'False treasure', 'Magical puzzle', 'Hidden compartment', 'Magical test',
+        'Secret passage', 'Magical guardian', 'Complex mechanism', 'Magical illusion'
+    ];
+    
+    // Additional info for obstructions
+    const obstructionInfo = [
+        'blocks progress?', 'discovered?', 'blocks the way?', 'needs picking?',
+        'must be solved?', 'triggers something?', 'needs breaking?', 'found?',
+        'confuses?', 'must be solved?', 'drops suddenly?', 'must be dispelled?',
+        'gives way?', 'shows illusions?', 'activates?', 'must be deciphered?',
+        'blocks the path?', 'comes to life?', 'triggered?', 'must be activated?',
+        'captures someone?', 'requires password?', 'revealed?', 'requires sacrifice?',
+        'falls?', 'requires specific item?', 'triggers alarm?', 'requires spell?',
+        'is a trap?', 'requires intuition?', 'found?', 'must be passed?',
+        'blocked?', 'must be defeated?', 'needs fixing?', 'hides the path?'
+    ];
+    
+    // Hazards
     const hazards = [
-        'A sudden rockslide blocks the path', 'A magical storm causes confusion',
-        'A sinkhole opens nearby', 'A flash flood washes through',
-        'A forest fire spreads rapidly', 'A magical mist causes disorientation',
-        'A sudden blizzard hits', 'An earthquake shakes the ground',
-        'A swarm of insects attacks', 'A poisonous plant releases spores',
-        'A cursed area drains energy', 'A magical vortex appears',
-        'A sudden fog limits visibility', 'A thunderstorm with magical lightning',
-        'A geyser erupts nearby', 'A magical field causes illusions',
-        'A sudden temperature drop', 'A magical silence descends',
-        'A river suddenly changes course', 'A magical darkness envelops the area',
-        'A sudden sandstorm arises', 'A magical storm of feathers',
-        'A sudden ice storm hits', 'A magical field reverses gravity',
-        'A sudden mudslide occurs', 'A magical field causes time distortion',
-        'A sudden volcanic activity', 'A magical field causes memory loss',
-        'A sudden windstorm picks up', 'A magical field causes aging',
-        'A sudden hailstorm begins', 'A magical field causes youth',
-        'A sudden dust devil forms', 'A magical field causes laughter',
-        'A sudden lightning strike', 'A magical field causes sleep'
-    ];
-    
-    // Obstructions/Traps (36)
-    const obstructions = [
-        'A collapsed bridge blocks progress', 'A hidden pit trap is discovered',
-        'A magical barrier blocks the way', 'A complex lock needs picking',
-        'A riddle must be solved to proceed', 'A pressure plate triggers something',
-        'A magical seal needs breaking', 'A hidden door is found',
-        'A maze of corridors confuses', 'A magical puzzle must be solved',
-        'A portcullis drops suddenly', 'A magical ward must be dispelled',
-        'A false floor gives way', 'A magical mirror shows illusions',
-        'A swinging blade trap activates', 'A magical glyph must be deciphered',
-        'A rolling boulder blocks the path', 'A magical statue comes to life',
-        'A poison dart trap is triggered', 'A magical rune must be activated',
-        'A net trap captures someone', 'A magical door requires a password',
-        'A spike pit is revealed', 'A magical barrier requires a sacrifice',
-        'A falling ceiling trap', 'A magical lock requires a specific item',
-        'A tripwire triggers an alarm', 'A magical field requires a spell',
-        'A false treasure is a trap', 'A magical puzzle requires intuition',
-        'A hidden compartment is found', 'A magical test must be passed',
-        'A secret passage is blocked', 'A magical guardian must be defeated',
-        'A complex mechanism needs fixing', 'A magical illusion hides the path'
+        'Sudden rockslide', 'Magical storm',
+        'Sinkhole', 'Flash flood',
+        'Forest fire', 'Magical mist',
+        'Sudden blizzard', 'Earthquake',
+        'Swarm of insects', 'Poisonous plant',
+        'Cursed area', 'Magical vortex',
+        'Sudden fog', 'Thunderstorm with magical lightning',
+        'Geyser', 'Magical field',
+        'Sudden temperature drop', 'Magical silence',
+        'River changes course', 'Magical darkness',
+        'Sudden sandstorm', 'Magical storm of feathers',
+        'Sudden ice storm', 'Magical field reverses gravity',
+        'Sudden mudslide', 'Magical field causes time distortion',
+        'Sudden volcanic activity', 'Magical field causes memory loss',
+        'Sudden windstorm', 'Magical field causes aging',
+        'Sudden hailstorm', 'Magical field causes youth',
+        'Sudden dust devil', 'Magical field causes laughter',
+        'Sudden lightning strike', 'Magical field causes sleep'
     ];
     
     // Miscellaneous (36: 12 good, 12 neutral, 12 bad/scary)
     const goodEvents = [
-        'A hidden cache of supplies is found', 'A friendly animal offers help',
-        'A forgotten shrine provides blessing', 'A lucky find provides advantage',
-        'A helpful NPC offers information', 'A magical item is discovered',
-        'A hidden talent is revealed', 'A helpful spirit appears',
-        'A magical blessing is received', 'A sudden ally appears',
-        'A magical gift is given', 'A sudden breakthrough occurs'
+        'Hidden cache of supplies', 'Friendly animal',
+        'Forgotten shrine', 'Lucky find',
+        'Helpful NPC', 'Magical item',
+        'Hidden talent', 'Helpful spirit',
+        'Magical blessing', 'Sudden ally',
+        'Magical gift', 'Sudden breakthrough'
     ];
     
     const neutralEvents = [
-        'A strange omen appears in the sky', 'A mysterious note is discovered',
-        'A sudden insight solves a problem', 'A sudden inspiration strikes',
-        'A stroke of good luck occurs', 'A sudden change in weather helps',
-        'A forgotten memory returns', 'A helpful coincidence occurs',
-        'A sudden realization helps', 'A helpful dream provides guidance',
-        'A helpful sign appears', 'A helpful discovery is made'
+        'Strange omen', 'Mysterious note',
+        'Sudden insight', 'Sudden inspiration',
+        'Stroke of good luck', 'Sudden weather change',
+        'Forgotten memory', 'Helpful coincidence',
+        'Sudden realization', 'Helpful dream',
+        'Helpful sign', 'Helpful discovery'
     ];
     
     const badEvents = [
-        'A cursed item is discovered', 'A foreboding vision appears',
-        'A mysterious illness strikes', 'A bad omen is seen',
-        'A valuable item is lost', 'A trusted contact betrays',
-        'A magical curse is placed', 'A haunting presence appears',
-        'A terrible nightmare occurs', 'A dangerous secret is uncovered',
-        'A frightening prophecy is heard', 'A shadowy figure follows'
+        'Cursed item', 'Foreboding vision',
+        'Mysterious illness', 'Bad omen',
+        'Valuable item', 'Trusted contact',
+        'Magical curse', 'Haunting presence',
+        'Terrible nightmare', 'Dangerous secret',
+        'Frightening prophecy', 'Shadowy figure'
     ];
     
     const miscellaneous = [...goodEvents, ...neutralEvents, ...badEvents];
     
     // Combine all categories
-    const allEvents = [...encounters, ...hazards, ...obstructions, ...miscellaneous];
-    const event = allEvents[Math.floor(Math.random() * allEvents.length)];
-    return event;
+    const allEvents = [...hazards, ...miscellaneous];
+    
+    // Randomly decide which format to use
+    const randomChoice = Math.random();
+    
+    if (randomChoice < 0.33) {
+        // Use the new "Subject (additional info?)" format for encounters
+        const subject = encounterSubjects[Math.floor(Math.random() * encounterSubjects.length)];
+        const info = encounterInfo[Math.floor(Math.random() * encounterInfo.length)];
+        return `${subject} (${info})`;
+    } else if (randomChoice < 0.66) {
+        // Use the new "Subject (additional info?)" format for obstructions
+        const subject = obstructionSubjects[Math.floor(Math.random() * obstructionSubjects.length)];
+        const info = obstructionInfo[Math.floor(Math.random() * obstructionInfo.length)];
+        return `${subject} (${info})`;
+    } else {
+        // Use existing format for hazards and miscellaneous events
+        const event = allEvents[Math.floor(Math.random() * allEvents.length)];
+        return event;
+    }
 }
 
 // Fantasy Plot Hook Generator
