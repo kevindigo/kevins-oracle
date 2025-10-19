@@ -468,7 +468,7 @@ function generateFantasyPlotHook() {
     const adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
     const noun = nouns[Math.floor(Math.random() * nouns.length)];
     
-    return `${verb} - ${adjective} - ${noun}`;
+    return `${verb} ${noun} (${adjective})`;
 }
 
 // Space Plot Hook Generator
@@ -533,7 +533,7 @@ function generateSpacePlotHook() {
     const adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
     const noun = nouns[Math.floor(Math.random() * nouns.length)];
     
-    return `${verb} - ${adjective} - ${noun}`;
+    return `${verb} ${noun} (${adjective})`;
 }
 
 // Main Plot Hook Generator (handles theme selection)
