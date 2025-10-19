@@ -754,43 +754,9 @@
             }
         }
 
-        // Space NPC Generator
+        // Space NPC Generator (now imported from generators.js)
         function generateSpaceNPC() {
-            const personalities = [
-                'Calculating', 'Impulsive', 'Logical', 'Intuitive', 'Confident',
-                'Anxious', 'Optimistic', 'Pessimistic', 'Friendly', 'Hostile',
-                'Curious', 'Indifferent', 'Honest', 'Deceptive', 'Brave',
-                'Cautious', 'Patient', 'Arrogant', 'Humble', 'Generous',
-                'Greedy', 'Loyal', 'Treacherous', 'Witty', 'Serious',
-                'Playful', 'Stoic', 'Emotional', 'Creative', 'Traditional',
-                'Rebellious', 'Obedient', 'Suspicious', 'Trusting', 'Ambitious', 'Methodical'
-            ];
-            
-            const descriptors = [
-                'Tall', 'Short', 'Slender', 'Stocky', 'Muscular',
-                'Lean', 'Broad-shouldered', 'Petite', 'Lanky', 'Stout',
-                'Bald', 'Short-haired', 'Slick-haired', 'Bearded', 'Clean-shaven',
-                'Scarred', 'Tattooed', 'Pale', 'Tanned', 'Freckled',
-                'Aged', 'Youthful', 'Middle-aged', 'Elderly', 'Vibrant',
-                'Weathered', 'Graceful', 'Clumsy', 'Agile', 'Imposing',
-                'Unassuming', 'Striking', 'Plain', 'Elegant', 'Rugged', 'Enhanced'
-            ];
-            
-            const roles = [
-                'Captain', 'Pilot', 'Engineer', 'Scientist', 'Medic',
-                'Soldier', 'Marine', 'Security', 'Diplomat', 'Ambassador',
-                'Merchant', 'Trader', 'Smuggler', 'Bounty Hunter', 'Pirate',
-                'Explorer', 'Scout', 'Surveyor', 'Colonist', 'Settler',
-                'Technician', 'Mechanic', 'Programmer', 'Hacker', 'Cyberneticist',
-                'Xenobiologist', 'Astrophysicist', 'Psychic', 'Telepath', 'Precog',
-                'Android', 'Cyborg', 'Alien', 'Mutant', 'Augmented', 'Specialist'
-            ];
-            
-            const name = window.generateSpaceName();
-            const personality = personalities[Math.floor(Math.random() * personalities.length)];
-            const descriptor = descriptors[Math.floor(Math.random() * descriptors.length)];
-            const role = roles[Math.floor(Math.random() * roles.length)];
-            
+            const { name, descriptor, personality, role } = window.generateSpaceNPC();
             showResultWithFlash('Space NPC', `${name}<br><span class="text-muted">${descriptor} ${personality} ${role}</span>`);
         }
 
