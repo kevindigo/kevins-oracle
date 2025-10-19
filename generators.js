@@ -17,7 +17,7 @@ function getRandomAction() {
         'Wake', 'Sleep', 'Rest', 'Work', 'Play',
         'Celebrate', 'Mourn', 'Laugh', 'Cry', 'Sing',
         'Dance', 'Fight', 'Flee', 'Stand', 'Fall',
-        'Rise', 'Ascend', 'Descend', 'Enter', 'Exit',
+        'Raise', 'Ascend', 'Descend', 'Enter', 'Exit',
         'Arrive', 'Depart', 'Follow', 'Lead', 'Guide',
         'Command', 'Obey', 'Rebel', 'Submit', 'Resist',
         'Change', 'Preserve', 'Adapt', 'Evolve', 'Regress',
@@ -48,7 +48,7 @@ function getRandomTheme() {
         'Health', 'Sickness', 'Vitality', 'Decay', 'Recovery',
         'Youth', 'Age', 'Innocence', 'Experience', 'Naivete',
         'Beauty', 'Ugliness', 'Agility', 'Clumsiness', 'Elegance',
-        'Honor', 'Dishonor', 'Integrity', 'Treachery', 'Nobility',
+        'Honor', 'Disgrace', 'Integrity', 'Treachery', 'Nobility',
         'Fate', 'Chance', 'Luck', 'Misfortune', 'Fortune'
     ];
     return themes[Math.floor(Math.random() * themes.length)];
