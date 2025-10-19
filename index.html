@@ -487,7 +487,7 @@
 
 
         // Fantasy Location Generator (now uses imported function from generators.js)
-        function generateFantasyLocation() {
+        function showFantasyLocation() {
             const { location, placeName } = window.generateFantasyLocation();
             showResultWithFlash('Fantasy Location', `${location}<br>at ${placeName}`);
         }
@@ -498,15 +498,15 @@
             const selectedTheme = themeSelect.value;
             
             if (selectedTheme === 'space') {
-                generateSpaceLocation();
+                showSpaceLocation();
             } else {
                 // Default to fantasy
-                generateFantasyLocation();
+                showFantasyLocation();
             }
         }
 
         // Space Location Generator (now uses imported function from generators.js)
-        function generateSpaceLocation() {
+        function showSpaceLocation() {
             const { location, placeName } = window.generateSpaceLocation();
             showResultWithFlash('Space Location', `${location}<br>at ${placeName}`);
         }
@@ -514,7 +514,7 @@
 
 
         // Fantasy NPC Generator (now imported from generators.js)
-        function generateFantasyNPC() {
+        function showFantasyNPC() {
             const { name, descriptor, personality, role } = window.generateFantasyNPC();
             showResultWithFlash('Fantasy NPC', `${name}<br><span class="text-muted">${descriptor} ${personality} ${role}</span>`);
         }
@@ -527,15 +527,15 @@
             const selectedTheme = themeSelect.value;
             
             if (selectedTheme === 'space') {
-                generateSpaceNPC();
+                showSpaceNPC();
             } else {
                 // Default to fantasy
-                generateFantasyNPC();
+                showFantasyNPC();
             }
         }
 
         // Space NPC Generator (now imported from generators.js)
-        function generateSpaceNPC() {
+        function showSpaceNPC() {
             const { name, descriptor, personality, role } = window.generateSpaceNPC();
             showResultWithFlash('Space NPC', `${name}<br><span class="text-muted">${descriptor} ${personality} ${role}</span>`);
         }
