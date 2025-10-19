@@ -479,7 +479,7 @@
         function generatePlotHook() {
             const themeSelect = document.getElementById('theme-select');
             const selectedTheme = themeSelect.value;
-            const quest = window.generatePlotHook(selectedTheme);
+            const quest = selectedTheme === 'space' ? window.generateSpacePlotHook() : window.generateFantasyPlotHook();
             const themeLabel = selectedTheme === 'space' ? 'Space' : 'Fantasy';
             showResultWithFlash(`${themeLabel} Plot Hook`, quest);
         }

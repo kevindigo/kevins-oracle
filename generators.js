@@ -663,3 +663,16 @@ function generateSpaceEvent() {
     const event = allEvents[Math.floor(Math.random() * allEvents.length)];
     return event;
 }
+
+// Attach functions to window object for global access
+window.generatePlotHook = generatePlotHook;
+window.generateFantasyPlotHook = generateFantasyPlotHook;
+window.generateSpacePlotHook = generateSpacePlotHook;
+window.generateFantasyLocation = generateFantasyLocation;
+window.generateSpaceLocation = generateSpaceLocation;
+window.generateFantasyNPC = generateFantasyNPC;
+window.generateSpaceNPC = generateSpaceNPC;
+window.generateFantasyEvent = generateFantasyEvent;
+window.generateSpaceEvent = generateSpaceEvent;
+window.getRandomAction = getRandomAction;
+window.getRandomTheme = getRandomTheme;
