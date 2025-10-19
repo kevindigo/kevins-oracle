@@ -230,3 +230,34 @@ function generateFantasyNPC() {
     
     return { name, personality, descriptor, role };
 }
+
+// Space Name Generator (100 syllables)
+function generateSpaceName() {
+    const nameFragments = [
+        'zi', 'del', 'laa', 'vor', 'nex', 'qua', 'tri', 'zen', 'kor', 'vax',
+        'ryl', 'nys', 'pax', 'tor', 'lyn', 'vex', 'dra', 'syl', 'fen', 'gar',
+        'hyl', 'jax', 'kyl', 'mor', 'nor', 'pyr', 'qor', 'ryn', 'syn', 'tyr',
+        'val', 'wyn', 'xan', 'yor', 'zyl', 'arn', 'bor', 'cet', 'dak', 'el',
+        'fir', 'gol', 'hal', 'ion', 'jot', 'kra', 'lor', 'mek', 'nil', 'or',
+        'pel', 'qix', 'rak', 'sol', 'tir', 'ul', 'var', 'wol', 'xir', 'yul',
+        'zir', 'ban', 'cor', 'dun', 'eth', 'fal', 'gur', 'han', 'ir', 'jon',
+        'kel', 'lan', 'mir', 'ner', 'ol', 'par', 'qun', 'ran', 'sar', 'tan',
+        'ur', 'van', 'wel', 'xen', 'yol', 'zar', 'bel', 'cron', 'dax', 'el',
+        'fen', 'gorn', 'hax', 'il', 'jorn', 'karn', 'lorn', 'max', 'norn', 'or',
+        'peln', 'qarn', 'reln', 'sorn', 'teln', 'urn', 'veln', 'worn', 'xeln', 'yorn'
+    ];
+    
+    // Randomly choose between 2 or 3 parts
+    const numParts = Math.random() < 0.7 ? 2 : 3;
+    const parts = [];
+    
+    for (let i = 0; i < numParts; i++) {
+        let fragment;
+        do {
+            fragment = nameFragments[Math.floor(Math.random() * nameFragments.length)];
+        } while (parts.includes(fragment)); // Avoid duplicate fragments
+        parts.push(fragment);
+    }
+    
+    return parts.join('');
+}
