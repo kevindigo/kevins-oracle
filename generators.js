@@ -308,102 +308,91 @@ function generateFantasyEvent() {
     const encounterSubjects = [
         'Bandits', 'Friendly merchant', 'Lost child', 'Rival adventuring party',
         'Wandering minstrel', 'Group of pilgrims', 'Bounty hunter', 'Patrol',
-        'Mysterious hermit', 'Group of refugees', 'Traveling healer', 'Noble and entourage',
-        'Group of locals', 'Messenger', 'Rival mage', 'Group of smugglers',
-        'Lost scholar', 'Group of bards', 'Wandering knight', 'Suspicious merchant',
-        'Group of cultists', 'Lone ranger', 'Group of escaped prisoners', 'Entertainment troupe',
-        'Mysterious fortune teller', 'Pilgrims on holy quest', 'Rival thief', 'Group of mercenaries',
-        'Wandering monk', 'Suspicious alchemist', 'Group of rebels', 'Lone survivor',
-        'Traveling diplomat', 'Group of workers', 'Mysterious shapeshifter', 'Locals with discovery'
+        'Mysterious hermit', 'Group of refugees', 'Traveling healer', 'Noble with entourage',
+        'Group of locals', 'Messenger', 'Mage', 'Group of smugglers',
+        'Lost scholar', 'Group of bards', 'Knight', 'Suspicious merchant',
+        'Group of cultists', 'Ranger', 'Group of escaped prisoners', 'Entertainment troupe',
+        'Mysterious fortune teller', 'Pilgrims on holy quest', 'Thief', 'Group of mercenaries',
+        'Monk', 'Suspicious alchemist', 'Group of rebels', 'Lone survivor',
+        'Traveling diplomat', 'Group of workers', 'Shapeshifter', 'Locals with discovery'
     ];
     
     // Additional info for encounters
     const encounterInfo = [
-        'ambushes the party?', 'offers goods?', 'needs help?', 'crosses paths?',
-        'shares news?', 'seeks protection?', 'is tracking someone?', 'questions the party?',
-        'offers wisdom?', 'needs aid?', 'offers services?', 'passes by?',
-        'shares findings?', 'has urgent news?', 'challenges to duel?', 'at work?',
-        'seeks knowledge?', 'performs nearby?', 'offers assistance?', 'with rare goods?',
-        'performing ritual?', 'tracking prey?', 'escaped?', 'sets up camp?',
-        'tells fortunes?', 'on holy quest?', 'trying to steal?', 'for hire?',
-        'shares teachings?', 'with potions?', 'planning something?', 'of attack?',
-        'needs escort?', 'with strange findings?', 'appears?', 'with discovery?'
+        'ambushes?', 'offers goods?', 'needs help?', 'issues a challenge?',
+        'shares news?', 'seeks protection?', 'is tracking someone?', 'has questions?',
+        'offers wisdom?', 'offers services?', 'just passes by?',
+        'shares findings?', 'has urgent news?', 'at work?',
+        'seeks knowledge?', 'lives/works nearby?', 'offers assistance?', 'with rare goods?',
+        'performing ritual?', 'escaped?', 'resting?', 'eating?',
+        'on a quest?', 'trying to steal?', 
+        'with potions?', 'planning something?', 'attacks?',
+        'needs escort?', 'secretive?', 'wants help with a quest?',
     ];
     
     // Subjects for obstructions
     const obstructionSubjects = [
         'Collapsed bridge', 'Hidden pit trap', 'Magical barrier', 'Complex lock',
-        'Riddle', 'Pressure plate', 'Magical seal', 'Hidden door',
-        'Maze of corridors', 'Magical puzzle', 'Portcullis', 'Magical ward',
-        'False floor', 'Magical mirror', 'Swinging blade trap', 'Magical glyph',
-        'Rolling boulder', 'Magical statue', 'Poison dart trap', 'Magical rune',
-        'Net trap', 'Magical door', 'Spike pit', 'Magical barrier',
-        'Falling ceiling trap', 'Magical lock', 'Tripwire', 'Magical field',
-        'False treasure', 'Magical puzzle', 'Hidden compartment', 'Magical test',
-        'Secret passage', 'Magical guardian', 'Complex mechanism', 'Magical illusion'
+        'Hidden door', 'Hidden compartment', 'False floor', 'Secret passage', 
+        'Riddle', 'Pressure plate', 'Complex mechanism', 'Tripwire', 
+        'Maze of corridors', 'Portcullis', 
+        'Swinging blade trap', 'Rolling boulder', 'Poison dart trap', 
+        'Net trap', 'Spike pit', 'Falling ceiling trap', 
+        'False treasure', 
+        'Magical illusion', 'Magical glyph', 'Magical statue',
+        'Magical lock/barrier',
     ];
     
     // Additional info for obstructions
     const obstructionInfo = [
-        'blocks progress?', 'discovered?', 'blocks the way?', 'needs picking?',
-        'must be solved?', 'triggers something?', 'needs breaking?', 'found?',
-        'confuses?', 'must be solved?', 'drops suddenly?', 'must be dispelled?',
-        'gives way?', 'shows illusions?', 'activates?', 'must be deciphered?',
-        'blocks the path?', 'comes to life?', 'triggered?', 'must be activated?',
-        'captures someone?', 'requires password?', 'revealed?', 'requires sacrifice?',
-        'falls?', 'requires specific item?', 'triggers alarm?', 'requires spell?',
-        'is a trap?', 'requires intuition?', 'found?', 'must be passed?',
-        'blocked?', 'must be defeated?', 'needs fixing?', 'hides the path?'
+        'blocks progress?', 'discovered?', 
+        'triggers something?','found?',
+        'confuses?', 'suddenly appears?', 
+        'gives way?', 'activates?',
+        'captures someone?', 'revealed?', 'requires sacrifice?',
+        'requires specific item?', 'triggers alarm?', 
     ];
     
     // Hazards
     const hazards = [
         'Sudden rockslide', 'Magical storm',
         'Sinkhole', 'Flash flood',
-        'Forest fire', 'Magical mist',
-        'Sudden blizzard', 'Earthquake',
+        'Fire', 'Fog/mist',
+        'Earthquake',
         'Swarm of insects', 'Poisonous plant',
-        'Cursed area', 'Magical vortex',
-        'Sudden fog', 'Thunderstorm with magical lightning',
+        'Cursed area',
+        'Lightning',
         'Geyser', 'Magical field',
         'Sudden temperature drop', 'Magical silence',
-        'River changes course', 'Magical darkness',
-        'Sudden sandstorm', 'Magical storm of feathers',
-        'Sudden ice storm', 'Magical field reverses gravity',
-        'Sudden mudslide', 'Magical field causes time distortion',
-        'Sudden volcanic activity', 'Magical field causes memory loss',
-        'Sudden windstorm', 'Magical field causes aging',
-        'Sudden hailstorm', 'Magical field causes youth',
-        'Sudden dust devil', 'Magical field causes laughter',
-        'Sudden lightning strike', 'Magical field causes sleep'
+        'Magical darkness',
+        'Magical field causes memory loss',
+        'Gust of wind', 
+        'Sleep spell'
     ];
     
     // Miscellaneous (36: 12 good, 12 neutral, 12 bad/scary)
     const goodEvents = [
         'Hidden cache of supplies', 'Friendly animal',
         'Forgotten shrine', 'Lucky find',
-        'Helpful NPC', 'Magical item',
-        'Hidden talent', 'Helpful spirit',
+        'Helpful NPC', 
+        'Helpful spirit',
         'Magical blessing', 'Sudden ally',
-        'Magical gift', 'Sudden breakthrough'
+        'Sudden insight'
     ];
     
     const neutralEvents = [
         'Strange omen', 'Mysterious note',
-        'Sudden insight', 'Sudden inspiration',
-        'Stroke of good luck', 'Sudden weather change',
-        'Forgotten memory', 'Helpful coincidence',
-        'Sudden realization', 'Helpful dream',
-        'Helpful sign', 'Helpful discovery'
+        'Recall a forgotten memory', 'Strange coincidence',
+        'Sudden realization', 'Meaningful vision',
     ];
     
     const badEvents = [
-        'Cursed item', 'Foreboding vision',
+        'Foreboding vision',
         'Mysterious illness', 'Bad omen',
-        'Valuable item', 'Trusted contact',
-        'Magical curse', 'Haunting presence',
-        'Terrible nightmare', 'Dangerous secret',
-        'Frightening prophecy', 'Shadowy figure'
+        'Something goes missing', 'Something gets damaged',
+        'Feeling of unease', 'Ally behaves oddly',
+        'Terrible nightmare', 'Discover a dangerous secret',
+        'See a shadowy figure in the distance'
     ];
     
     const miscellaneous = [...goodEvents, ...neutralEvents, ...badEvents];
@@ -593,7 +582,7 @@ function generateSpaceEvent() {
         'has strange ore?', 'has urgent data?', 'makes threats?', 'scavenging debris?',
         'seeks protection?', 'celebrating?', 'offers services?', 'with illegal tech?',
         'performing rituals?', 'tracking something?', 'escaped?', 'on a mission?',
-        'suddenly appears?', 'on spiritual quest?', 'infiltrating?', 'for hire?',
+        'suddenly appears?', 'on spiritual quest?', 'infiltrating?', 
         'shares wisdom?', 'performing experiments?', 'planning an operation?', 'attacking?',
         'makes a discovery?'
     ];
