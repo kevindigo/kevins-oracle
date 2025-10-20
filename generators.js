@@ -391,9 +391,6 @@ function generateFantasyEvent() {
     
     const miscellaneous = [...goodEvents, ...neutralEvents, ...badEvents];
     
-    // Combine all categories
-    const allEvents = [...hazards, ...miscellaneous];
-    
     // Randomly decide which format to use
     const randomChoice = Math.random();
     
@@ -641,9 +638,6 @@ function generateSpaceEvent() {
     ];
     
     const miscellaneous = [...goodEvents, ...neutralEvents, ...badEvents];
-    
-    // Combine all categories
-    const allEvents = [...hazards, ...miscellaneous];
     
     // Randomly decide which format to use
     const randomChoice = Math.random();
