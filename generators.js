@@ -398,17 +398,22 @@ function generateFantasyEvent() {
     let extraText;
     let eventType;
     
-    if (randomChoice < 0.34) {
+    if (randomChoice < 0.4) {
+        // Random Encounter - 60% chance
+        mainText = 'Normal random encounter';
+        extraText = '';
+        eventType = 'Fantasy Random Encounter';
+    } else if (randomChoice < 0.55) {
         // Use the new "Subject (additional info?)" format for encounters
         mainText = encounterSubjects[Math.floor(Math.random() * encounterSubjects.length)];
         extraText = encounterInfo[Math.floor(Math.random() * encounterInfo.length)];
         eventType = 'Fantasy Encounter';
-    } else if (randomChoice < 0.68) {
+    } else if (randomChoice < 0.7) {
         // Use the new "Subject (additional info?)" format for obstructions
         mainText = obstructionSubjects[Math.floor(Math.random() * obstructionSubjects.length)];
         extraText = obstructionInfo[Math.floor(Math.random() * obstructionInfo.length)];
         eventType = 'Fantasy Obstacle';
-    } else if (randomChoice < 0.84) {
+    } else if (randomChoice < 0.85) {
         // Use existing format for hazards
         const event = hazards[Math.floor(Math.random() * hazards.length)];
         mainText = event;
@@ -646,17 +651,22 @@ function generateSpaceEvent() {
     let extraText;
     let eventType;
     
-    if (randomChoice < 0.34) {
+    if (randomChoice < 0.0) {
+        // Random Encounter - 60% chance
+        mainText = 'Normal random encounter';
+        extraText = '';
+        eventType = 'Space Random Encounter';
+    } else if (randomChoice < 0.25) {
         // Use the new "Subject (additional info?)" format for encounters
         mainText = encounterSubjects[Math.floor(Math.random() * encounterSubjects.length)];
         extraText = encounterInfo[Math.floor(Math.random() * encounterInfo.length)];
         eventType = 'Space Encounter';
-    } else if (randomChoice < 0.68) {
+    } else if (randomChoice < 0.50) {
         // Use the new "Subject (additional info?)" format for obstructions
         mainText = obstructionSubjects[Math.floor(Math.random() * obstructionSubjects.length)];
         extraText = obstructionInfo[Math.floor(Math.random() * obstructionInfo.length)];
         eventType = 'Space Obstacle';
-    } else if (randomChoice < 0.84) {
+    } else if (randomChoice < 0.75) {
         // Use existing format for hazards
         const event = hazards[Math.floor(Math.random() * hazards.length)];
         mainText = event;
