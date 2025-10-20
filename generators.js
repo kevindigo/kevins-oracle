@@ -76,21 +76,21 @@ function generateFantasyPlaceName() {
     ];
     
     const suffixes = [
-        ' abbey', ' academy', ' altar', ' beach', ' bay',
-        ' bog', ' bridge', 'brook', 'burg', ' burrow',
+        ' abbey', ' academy', ' altar', ' beach', 'bay',
+        'bog', 'bridge', 'brook', 'burg', ' burrow',
         ' castle', ' cathedral', ' cave', ' cavern', ' chapel',
-        ' city', ' cliff', ' colony', ' crag', ' crossing',
+        ' city', ' cliff', ' colony', 'crag', ' crossing',
         ' dock', ' estate', ' farm', ' fen', ' field',
-        ' ford', ' forest', ' fort', ' forge', ' garden',
-        ' gate', ' glade', ' grotto', ' grove', ' hall',
-        ' harbor', ' hill', ' hollow', ' keep', ' lake',
+        'ford', ' forest', ' fort', ' forge', ' garden',
+        ' gate', ' glade', ' grotto', ' grove', 'hall',
+        ' harbor', 'hill', ' hollow', 'keep', ' lake',
         ' manor', ' marsh', ' meadow', ' mill', ' mine',
         ' monastery', ' mountain', ' park', ' pass', ' peak',
-        ' pier', ' plain', ' port', ' prairie', ' quarry',
-        ' ridge', ' river', ' sanctuary', ' shore', ' shrine',
+        ' pier', ' plain', 'port', ' prairie', ' quarry',
+        'ridge', ' river', ' sanctuary', ' shore', ' shrine',
         ' spring', ' stone', ' stream', ' swamp', ' temple',
-        ' ton', ' tower', ' town', ' vale', ' valley',
-        ' vineyard', ' ville', ' warren', ' way', 'wood'
+        'ton', ' tower', 'town', 'vale', ' valley',
+        ' vineyard', 'ville', ' warren', 'way', 'wood'
     ];
     
     const prefix = prefixes[Math.floor(Math.random() * prefixes.length)];
