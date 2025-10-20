@@ -421,9 +421,9 @@
             if (twistRoll === 1) {
                 const action = getRandomAction();
                 const theme = getRandomTheme();
-                return `<div class="text-muted" style="margin-top: 8px;">Twist: ${action} ${theme}</div>`;
+                return `Twist: ${action} ${theme}`;
             }
-            return '<br>&nbsp;';
+            return '';
         }
 
         // Shared Yes/No Oracle Response Generator
@@ -477,7 +477,7 @@
             const action = getRandomAction();
             const theme = getRandomTheme();
             
-            showResultWithFlash('Action & Theme', `${action} ${theme}`, '&nbsp;');
+            showResultWithFlash('Action & Theme', `${action} ${theme}`, '');
         }
 
         // Plot Hook / Quest Generator
@@ -521,7 +521,7 @@
         // Fantasy NPC Generator (now imported from generators.js)
         function showFantasyNPC() {
             const { name, descriptor, personality, role } = window.generateFantasyNPC();
-            showResultWithFlash('Fantasy NPC', name, `<span class="text-muted">${descriptor} ${personality} ${role}</span>`);
+            showResultWithFlash('Fantasy NPC', name, `${descriptor} ${personality} ${role}`);
         }
 
 
@@ -542,7 +542,7 @@
         // Space NPC Generator (now imported from generators.js)
         function showSpaceNPC() {
             const { name, descriptor, personality, role } = window.generateSpaceNPC();
-            showResultWithFlash('Space NPC', name, `<span class="text-muted">${descriptor} ${personality} ${role}</span>`);
+            showResultWithFlash('Space NPC', name, `${descriptor} ${personality} ${role}`);
         }
 
 
@@ -582,7 +582,7 @@
             const alterationType = alterationTypes[Math.floor(Math.random() * alterationTypes.length)];
             const topic = topics[Math.floor(Math.random() * topics.length)];
             
-            showResultWithFlash('Scene Alteration', alterationType, `<span class="text-muted">${topic}</muted>`);
+            showResultWithFlash('Scene Alteration', alterationType, topic);
         }
 
         // Generic Dice Roller Function
@@ -602,47 +602,47 @@
         // Individual dice functions become simple wrappers
         function rollD4() {
             const { total } = rollDice(4);
-            showResultWithFlash('d4 Dice Roll', `${total}`, '&nbsp;');
+            showResultWithFlash('d4 Dice Roll', `${total}`, '');
         }
 
         function roll1d6() {
             const { total } = rollDice(6);
-            showResultWithFlash('1d6 Dice Roll', `${total}`, '&nbsp;');
+            showResultWithFlash('1d6 Dice Roll', `${total}`, '');
         }
 
         function roll2d6() {
             const { total, rolls } = rollDice(6, 2);
-            showResultWithFlash('2d6 Dice Roll', `${total}`, `<span class="text-muted">${rolls.join(' + ')}</span>`);
+            showResultWithFlash('2d6 Dice Roll', `${total}`, rolls.join(' + '));
         }
 
         function roll3d6() {
             const { total, rolls } = rollDice(6, 3);
-            showResultWithFlash('3d6 Dice Roll', `${total}`, `<span class="text-muted">${rolls.join(' + ')}</span>`);
+            showResultWithFlash('3d6 Dice Roll', `${total}`, rolls.join(' + '));
         }
 
         function rollD8() {
             const { total } = rollDice(8);
-            showResultWithFlash('d8 Dice Roll', `${total}`, '&nbsp;');
+            showResultWithFlash('d8 Dice Roll', `${total}`, '');
         }
 
         function rollD10() {
             const { total } = rollDice(10);
-            showResultWithFlash('d10 Dice Roll', `${total}`, '&nbsp;');
+            showResultWithFlash('d10 Dice Roll', `${total}`, '');
         }
 
         function rollD12() {
             const { total } = rollDice(12);
-            showResultWithFlash('d12 Dice Roll', `${total}`, '&nbsp;');
+            showResultWithFlash('d12 Dice Roll', `${total}`, '');
         }
 
         function rollD20() {
             const { total } = rollDice(20);
-            showResultWithFlash('d20 Dice Roll', `${total}`, '&nbsp;');
+            showResultWithFlash('d20 Dice Roll', `${total}`, '');
         }
 
         function rollD100() {
             const { total } = rollDice(100);
-            showResultWithFlash('d100 Dice Roll', `${total}`, '&nbsp;');
+            showResultWithFlash('d100 Dice Roll', `${total}`, '');
         }
 
         // PWA Service Worker Registration
