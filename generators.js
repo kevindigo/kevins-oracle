@@ -18,7 +18,7 @@ function getRandomAction() {
         'Celebrate', 'Mourn', 'Laugh', 'Cry', 'Sing',
         'Dance', 'Fight', 'Flee', 'Stand', 'Fall',
         'Raise', 'Ascend', 'Descend', 'Enter', 'Exit',
-        'Arrive', 'Depart', 'Follow', 'Lead', 'Guide',
+        'Lead', 'Guide', 'Escort', 
         'Command', 'Obey', 'Rebel', 'Submit', 'Resist',
         'Change', 'Preserve', 'Adapt', 'Evolve', 'Regress',
         'Analyze', 'Combine', 'Divide', 'Heal', 'Enforce', 
@@ -442,6 +442,7 @@ function generateFantasyPlotHook() {
         'Awaken', 'Break', 'Steal', 'Deliver', 'Hunt',
         'Recover', 'Defeat', 'Banish',
         'Heal', 'Cure', 'Repair',
+        'Persuade', 'Infiltrate', 'Capture', 
         'Discover', 'Guard', 'Follow', 'Transport', 'Break'
     ];
     
