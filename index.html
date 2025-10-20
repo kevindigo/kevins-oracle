@@ -459,17 +459,17 @@
         // Yes/No Oracle
         function askYesNoEven() {
             const { result, twistText } = generateYesNoResponse('even');
-            showResultWithFlash('Yes/No Oracle (even)', `${result}${twistText}`);
+            showResultWithFlash('Yes/No Oracle (even)', result, twistText);
         }
 
         function askYesNoLikely() {
             const { result, twistText } = generateYesNoResponse('likely');
-            showResultWithFlash('Yes/No Oracle (likely)', `${result}${twistText}`);
+            showResultWithFlash('Yes/No Oracle (likely)', result, twistText);
         }
 
         function askYesNoUnlikely() {
             const { result, twistText } = generateYesNoResponse('unlikely');
-            showResultWithFlash('Yes/No Oracle (unlikely)', `${result}${twistText}`);
+            showResultWithFlash('Yes/No Oracle (unlikely)', result, twistText);
         }
 
         // Action & Theme Generator
@@ -477,7 +477,7 @@
             const action = getRandomAction();
             const theme = getRandomTheme();
             
-            showResultWithFlash('Action & Theme', `${action} ${theme}<br>&nbsp;`);
+            showResultWithFlash('Action & Theme', `${action} ${theme}`, '&nbsp;');
         }
 
         // Plot Hook / Quest Generator
@@ -494,7 +494,7 @@
         // Fantasy Location Generator (now uses imported function from generators.js)
         function showFantasyLocation() {
             const { location, placeName } = window.generateFantasyLocation();
-            showResultWithFlash('Fantasy Location', `${location}<br>at ${placeName}`);
+            showResultWithFlash('Fantasy Location', location, `at ${placeName}`);
         }
 
         // Location Generator
@@ -513,7 +513,7 @@
         // Space Location Generator (now uses imported function from generators.js)
         function showSpaceLocation() {
             const { location, placeName } = window.generateSpaceLocation();
-            showResultWithFlash('Space Location', `${location}<br>at ${placeName}`);
+            showResultWithFlash('Space Location', location, `at ${placeName}`);
         }
 
 
@@ -521,7 +521,7 @@
         // Fantasy NPC Generator (now imported from generators.js)
         function showFantasyNPC() {
             const { name, descriptor, personality, role } = window.generateFantasyNPC();
-            showResultWithFlash('Fantasy NPC', `${name}<br><span class="text-muted">${descriptor} ${personality} ${role}</span>`);
+            showResultWithFlash('Fantasy NPC', name, `<span class="text-muted">${descriptor} ${personality} ${role}</span>`);
         }
 
 
@@ -542,7 +542,7 @@
         // Space NPC Generator (now imported from generators.js)
         function showSpaceNPC() {
             const { name, descriptor, personality, role } = window.generateSpaceNPC();
-            showResultWithFlash('Space NPC', `${name}<br><span class="text-muted">${descriptor} ${personality} ${role}</span>`);
+            showResultWithFlash('Space NPC', name, `<span class="text-muted">${descriptor} ${personality} ${role}</span>`);
         }
 
 
@@ -582,7 +582,7 @@
             const alterationType = alterationTypes[Math.floor(Math.random() * alterationTypes.length)];
             const topic = topics[Math.floor(Math.random() * topics.length)];
             
-            showResultWithFlash('Scene Alteration', `${alterationType}<br><span class="text-muted">${topic}</muted>`);
+            showResultWithFlash('Scene Alteration', alterationType, `<span class="text-muted">${topic}</muted>`);
         }
 
         // Generic Dice Roller Function
@@ -602,47 +602,47 @@
         // Individual dice functions become simple wrappers
         function rollD4() {
             const { total } = rollDice(4);
-            showResultWithFlash('d4 Dice Roll', `${total}<br>&nbsp;`);
+            showResultWithFlash('d4 Dice Roll', `${total}`, '&nbsp;');
         }
 
         function roll1d6() {
             const { total } = rollDice(6);
-            showResultWithFlash('1d6 Dice Roll', `${total}<br>&nbsp;`);
+            showResultWithFlash('1d6 Dice Roll', `${total}`, '&nbsp;');
         }
 
         function roll2d6() {
             const { total, rolls } = rollDice(6, 2);
-            showResultWithFlash('2d6 Dice Roll', `${total}<br><span class="text-muted">${rolls.join(' + ')}</span>`);
+            showResultWithFlash('2d6 Dice Roll', `${total}`, `<span class="text-muted">${rolls.join(' + ')}</span>`);
         }
 
         function roll3d6() {
             const { total, rolls } = rollDice(6, 3);
-            showResultWithFlash('3d6 Dice Roll', `${total}<br><span class="text-muted">${rolls.join(' + ')}</span>`);
+            showResultWithFlash('3d6 Dice Roll', `${total}`, `<span class="text-muted">${rolls.join(' + ')}</span>`);
         }
 
         function rollD8() {
             const { total } = rollDice(8);
-            showResultWithFlash('d8 Dice Roll', `${total}<br>&nbsp;`);
+            showResultWithFlash('d8 Dice Roll', `${total}`, '&nbsp;');
         }
 
         function rollD10() {
             const { total } = rollDice(10);
-            showResultWithFlash('d10 Dice Roll', `${total}<br>&nbsp;`);
+            showResultWithFlash('d10 Dice Roll', `${total}`, '&nbsp;');
         }
 
         function rollD12() {
             const { total } = rollDice(12);
-            showResultWithFlash('d12 Dice Roll', `${total}<br>&nbsp;`);
+            showResultWithFlash('d12 Dice Roll', `${total}`, '&nbsp;');
         }
 
         function rollD20() {
             const { total } = rollDice(20);
-            showResultWithFlash('d20 Dice Roll', `${total}<br>&nbsp;`);
+            showResultWithFlash('d20 Dice Roll', `${total}`, '&nbsp;');
         }
 
         function rollD100() {
             const { total } = rollDice(100);
-            showResultWithFlash('d100 Dice Roll', `${total}<br>&nbsp;`);
+            showResultWithFlash('d100 Dice Roll', `${total}`, '&nbsp;');
         }
 
         // PWA Service Worker Registration
