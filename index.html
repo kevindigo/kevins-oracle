@@ -162,6 +162,14 @@
             line-height: 1.3;
         }
 
+        .extra-text {
+            font-size: 0.9em;
+            opacity: 0.8;
+            margin-top: 5px;
+            text-align: right;
+            line-height: 1.2;
+        }
+
         .dice-rolls {
             font-size: 0.8em;
             opacity: 0.8;
@@ -388,7 +396,7 @@
 
     <script>
         // Helper function to show result with flash effect
-        function showResultWithFlash(header, content) {
+        function showResultWithFlash(header, content, extraText = '') {
             const resultDiv = document.getElementById('sharedResult');
             
             // Clear the content (flash effect)
@@ -400,7 +408,8 @@
             setTimeout(() => {
                 resultDiv.innerHTML = 
                     `<div class="result-header">${header}</div>
-                     <div class="result-content">${content}</div>`;
+                     <div class="result-content">${content}</div>
+                     ${extraText ? `<div class="extra-text">${extraText}</div>` : ''}`;
             }, 100);
         }
 
