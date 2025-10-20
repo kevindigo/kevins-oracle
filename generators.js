@@ -403,25 +403,25 @@ function generateFantasyEvent() {
     // Randomly decide which format to use
     const randomChoice = Math.random();
     
-    let eventText;
+    let mainText;
+    let extraText;
     let eventType;
     
     if (randomChoice < 0.33) {
         // Use the new "Subject (additional info?)" format for encounters
-        const subject = encounterSubjects[Math.floor(Math.random() * encounterSubjects.length)];
-        const info = encounterInfo[Math.floor(Math.random() * encounterInfo.length)];
-        eventText = `${subject}<br/>${info}`;
+        mainText = encounterSubjects[Math.floor(Math.random() * encounterSubjects.length)];
+        extraText = encounterInfo[Math.floor(Math.random() * encounterInfo.length)];
         eventType = 'Fantasy Encounter';
     } else if (randomChoice < 0.66) {
         // Use the new "Subject (additional info?)" format for obstructions
-        const subject = obstructionSubjects[Math.floor(Math.random() * obstructionSubjects.length)];
-        const info = obstructionInfo[Math.floor(Math.random() * obstructionInfo.length)];
-        eventText = `${subject}<br/>${info}`;
+        mainText = obstructionSubjects[Math.floor(Math.random() * obstructionSubjects.length)];
+        extraText = obstructionInfo[Math.floor(Math.random() * obstructionInfo.length)];
         eventType = 'Fantasy Obstacle';
     } else {
         // Use existing format for hazards and miscellaneous events
         const event = allEvents[Math.floor(Math.random() * allEvents.length)];
-        eventText = event;
+        mainText = event;
+        extraText = '';
         // Determine type for hazards and miscellaneous
         if (hazards.includes(event)) {
             eventType = 'Fantasy Hazard';
@@ -430,7 +430,7 @@ function generateFantasyEvent() {
         }
     }
     
-    return { text: eventText, type: eventType };
+    return { mainText, extraText, type: eventType };
 }
 
 // Fantasy Plot Hook Generator
@@ -495,7 +495,7 @@ function generateFantasyPlotHook() {
     const adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
     const noun = nouns[Math.floor(Math.random() * nouns.length)];
     
-    return `${verb} ${noun}<br/>${adjective}`;
+    return { mainText: `${verb} ${noun}`, extraText: adjective };
 }
 
 // Space Plot Hook Generator
@@ -560,7 +560,7 @@ function generateSpacePlotHook() {
     const adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
     const noun = nouns[Math.floor(Math.random() * nouns.length)];
     
-    return `${verb} ${noun}<br/>${adjective}`;
+    return { mainText: `${verb} ${noun}`, extraText: adjective };
 }
 
 // Main Plot Hook Generator (handles theme selection)
@@ -677,25 +677,25 @@ function generateSpaceEvent() {
     // Randomly decide which format to use
     const randomChoice = Math.random();
     
-    let eventText;
+    let mainText;
+    let extraText;
     let eventType;
     
     if (randomChoice < 0.33) {
         // Use the new "Subject (additional info?)" format for encounters
-        const subject = encounterSubjects[Math.floor(Math.random() * encounterSubjects.length)];
-        const info = encounterInfo[Math.floor(Math.random() * encounterInfo.length)];
-        eventText = `${subject}<br/>${info}`;
+        mainText = encounterSubjects[Math.floor(Math.random() * encounterSubjects.length)];
+        extraText = encounterInfo[Math.floor(Math.random() * encounterInfo.length)];
         eventType = 'Space Encounter';
     } else if (randomChoice < 0.66) {
         // Use the new "Subject (additional info?)" format for obstructions
-        const subject = obstructionSubjects[Math.floor(Math.random() * obstructionSubjects.length)];
-        const info = obstructionInfo[Math.floor(Math.random() * obstructionInfo.length)];
-        eventText = `${subject}<br/>${info}`;
+        mainText = obstructionSubjects[Math.floor(Math.random() * obstructionSubjects.length)];
+        extraText = obstructionInfo[Math.floor(Math.random() * obstructionInfo.length)];
         eventType = 'Space Obstacle';
     } else {
         // Use existing format for hazards and miscellaneous events
         const event = allEvents[Math.floor(Math.random() * allEvents.length)];
-        eventText = event;
+        mainText = event;
+        extraText = '';
         // Determine type for hazards and miscellaneous
         if (hazards.includes(event)) {
             eventType = 'Space Hazard';
@@ -704,7 +704,7 @@ function generateSpaceEvent() {
         }
     }
     
-    return { text: eventText, type: eventType };
+    return { mainText, extraText, type: eventType };
 }
 
 // Attach functions to window object for global access

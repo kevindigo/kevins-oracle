@@ -483,7 +483,7 @@
             const selectedTheme = themeSelect.value;
             const quest = selectedTheme === 'space' ? window.generateSpacePlotHook() : window.generateFantasyPlotHook();
             const themeLabel = selectedTheme === 'space' ? 'Space' : 'Fantasy';
-            showResultWithFlash(`${themeLabel} Plot Hook`, quest);
+            showResultWithFlash(`${themeLabel} Plot Hook`, quest.mainText, quest.extraText);
         }
 
 
@@ -551,11 +551,11 @@
             
             if (selectedTheme === 'space') {
                 const event = window.generateSpaceEvent();
-                showResultWithFlash(event.type, event.text);
+                showResultWithFlash(event.type, event.mainText, event.extraText);
             } else {
                 // Default to fantasy
                 const event = window.generateFantasyEvent();
-                showResultWithFlash(event.type, event.text);
+                showResultWithFlash(event.type, event.mainText, event.extraText);
             }
         }
 
