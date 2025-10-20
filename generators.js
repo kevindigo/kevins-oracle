@@ -164,7 +164,7 @@ function generateSpaceLocation() {
         'Alien ruins', 'Derelict ship', 'Generation ship', 'Colony ship',
         'Battlecruiser', 'Exploration vessel', 'Cargo freighter', 'Science lab',
         'Observatory', 'Comms relay', 'Fuel depot', 'Repair dock',
-        'Shipyard', 'Dry dock', 'Jump gate', 'Warp point',
+        'Shipyard', 'Dry dock', 
         'Gravity well', 'Quantum anomaly', 'Temporal rift', 'Parallel dimension',
         'Virtual reality', 'Cyberspace', 'Data stream', 'Network hub',
         'AI core', 'Mainframe', 'Server farm', 'Database',
@@ -182,7 +182,7 @@ function generateSpaceLocation() {
         'Robotics factory', 'Nanite swarm', 'Drone hive', 'Android colony',
         'Cyborg enclave', 'Augmentation clinic', 'Neural interface', 'Mind network',
         'Telepathic nexus', 'Psionic chamber', 'Precog facility', 'Clairvoyance lab',
-        'Time dilation field', 'Space warp', 'Reality bubble', 'Pocket dimension',
+        'Time dilation field', 'Reality bubble', 'Pocket dimension',
         'Simulation world', 'Holographic environment', 'Projection field', 'Illusion matrix'
     ];
     
@@ -307,27 +307,27 @@ function generateFantasyEvent() {
     // Subjects for encounters
     const encounterSubjects = [
         'Bandits', 'Friendly merchant', 'Lost child', 'Rival adventuring party',
-        'Wandering minstrel', 'Group of pilgrims', 'Bounty hunter', 'Patrol',
-        'Mysterious hermit', 'Group of refugees', 'Traveling healer', 'Noble with entourage',
-        'Group of locals', 'Messenger', 'Mage', 'Group of smugglers',
-        'Lost scholar', 'Group of bards', 'Knight', 'Suspicious merchant',
-        'Group of cultists', 'Ranger', 'Group of escaped prisoners', 'Entertainment troupe',
-        'Mysterious fortune teller', 'Pilgrims on holy quest', 'Thief', 'Group of mercenaries',
-        'Monk', 'Alchemist', 'Group of rebels', 'Lone survivor',
-        'Traveling diplomat', 'Group of workers', 'Shapeshifter', 'Locals with discovery'
+        'Wandering minstrel', 'Pilgrims', 'Bounty hunter', 'Patrol',
+        'Mysterious hermit', 'Refugees', 'Traveling healer', 'Noble with entourage',
+        'Locals', 'Messenger', 'Mage', 'Smugglers',
+        'Lost scholar', 'Bards', 'Knight', 'Suspicious merchant',
+        'Cultists', 'Ranger', 'Escaped prisoners', 'Entertainment troupe',
+        'Mysterious fortune teller', 'Pilgrims on holy quest', 'Thief', 'Mercenaries',
+        'Monk', 'Alchemist', 'Rebels', 'Lone survivor',
+        'Traveling diplomat', 'Workers', 'Shapeshifter', 'Locals with discovery'
     ];
     
     // Additional info for encounters
     const encounterInfo = [
-        'ambushes?', 'offers goods?', 'needs help?', 'issues a challenge?',
-        'shares news?', 'seeks protection?', 'is tracking someone?', 'has questions?',
-        'offers wisdom?', 'offers services?', 'just passes by?',
-        'shares findings?', 'has urgent news?', 'at work?',
-        'seeks knowledge?', 'lives/works nearby?', 'offers assistance?', 'with rare goods?',
+        'ambush?', 'offering goods?', 'needing help?', 'intimidating?',
+        'sharing news?', 'seeking protection?', 'tracking someone?', 'asking questions?',
+        'offering wisdom?', 'offering services?', 'just passing by?',
+        'sharing findings?', 'recounting urgent news?', 'working?',
+        'seeking knowledge?', 'local?', 'offering assistance?', 'with rare goods?',
         'performing ritual?', 'escaped?', 'resting?', 'eating?',
         'on a quest?', 'trying to steal?', 
         'with potions?', 'planning something?', 'attacks?',
-        'needs escort?', 'secretive?', 'wants help with a quest?',
+        'needing escort?', 'secretive?', 'wanting help with a quest?',
     ];
     
     // Subjects for obstructions
@@ -345,10 +345,10 @@ function generateFantasyEvent() {
     
     // Additional info for obstructions
     const obstructionInfo = [
-        'blocks progress?', 'discovered?', 
-        'triggers something?','found?',
-        'confuses?', 'suddenly appears?', 
-        'gives way?', 'activates?',
+        'discovered?', 'invisible?', 'triggers a memory?', 
+        'chain reaction?','found?', 'poorly crafted?', 
+        'causes confusion?', 'suddenly appears?', 
+        'activates?', 'looks fake?', 
         'captures someone?', 'revealed?', 'requires sacrifice?',
         'requires specific item?', 'triggers alarm?', 
     ];
@@ -376,7 +376,7 @@ function generateFantasyEvent() {
         'Forgotten shrine', 'Lucky find',
         'Helpful NPC', 
         'Helpful spirit',
-        'Magical blessing', 'Sudden ally',
+        'Magical blessing', 'Surprising ally',
         'Sudden insight'
     ];
     
@@ -392,7 +392,7 @@ function generateFantasyEvent() {
         'Something goes missing', 'Something gets damaged',
         'Feeling of unease', 'Ally behaves oddly',
         'Terrible nightmare', 'Discover a dangerous secret',
-        'See a shadowy figure in the distance'
+        'Shadowy figure in the distance'
     ];
     
     const miscellaneous = [...goodEvents, ...neutralEvents, ...badEvents];
@@ -410,13 +410,13 @@ function generateFantasyEvent() {
         // Use the new "Subject (additional info?)" format for encounters
         const subject = encounterSubjects[Math.floor(Math.random() * encounterSubjects.length)];
         const info = encounterInfo[Math.floor(Math.random() * encounterInfo.length)];
-        eventText = `${subject} (${info})`;
+        eventText = `${subject}<br/>${info}`;
         eventType = 'Fantasy Encounter';
     } else if (randomChoice < 0.66) {
         // Use the new "Subject (additional info?)" format for obstructions
         const subject = obstructionSubjects[Math.floor(Math.random() * obstructionSubjects.length)];
         const info = obstructionInfo[Math.floor(Math.random() * obstructionInfo.length)];
-        eventText = `${subject} (${info})`;
+        eventText = `${subject}<br/>${info}`;
         eventType = 'Fantasy Obstacle';
     } else {
         // Use existing format for hazards and miscellaneous events
@@ -495,7 +495,7 @@ function generateFantasyPlotHook() {
     const adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
     const noun = nouns[Math.floor(Math.random() * nouns.length)];
     
-    return `${verb} ${noun} (${adjective})`;
+    return `${verb} ${noun}<br/>${adjective}`;
 }
 
 // Space Plot Hook Generator
@@ -515,8 +515,8 @@ function generateSpacePlotHook() {
         'enemy', 'alien', 'solar', 'trade', 'lost',
         'rogue', 'asteroid', 'space', 'corporate', 'hostile',
         'cryo-sleep', 'prototype', 'medical', 'space', 'black',
-        'rival', 'jump', 'alien', 'cosmic', 'plague',
-        'nanite', 'orbital', 'warp', 'alien', 'wormhole',
+        'rival', 'distant', 'alien', 'cosmic', 'plague',
+        'nanite', 'orbital', 'interstellar', 'alien', 'wormhole',
         'diplomatic', 'distress', 'pirate', 'terraforming', 'ghost',
         'stranded', 'ancient', 'superweapon', 'stolen', 'research',
         'spy', 'gravity', 'dormant', 'security', 'star',
@@ -524,7 +524,7 @@ function generateSpacePlotHook() {
         'rescue', 'energy', 'radiation', 'memory', 'space',
         'life support', 'hacking', 'hidden', 'fuel', 'energy',
         'smuggling', 'ambassador', 'time', 'captured', 'quantum',
-        'medical', 'reactor', 'genetic', 'jump', 'false',
+        'medical', 'reactor', 'genetic', 'false',
         'nebula', 'terraforming', 'encryption', 'military', 'emergency',
         'rogue', 'alien', 'rival', 'diplomatic', 'trading',
         'parasitic', 'ecosystem', 'cybernetic', 'deep space', 'sensor',
@@ -538,7 +538,7 @@ function generateSpacePlotHook() {
         'battlecruiser', 'transmission', 'flare', 'agreement', 'generation ship',
         'AI', 'asteroid field', 'space station', 'conspiracy', 'sector',
         'crew', 'weapon', 'supplies', 'anomaly', 'black box',
-        'mercenary group', 'gate', 'fleet', 'entity', 'outbreak',
+        'mercenaries', 'gate', 'fleet', 'entity', 'outbreak',
         'infection', 'defense', 'drive', 'language', 'wormhole',
         'summit', 'signal', 'base', 'project', 'ship',
         'colonists', 'artifact', 'activation', 'tech', 'outpost',
@@ -560,7 +560,7 @@ function generateSpacePlotHook() {
     const adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
     const noun = nouns[Math.floor(Math.random() * nouns.length)];
     
-    return `${verb} ${noun} (${adjective})`;
+    return `${verb} ${noun}<br/>${adjective}`;
 }
 
 // Main Plot Hook Generator (handles theme selection)
@@ -666,7 +666,7 @@ function generateSpaceEvent() {
         'Valuable component malfunctions', 'Ally acts strangely',
         'Sensors show intermittent ghost blips', 'Something/someone disappears',
         'Nightmares', 'Dangerous data found', 'Crew member feels sick',
-        'Frightening prophecy/news decoded', 'Shadowy ship follows at distance',
+        'Frightening prophecy/news decoded', 'Shadowy threat follows at distance',
     ];
     
     const miscellaneous = [...goodEvents, ...neutralEvents, ...badEvents];
@@ -684,13 +684,13 @@ function generateSpaceEvent() {
         // Use the new "Subject (additional info?)" format for encounters
         const subject = encounterSubjects[Math.floor(Math.random() * encounterSubjects.length)];
         const info = encounterInfo[Math.floor(Math.random() * encounterInfo.length)];
-        eventText = `${subject} (${info})`;
+        eventText = `${subject}<br/>${info}`;
         eventType = 'Space Encounter';
     } else if (randomChoice < 0.66) {
         // Use the new "Subject (additional info?)" format for obstructions
         const subject = obstructionSubjects[Math.floor(Math.random() * obstructionSubjects.length)];
         const info = obstructionInfo[Math.floor(Math.random() * obstructionInfo.length)];
-        eventText = `${subject} (${info})`;
+        eventText = `${subject}<br/>${info}`;
         eventType = 'Space Obstacle';
     } else {
         // Use existing format for hazards and miscellaneous events
