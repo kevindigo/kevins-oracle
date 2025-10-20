@@ -1,3 +1,28 @@
+// Shared NPC data
+const sharedPersonalities = [
+    'Ambitious', 'Anxious', 'Arrogant', 'Brave', 'Calculating',
+    'Cautious', 'Chivalrous', 'Common', 'Confident', 'Content',
+    'Cowardly', 'Creative', 'Cunning', 'Curious', 'Deceitful',
+    'Deceptive', 'Emotional', 'Foolish', 'Friendly', 'Generous',
+    'Greedy', 'Heretical', 'Honest', 'Hostile', 'Humble',
+    'Impulsive', 'Indifferent', 'Intuitive', 'Logical', 'Loyal',
+    'Methodical', 'Mystical', 'Noble', 'Obedient', 'Optimistic',
+    'Patient', 'Pessimistic', 'Pious', 'Playful', 'Practical',
+    'Rebellious', 'Serious', 'Stoic', 'Suspicious', 'Traditional',
+    'Treacherous', 'Trusting', 'Wanderlust', 'Wise', 'Witty'
+];
+
+const sharedDescriptors = [
+    'Aged', 'Agile', 'Bald', 'Bearded', 'Broad-shouldered',
+    'Clean-shaven', 'Clumsy', 'Curly-haired', 'Delicate', 'Elderly',
+    'Elegant', 'Enhanced', 'Freckled', 'Graceful', 'Imposing',
+    'Lanky', 'Lean', 'Long-haired', 'Middle-aged', 'Muscular',
+    'Pale', 'Petite', 'Plain', 'Rugged', 'Scarred',
+    'Short', 'Short-haired', 'Slender', 'Slick-haired', 'Stocky',
+    'Stout', 'Striking', 'Tall', 'Tanned', 'Tattooed',
+    'Unassuming', 'Vibrant', 'Weathered', 'Youthful'
+];
+
 // Common word generators
 function getRandomAction() {
     const actions = [
@@ -200,25 +225,8 @@ function generateSpaceLocation() {
 
 // Fantasy NPC Generator
 function generateFantasyNPC() {
-    const personalities = [
-        'Ambitious', 'Arrogant', 'Brave', 'Chivalrous', 'Common',
-        'Content', 'Cowardly', 'Cunning', 'Curious', 'Deceitful',
-        'Emotional', 'Foolish', 'Generous', 'Greedy', 'Heretical',
-        'Honest', 'Humble', 'Impulsive', 'Loyal', 'Mystical',
-        'Noble', 'Obedient', 'Patient', 'Pious', 'Playful',
-        'Practical', 'Rebellious', 'Serious', 'Stoic', 'Suspicious',
-        'Traditional', 'Treacherous', 'Trusting', 'Wanderlust', 'Wise', 'Witty'
-    ];
-    
-    const descriptors = [
-        'Aged', 'Agile', 'Bald', 'Bearded', 'Broad-shouldered',
-        'Clean-shaven', 'Clumsy', 'Curly-haired', 'Delicate', 'Elderly',
-        'Elegant', 'Freckled', 'Graceful', 'Imposing', 'Lanky',
-        'Lean', 'Long-haired', 'Middle-aged', 'Muscular', 'Pale',
-        'Petite', 'Plain', 'Rugged', 'Scarred', 'Short',
-        'Slender', 'Stocky', 'Stout', 'Striking', 'Tall',
-        'Tanned', 'Tattooed', 'Unassuming', 'Vibrant', 'Weathered', 'Youthful'
-    ];
+    const personalities = sharedPersonalities;
+    const descriptors = sharedDescriptors;
     
     const roles = [
         'Advisor', 'Artisan', 'Assassin', 'Bard', 'Blacksmith',
@@ -282,25 +290,8 @@ function generateSpaceName() {
 
 // Space NPC Generator
 function generateSpaceNPC() {
-    const personalities = [
-        'Ambitious', 'Anxious', 'Arrogant', 'Brave', 'Calculating',
-        'Cautious', 'Confident', 'Creative', 'Curious', 'Deceptive',
-        'Emotional', 'Friendly', 'Generous', 'Greedy', 'Honest',
-        'Hostile', 'Humble', 'Impulsive', 'Indifferent', 'Intuitive',
-        'Logical', 'Loyal', 'Methodical', 'Obedient', 'Optimistic',
-        'Patient', 'Pessimistic', 'Playful', 'Rebellious', 'Serious',
-        'Stoic', 'Suspicious', 'Traditional', 'Treacherous', 'Trusting', 'Witty'
-    ];
-    
-    const descriptors = [
-        'Aged', 'Agile', 'Bald', 'Bearded', 'Broad-shouldered',
-        'Clean-shaven', 'Clumsy', 'Elderly', 'Elegant', 'Enhanced',
-        'Freckled', 'Graceful', 'Imposing', 'Lanky', 'Lean',
-        'Middle-aged', 'Muscular', 'Pale', 'Petite', 'Plain',
-        'Rugged', 'Scarred', 'Short', 'Short-haired', 'Slender',
-        'Slick-haired', 'Stocky', 'Stout', 'Striking', 'Tall',
-        'Tanned', 'Tattooed', 'Unassuming', 'Vibrant', 'Weathered', 'Youthful'
-    ];
+    const personalities = sharedPersonalities;
+    const descriptors = sharedDescriptors;
     
     const roles = [
         'Alien', 'Ambassador', 'Android', 'Astrophysicist', 'Augmented',
