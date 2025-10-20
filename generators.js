@@ -401,27 +401,28 @@ function generateFantasyEvent() {
     let extraText;
     let eventType;
     
-    if (randomChoice < 0.33) {
+    if (randomChoice < 0.34) {
         // Use the new "Subject (additional info?)" format for encounters
         mainText = encounterSubjects[Math.floor(Math.random() * encounterSubjects.length)];
         extraText = encounterInfo[Math.floor(Math.random() * encounterInfo.length)];
         eventType = 'Fantasy Encounter';
-    } else if (randomChoice < 0.66) {
+    } else if (randomChoice < 0.68) {
         // Use the new "Subject (additional info?)" format for obstructions
         mainText = obstructionSubjects[Math.floor(Math.random() * obstructionSubjects.length)];
         extraText = obstructionInfo[Math.floor(Math.random() * obstructionInfo.length)];
         eventType = 'Fantasy Obstacle';
-    } else {
-        // Use existing format for hazards and miscellaneous events
-        const event = allEvents[Math.floor(Math.random() * allEvents.length)];
+    } else if (randomChoice < 0.84) {
+        // Use existing format for hazards
+        const event = hazards[Math.floor(Math.random() * hazards.length)];
         mainText = event;
         extraText = '';
-        // Determine type for hazards and miscellaneous
-        if (hazards.includes(event)) {
-            eventType = 'Fantasy Hazard';
-        } else {
-            eventType = 'Fantasy Event';
-        }
+        eventType = 'Fantasy Hazard';
+    } else {
+        // Use existing format for miscellaneous events
+        const event = miscellaneous[Math.floor(Math.random() * miscellaneous.length)];
+        mainText = event;
+        extraText = '';
+        eventType = 'Fantasy Event';
     }
     
     return { mainText, extraText, type: eventType };
@@ -651,27 +652,28 @@ function generateSpaceEvent() {
     let extraText;
     let eventType;
     
-    if (randomChoice < 0.33) {
+    if (randomChoice < 0.34) {
         // Use the new "Subject (additional info?)" format for encounters
         mainText = encounterSubjects[Math.floor(Math.random() * encounterSubjects.length)];
         extraText = encounterInfo[Math.floor(Math.random() * encounterInfo.length)];
         eventType = 'Space Encounter';
-    } else if (randomChoice < 0.66) {
+    } else if (randomChoice < 0.68) {
         // Use the new "Subject (additional info?)" format for obstructions
         mainText = obstructionSubjects[Math.floor(Math.random() * obstructionSubjects.length)];
         extraText = obstructionInfo[Math.floor(Math.random() * obstructionInfo.length)];
         eventType = 'Space Obstacle';
-    } else {
-        // Use existing format for hazards and miscellaneous events
-        const event = allEvents[Math.floor(Math.random() * allEvents.length)];
+    } else if (randomChoice < 0.84) {
+        // Use existing format for hazards
+        const event = hazards[Math.floor(Math.random() * hazards.length)];
         mainText = event;
         extraText = '';
-        // Determine type for hazards and miscellaneous
-        if (hazards.includes(event)) {
-            eventType = 'Space Hazard';
-        } else {
-            eventType = 'Space Event';
-        }
+        eventType = 'Space Hazard';
+    } else {
+        // Use existing format for miscellaneous events
+        const event = miscellaneous[Math.floor(Math.random() * miscellaneous.length)];
+        mainText = event;
+        extraText = '';
+        eventType = 'Space Event';
     }
     
     return { mainText, extraText, type: eventType };
