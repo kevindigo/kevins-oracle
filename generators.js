@@ -466,23 +466,6 @@ function generateFantasyPlotHook() {
         'Survive', 'Transport', 'Uncover'
     ];
     
-    const adjectives = [
-        'ancient', 'blood', 'broken', 'captured', 'celestial',
-        'collapsing', 'corrupted', 'cryptic', 'crystal', 'cursed',
-        'dark', 'defensive', 'demonic', 'dragon', 'dream',
-        'elemental', 'enemy', 'enslaved', 'evil', 'family',
-        'forbidden', 'forgotten', 'forest', 'frontier', 'ghostly',
-        'haunted', 'hidden', 'holy', 'kidnapped', 'labyrinth',
-        'legendary', 'lost', 'magic', 'magical', 'mind',
-        'monstrous', 'mountain', 'mysterious', 'oracle', 'peace',
-        'philosopher', 'planar', 'plague', 'poisoned', 'prophetic',
-        'protective', 'ritual', 'rogue', 'royal', 'rival',
-        'sacred', 'secret', 'shadow', 'sleeping', 'soul',
-        'spy', 'star', 'stone', 'stolen', 'strange',
-        'sunken', 'time', 'trapped', 'undead', 'underground',
-        'vital', 'weather', 'wounded'
-    ];
-    
     const nouns = [
         'amulet', 'anomaly', 'apparition', 'artifact', 'barrier',
         'beast', 'being', 'breach', 'bridge', 'cave',
@@ -505,7 +488,7 @@ function generateFantasyPlotHook() {
     ];
     
     const verb = verbs[Math.floor(Math.random() * verbs.length)];
-    const adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
+    const adjective = getRandomTheme();
     const noun = nouns[Math.floor(Math.random() * nouns.length)];
     
     return { mainText: `${verb} ${noun}`, extraText: adjective };
@@ -520,24 +503,6 @@ function generateSpacePlotHook() {
         'Heal', 'Hunt', 'Investigate', 'Negotiate', 'Protect',
         'Recover', 'Repair', 'Rescue', 'Retrieve', 'Sabotage',
         'Steal', 'Stop', 'Survive', 'Transport', 'Uncover'
-    ];
-    
-    const adjectives = [
-        'alien', 'ambassador', 'ancient', 'asteroid', 'black',
-        'captured', 'cargo', 'comet', 'comms', 'corporate',
-        'cosmic', 'cryo-sleep', 'cybernetic', 'deep space', 'derelict',
-        'diplomatic', 'distant', 'dormant', 'ecosystem', 'emergency',
-        'encryption', 'energy', 'false', 'fuel', 'generation',
-        'genetic', 'ghost', 'gravity', 'hacking', 'hidden',
-        'hostile', 'illegal', 'interstellar', 'life support', 'listening',
-        'lost', 'medical', 'memory', 'military', 'mining',
-        'nanite', 'nebula', 'orbital', 'parasitic', 'peace',
-        'pirate', 'planetary', 'plague', 'prototype', 'quantum',
-        'radiation', 'reactor', 'rescue', 'research', 'rival',
-        'rogue', 'security', 'sensor', 'signal', 'smuggling',
-        'solar', 'space', 'star', 'stolen', 'stranded',
-        'superweapon', 'terraforming', 'time', 'trade', 'trading',
-        'wormhole'
     ];
     
     const nouns = [
@@ -561,7 +526,7 @@ function generateSpacePlotHook() {
     ];
     
     const verb = verbs[Math.floor(Math.random() * verbs.length)];
-    const adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
+    const adjective = getRandomTheme();
     const noun = nouns[Math.floor(Math.random() * nouns.length)];
     
     return { mainText: `${verb} ${noun}`, extraText: adjective };
