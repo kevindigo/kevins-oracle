@@ -55,32 +55,42 @@ function getRandomTheme() {
 // Fantasy Place Name Generator
 function generateFantasyPlaceName() {
     const prefixes = [
-        'Silver', 'Golden', 'Iron', 'Crystal', 'Shadow', 'Light', 'Dark', 'Bright',
-        'Moon', 'Sun', 'Star', 'Sky', 'Cloud', 'Storm', 'Wind', 'River',
-        'Forest', 'Wood', 'Stone', 'Mountain', 'Valley', 'Hill', 'Lake', 'Sea',
-        'Oak', 'Pine', 'Willow', 'Maple', 'Cedar', 'Birch', 'Ash', 'Elm',
-        'Ancient', 'Old', 'New', 'Great', 'Little', 'High', 'Low', 'Deep',
-        'White', 'Black', 'Red', 'Blue', 'Green', 'Gray', 'Purple', 'Gold',
-        'Dragon', 'Phoenix', 'Griffin', 'Unicorn', 'Wolf', 'Bear', 'Eagle', 'Hawk',
-        'Royal', 'Imperial', 'Noble', 'Common', 'Sacred', 'Holy', 'Blessed', 'Cursed',
-        'Mystic', 'Magic', 'Enchanted', 'Eldritch', 'Arcane', 'Divine', 'Celestial ', 'Infernal ',
-        'Whispering ', 'Silent', 'Echo', 'Singing', 'Dancing', 'Flying', 'Running', 'Sleeping',
-        'Lost ', 'Forgotten ', 'Hidden ', 'Secret ', 'Forbidden ', 'Abandoned ', 'Ruined ', 'Deserted '
+        'Abandoned ', 'Ancient', 'Arcane', 'Ash', 'Bear',
+        'Birch', 'Black', 'Blessed', 'Blue', 'Bright',
+        'Cedar', 'Celestial ', 'Cloud', 'Common', 'Crystal',
+        'Cursed', 'Dancing', 'Dark', 'Deep', 'Deserted ',
+        'Divine', 'Dragon', 'Eagle', 'Echo', 'Eldritch',
+        'Elm', 'Enchanted', 'Flying', 'Forest', 'Forgotten ',
+        'Forbidden ', 'Golden', 'Gray', 'Great', 'Green',
+        'Griffin', 'Hawk', 'Hidden ', 'High', 'Hill',
+        'Holy', 'Imperial', 'Infernal ', 'Iron', 'Lake',
+        'Light', 'Little', 'Lost ', 'Low', 'Magic',
+        'Maple', 'Moon', 'Mountain', 'Mystic', 'New',
+        'Noble', 'Oak', 'Old', 'Pine', 'Phoenix',
+        'Purple', 'Red', 'River', 'Royal', 'Running',
+        'Ruined ', 'Sacred', 'Sea', 'Secret ', 'Shadow',
+        'Silent', 'Silver', 'Singing', 'Sleeping', 'Sky',
+        'Star', 'Stone', 'Storm', 'Sun', 'Unicorn',
+        'Valley', 'Whispering ', 'Willow', 'Wind', 'Wolf',
+        'Wood'
     ];
     
     const suffixes = [
-        'wood', ' forest', 'glade', 'grove', 'vale', ' valley', ' hill', ' mountain',
-        'peak', 'ridge', 'cliff', 'crag', 'stone', 'cave',
-        ' cavern', ' grotto', 'hollow', 'burrow', 'warren',
-        'brook', 'stream', ' river', ' lake', ' spring',
-        'field', 'meadow', 'plain', 'prairie', 'marsh', 'swamp', 'bog', 'fen',
-        'shore', 'beach', 'bay', 'harbor', 'port', 'dock', 'pier',
-        'ton', ' town', ' city', 'burg', 'ville', ' colony',
-        ' keep', ' fort', ' castle', ' tower', ' palace', ' manor', ' estate', 'hall',
-        'bridge', 'crossing', 'ford', ' pass', 'gate', 'way',
-        ' temple', 'shrine', ' altar', ' sanctuary', ' abbey', ' monastery', ' cathedral', ' chapel',
-        ' academy', 'garden', 'park', ' vineyard', 'farm', 'mill', 'forge',
-        'mine', ' quarry', 
+        ' abbey', ' academy', ' altar', ' beach', ' bay',
+        ' bog', ' bridge', 'brook', 'burg', ' burrow',
+        ' castle', ' cathedral', ' cave', ' cavern', ' chapel',
+        ' city', ' cliff', ' colony', ' crag', ' crossing',
+        ' dock', ' estate', ' farm', ' fen', ' field',
+        ' ford', ' forest', ' fort', ' forge', ' garden',
+        ' gate', ' glade', ' grotto', ' grove', ' hall',
+        ' harbor', ' hill', ' hollow', ' keep', ' lake',
+        ' manor', ' marsh', ' meadow', ' mill', ' mine',
+        ' monastery', ' mountain', ' park', ' pass', ' peak',
+        ' pier', ' plain', ' port', ' prairie', ' quarry',
+        ' ridge', ' river', ' sanctuary', ' shore', ' shrine',
+        ' spring', ' stone', ' stream', ' swamp', ' temple',
+        ' ton', ' tower', ' town', ' vale', ' valley',
+        ' vineyard', ' ville', ' warren', ' way', 'wood'
     ];
     
     const prefix = prefixes[Math.floor(Math.random() * prefixes.length)];
@@ -92,30 +102,29 @@ function generateFantasyPlaceName() {
 // Fantasy Location Generator
 function generateFantasyLocation() {
     const locations = [
-        'Ancient ruins', 'Bustling market', 'Secluded forest', 'Underground cavern',
-        'Floating island', 'Desert oasis', 'Mountain peak', 'Abandoned temple',
-        'Crystal cave', 'Sunken city', 'Floating market', 'Whispering woods',
-        'Volcanic forge', 'Lookout', 'Time-lost library',
-        'Enchanted grove', 'Dragon lair', 'Royal castle', 'Wizard tower',
-        'Haunted mansion', 'Sacred temple', 'Goblin camp', 'Elven city',
-        'Dwarven mine', 'Orc fortress', 'Fairy circle', 'Mystic waterfall',
-        'Cursed swamp', 'Golden palace', 'Silver lake', 'Iron fortress',
-        'Crystal palace', 'Shadow realm', 'Dream realm', 'Elemental plane',
-        'Celestial realm', 'Infernal pit', 'Feywild', 'Shadowfell',
-        'Astral sea', 'Ethereal plane', 'Material plane', 'Divine realm',
-        'Ancient battlefield', 'Lost civilization', 'Hidden valley', 'Forbidden city',
-        'Mystic academy', 'Alchemist lab', 'Necromancer tower', 'Paladin stronghold',
-        'Ranger outpost', 'Bard college', 'Druid circle', 'Monk monastery',
-        'Rogue hideout', 'Warrior guild', 'Merchant caravan', 'Pilgrim shrine',
-        'Oracle cave', 'Prophet temple', 'Seer tower', 'Witch hut',
-        'Sorcerer sanctum', 'Warlock pact', 'Cleric cathedral', 'Priest abbey',
-        'Knight barracks', 'Squire training ground', 'Royal court', 'Noble estate',
-        'Common village', 'Farming hamlet', 'Fishing port', 'Mining town',
-        'Trading post', 'Border fort', 'Coastal city', 'Mountain pass',
-        'River crossing', 'Forest path', 'Desert caravan', 'Jungle temple',
-        'Arctic outpost', 'Volcano crater', 'Undersea city', 'Remote island',
-        'Cloud palace', 'Star observatory', 'Moon temple', 'Sun altar',
-        'Dimension rift'
+        'Abandoned temple', 'Alchemist lab', 'Ancient battlefield', 'Ancient ruins',
+        'Arctic outpost', 'Astral sea', 'Bard college', 'Border fort',
+        'Bustling market', 'Celestial realm', 'Cleric cathedral', 'Cloud palace',
+        'Coastal city', 'Common village', 'Crystal cave', 'Crystal palace',
+        'Cursed swamp', 'Desert caravan', 'Desert oasis', 'Dimension rift',
+        'Divine realm', 'Dream realm', 'Druid circle', 'Dwarven mine',
+        'Elemental plane', 'Elven city', 'Enchanted grove', 'Ethereal plane',
+        'Fairy circle', 'Farming hamlet', 'Feywild', 'Fishing port',
+        'Floating island', 'Floating market', 'Forbidden city', 'Forest path',
+        'Goblin camp', 'Golden palace', 'Haunted mansion', 'Hidden valley',
+        'Infernal pit', 'Iron fortress', 'Jungle temple', 'Knight barracks',
+        'Lookout', 'Lost civilization', 'Material plane', 'Merchant caravan',
+        'Mining town', 'Monk monastery', 'Moon temple', 'Mountain pass',
+        'Mountain peak', 'Mystic academy', 'Mystic waterfall', 'Necromancer tower',
+        'Noble estate', 'Oracle cave', 'Orc fortress', 'Paladin stronghold',
+        'Pilgrim shrine', 'Priest abbey', 'Prophet temple', 'Ranger outpost',
+        'Remote island', 'River crossing', 'Rogue hideout', 'Royal castle',
+        'Royal court', 'Sacred temple', 'Secluded forest', 'Seer tower',
+        'Shadow realm', 'Shadowfell', 'Silver lake', 'Sorcerer sanctum',
+        'Squire training ground', 'Sun altar', 'Sunken city', 'Time-lost library',
+        'Trading post', 'Underground cavern', 'Undersea city', 'Volcanic forge',
+        'Volcano crater', 'Warlock pact', 'Warrior guild', 'Whispering woods',
+        'Witch hut', 'Wizard tower'
     ];
     
     const location = locations[Math.floor(Math.random() * locations.length)];
@@ -126,28 +135,28 @@ function generateFantasyLocation() {
 // Fantasy Name Generator
 function generateFantasyName() {
     const fantasyNames = [
-        'Aelar', 'Brianna', 'Caelum', 'Darian', 'Elara',
-        'Faelan', 'Gwendolyn', 'Haldir', 'Isolde', 'Jareth',
-        'Kaelen', 'Liora', 'Maeve', 'Niamh', 'Orin',
-        'Pryderi', 'Quinn', 'Rhiannon', 'Soren', 'Tamsin',
-        'Urien', 'Vespera', 'Wynne', 'Xander', 'Yvaine',
-        'Zephyr', 'Alistair', 'Branwen', 'Cassian', 'Daphne',
-        'Eamon', 'Fiora', 'Gareth', 'Helena', 'Ivor',
-        'Jocelyn', 'Kael', 'Lysander', 'Morgana', 'Nyx',
-        'Oberon', 'Persephone', 'Quentin', 'Rowan', 'Seraphina',
-        'Tristan', 'Ursula', 'Vance', 'Willow', 'Xanthe',
-        'Yara', 'Zelda', 'Arion', 'Bryn', 'Cora',
-        'Draven', 'Elowen', 'Finnian', 'Ginevra', 'Haven',
-        'Ione', 'Juno', 'Kaelith', 'Luna', 'Mireille',
-        'Nerys', 'Orla', 'Percival', 'Quorra', 'Riven',
-        'Sable', 'Thalia', 'Umbriel', 'Varian', 'Wren',
-        'Xylia', 'Yarrow', 'Zinnia', 'Aurelia', 'Bastian',
-        'Cressida', 'Dorian', 'Eira', 'Fenris', 'Galen',
-        'Hazel', 'Iris', 'Jasper', 'Kaida', 'Lilith',
-        'Morwen', 'Nova', 'Orion', 'Phaedra', 'Raven',
-        'Sylvia', 'Theron', 'Una', 'Violet', 'Wyatt',
-        'Xenia', 'Yseult', 'Zane', 'Aster', 'Briar',
-        'Cyrus', 'Delphine', 'Evan', 'Freya', 'Griffin'
+        'Aelar', 'Alistair', 'Arion', 'Aster', 'Aurelia',
+        'Bastian', 'Branwen', 'Brianna', 'Briar', 'Bryn',
+        'Caelum', 'Cassian', 'Cora', 'Cressida', 'Cyrus',
+        'Daphne', 'Darian', 'Delphine', 'Dorian', 'Draven',
+        'Eamon', 'Eira', 'Elara', 'Elowen', 'Evan',
+        'Faelan', 'Fenris', 'Fiora', 'Finnian', 'Freya',
+        'Galen', 'Gareth', 'Ginevra', 'Griffin', 'Gwendolyn',
+        'Haldir', 'Haven', 'Hazel', 'Helena', 'Ione',
+        'Iris', 'Isolde', 'Ivor', 'Jareth', 'Jasper',
+        'Jocelyn', 'Juno', 'Kaida', 'Kael', 'Kaelen',
+        'Kaelith', 'Lilith', 'Liora', 'Luna', 'Lysander',
+        'Maeve', 'Mireille', 'Morgana', 'Morwen', 'Nerys',
+        'Niamh', 'Nova', 'Nyx', 'Oberon', 'Orin',
+        'Orion', 'Orla', 'Percival', 'Persephone', 'Phaedra',
+        'Pryderi', 'Quentin', 'Quinn', 'Quorra', 'Raven',
+        'Rhiannon', 'Riven', 'Rowan', 'Sable', 'Seraphina',
+        'Soren', 'Sylvia', 'Tamsin', 'Thalia', 'Theron',
+        'Tristan', 'Umbriel', 'Una', 'Urien', 'Ursula',
+        'Vance', 'Varian', 'Vespera', 'Violet', 'Willow',
+        'Wren', 'Wynne', 'Xander', 'Xanthe', 'Xenia',
+        'Xylia', 'Yara', 'Yarrow', 'Yseult', 'Yvaine',
+        'Zane', 'Zelda', 'Zephyr', 'Zinnia'
     ];
     return fantasyNames[Math.floor(Math.random() * fantasyNames.length)];
 }
@@ -155,33 +164,33 @@ function generateFantasyName() {
 // Space Location Generator
 function generateSpaceLocation() {
     const locations = [
-        'Space station', 'Asteroid field', 'Planet surface', 'Moon base',
-        'Wormhole', 'Nebula', 'Black hole', 'Solar system',
-        'Galaxy cluster', 'Dyson sphere', 'Ring world', 'Orbital habitat',
-        'Research outpost', 'Mining colony', 'Trading hub', 'Military base',
-        'Alien ruins', 'Derelict ship', 'Generation ship', 'Colony ship',
-        'Battlecruiser', 'Exploration vessel', 'Cargo freighter', 'Science lab',
-        'Observatory', 'Comms relay', 'Fuel depot', 'Repair dock',
-        'Shipyard', 'Dry dock', 
-        'Gravity well', 'Quantum anomaly', 'Temporal rift', 'Parallel dimension',
-        'Virtual reality', 'Cyberspace', 'Data stream', 'Network hub',
-        'AI core', 'Mainframe', 'Server farm', 'Database',
-        'Archive', 'Library', 'Museum', 'Memorial',
-        'Embassy', 'Consulate', 'Diplomatic station', 'Neutral zone',
-        'Border outpost', 'Frontier world', 'Core world', 'Homeworld',
-        'Capital city', 'Metropolis', 'Megastructure', 'Arcology',
-        'Biodome', 'Terraforming project', 'Atmospheric processor', 'Weather control',
-        'Gravity generator', 'Life support', 'Reactor core', 'Engine room',
-        'Bridge', 'Command center', 'Control room', 'Operations deck',
-        'Medical bay', 'Science lab', 'Engineering bay', 'Cargo bay',
-        'Hangar bay', 'Launch bay', 'Docking port', 'Airlock',
-        'Corridor', 'Quarters', 'Mess hall', 'Recreation area',
-        'Cryo chamber', 'Stasis pod', 'Cloning facility', 'Genetic lab',
-        'Robotics factory', 'Nanite swarm', 'Drone hive', 'Android colony',
-        'Cyborg enclave', 'Augmentation clinic', 'Neural interface', 'Mind network',
-        'Telepathic nexus', 'Psionic chamber', 'Precog facility', 'Clairvoyance lab',
-        'Time dilation field', 'Reality bubble', 'Pocket dimension',
-        'Simulation world', 'Holographic environment', 'Projection field', 'Illusion matrix'
+        'AI core', 'Airlock', 'Alien ruins', 'Android colony',
+        'Archive', 'Arcology', 'Asteroid field', 'Atmospheric processor',
+        'Augmentation clinic', 'Battlecruiser', 'Biodome', 'Black hole',
+        'Border outpost', 'Bridge', 'Cargo bay', 'Cargo freighter',
+        'Capital city', 'Clairvoyance lab', 'Cloning facility', 'Colony ship',
+        'Command center', 'Comms relay', 'Consulate', 'Control room',
+        'Core world', 'Corridor', 'Cryo chamber', 'Cyberspace',
+        'Cyborg enclave', 'Database', 'Data stream', 'Derelict ship',
+        'Diplomatic station', 'Docking port', 'Drone hive', 'Dry dock',
+        'Dyson sphere', 'Embassy', 'Engine room', 'Engineering bay',
+        'Exploration vessel', 'Frontier world', 'Fuel depot', 'Galaxy cluster',
+        'Generation ship', 'Genetic lab', 'Gravity generator', 'Gravity well',
+        'Hangar bay', 'Holographic environment', 'Homeworld', 'Illusion matrix',
+        'Launch bay', 'Library', 'Life support', 'Mainframe',
+        'Medical bay', 'Megastructure', 'Memorial', 'Mess hall',
+        'Metropolis', 'Military base', 'Mind network', 'Mining colony',
+        'Moon base', 'Museum', 'Nanite swarm', 'Nebula',
+        'Neural interface', 'Neutral zone', 'Network hub', 'Observatory',
+        'Operations deck', 'Orbital habitat', 'Parallel dimension',
+        'Planet surface', 'Pocket dimension', 'Precog facility', 'Projection field',
+        'Psionic chamber', 'Quantum anomaly', 'Quarters', 'Reactor core',
+        'Reality bubble', 'Recreation area', 'Repair dock', 'Research outpost',
+        'Ring world', 'Robotics factory', 'Science lab', 'Server farm',
+        'Shipyard', 'Simulation world', 'Solar system', 'Space station',
+        'Stasis pod', 'Telepathic nexus', 'Temporal rift', 'Terraforming project',
+        'Time dilation field', 'Trading hub', 'Virtual reality', 'Weather control',
+        'Wormhole'
     ];
     
     const location = locations[Math.floor(Math.random() * locations.length)];
@@ -192,33 +201,33 @@ function generateSpaceLocation() {
 // Fantasy NPC Generator
 function generateFantasyNPC() {
     const personalities = [
-        'Chivalrous', 'Cunning', 'Wise', 'Foolish', 'Noble',
-        'Common', 'Pious', 'Heretical', 'Brave', 'Cowardly',
-        'Loyal', 'Treacherous', 'Generous', 'Greedy', 'Honest',
-        'Deceitful', 'Humble', 'Arrogant', 'Patient', 'Impulsive',
-        'Stoic', 'Emotional', 'Mystical', 'Practical', 'Curious',
-        'Suspicious', 'Trusting', 'Witty', 'Serious', 'Playful',
-        'Traditional', 'Rebellious', 'Obedient', 'Ambitious', 'Content', 'Wanderlust'
+        'Ambitious', 'Arrogant', 'Brave', 'Chivalrous', 'Common',
+        'Content', 'Cowardly', 'Cunning', 'Curious', 'Deceitful',
+        'Emotional', 'Foolish', 'Generous', 'Greedy', 'Heretical',
+        'Honest', 'Humble', 'Impulsive', 'Loyal', 'Mystical',
+        'Noble', 'Obedient', 'Patient', 'Pious', 'Playful',
+        'Practical', 'Rebellious', 'Serious', 'Stoic', 'Suspicious',
+        'Traditional', 'Treacherous', 'Trusting', 'Wanderlust', 'Wise', 'Witty'
     ];
     
     const descriptors = [
-        'Tall', 'Short', 'Slender', 'Stocky', 'Muscular',
-        'Lean', 'Broad-shouldered', 'Petite', 'Lanky', 'Stout',
-        'Bald', 'Long-haired', 'Curly-haired', 'Bearded', 'Clean-shaven',
-        'Scarred', 'Tattooed', 'Pale', 'Tanned', 'Freckled',
-        'Aged', 'Youthful', 'Middle-aged', 'Elderly', 'Vibrant',
-        'Weathered', 'Graceful', 'Clumsy', 'Agile', 'Imposing',
-        'Unassuming', 'Striking', 'Plain', 'Elegant', 'Rugged', 'Delicate'
+        'Aged', 'Agile', 'Bald', 'Bearded', 'Broad-shouldered',
+        'Clean-shaven', 'Clumsy', 'Curly-haired', 'Delicate', 'Elderly',
+        'Elegant', 'Freckled', 'Graceful', 'Imposing', 'Lanky',
+        'Lean', 'Long-haired', 'Middle-aged', 'Muscular', 'Pale',
+        'Petite', 'Plain', 'Rugged', 'Scarred', 'Short',
+        'Slender', 'Stocky', 'Stout', 'Striking', 'Tall',
+        'Tanned', 'Tattooed', 'Unassuming', 'Vibrant', 'Weathered', 'Youthful'
     ];
     
     const roles = [
-        'Knight', 'Mage', 'Rogue', 'Priest', 'Warrior',
-        'Healer', 'Ranger', 'Bard', 'Druid', 'Paladin',
-        'Monk', 'Necromancer', 'Sorcerer', 'Warlock', 'Wizard',
-        'Assassin', 'Spy', 'Mercenary', 'Guard', 'Soldier',
-        'Merchant', 'Trader', 'Artisan', 'Blacksmith', 'Farmer',
-        'Noble', 'Commoner', 'Peasant', 'Royal', 'Advisor',
-        'Explorer', 'Hunter', 'Fisher', 'Miner', 'Scholar', 'Diplomat'
+        'Advisor', 'Artisan', 'Assassin', 'Bard', 'Blacksmith',
+        'Commoner', 'Diplomat', 'Druid', 'Explorer', 'Farmer',
+        'Fisher', 'Guard', 'Healer', 'Hunter', 'Knight',
+        'Mage', 'Mercenary', 'Merchant', 'Miner', 'Monk',
+        'Necromancer', 'Noble', 'Paladin', 'Peasant', 'Priest',
+        'Ranger', 'Rogue', 'Royal', 'Scholar', 'Soldier',
+        'Sorcerer', 'Spy', 'Trader', 'Warlock', 'Warrior', 'Wizard'
     ];
     
     const name = generateFantasyName();
@@ -232,17 +241,28 @@ function generateFantasyNPC() {
 // Space Name Generator (100 syllables)
 function generateSpaceName() {
     const nameFragments = [
-        'zi', 'del', 'laa', 'vor', 'nex', 'qua', 'tri', 'zen', 'kor', 'vax',
-        'ryl', 'nys', 'pax', 'tor', 'lyn', 'vex', 'dra', 'syl', 'fen', 'gar',
-        'hyl', 'jax', 'kyl', 'mor', 'nor', 'pyr', 'qor', 'ryn', 'syn', 'tyr',
-        'val', 'wyn', 'xan', 'yor', 'zyl', 'arn', 'bor', 'cet', 'dak', 'el',
-        'fir', 'gol', 'hal', 'ion', 'jot', 'kra', 'lor', 'mek', 'nil', 'or',
-        'pel', 'qix', 'rak', 'sol', 'tir', 'ul', 'var', 'wol', 'xir', 'yul',
-        'zir', 'ban', 'cor', 'dun', 'eth', 'fal', 'gur', 'han', 'ir', 'jon',
-        'kel', 'lan', 'mir', 'ner', 'ol', 'par', 'qun', 'ran', 'sar', 'tan',
-        'ur', 'van', 'wel', 'xen', 'yol', 'zar', 'bel', 'cron', 'dax', 'el',
-        'fen', 'gorn', 'hax', 'il', 'jorn', 'karn', 'lorn', 'max', 'norn', 'or',
-        'peln', 'qarn', 'reln', 'sorn', 'teln', 'urn', 'veln', 'worn', 'xeln', 'yorn'
+        'arn', 'ban', 'bel', 'bor', 'cet',
+        'cor', 'cron', 'dak', 'dax', 'del',
+        'dra', 'dun', 'el', 'eth', 'fal',
+        'fen', 'fir', 'gar', 'gol', 'gorn',
+        'gur', 'hal', 'han', 'hax', 'hyl',
+        'il', 'ion', 'ir', 'jax', 'jon',
+        'jorn', 'jot', 'karn', 'kel', 'kor',
+        'kra', 'kyl', 'laa', 'lan', 'lor',
+        'lorn', 'lyn', 'max', 'mek', 'mir',
+        'mor', 'ner', 'nex', 'nil', 'nor',
+        'norn', 'nys', 'ol', 'or', 'par',
+        'pax', 'pel', 'peln', 'pyr', 'qarn',
+        'qix', 'qor', 'qun', 'qua', 'rak',
+        'ran', 'reln', 'ryl', 'ryn', 'sar',
+        'sol', 'sorn', 'syl', 'syn', 'tan',
+        'teln', 'tir', 'tor', 'tri', 'tyr',
+        'ul', 'ur', 'urn', 'val', 'van',
+        'var', 'vax', 'veln', 'vex', 'vor',
+        'wel', 'wol', 'worn', 'wyn', 'xan',
+        'xel', 'xeln', 'xen', 'xir', 'yor',
+        'yol', 'yorn', 'yul', 'zar', 'zen',
+        'zi', 'zir', 'zyl'
     ];
     
     // Randomly choose between 2 or 3 parts
@@ -263,33 +283,33 @@ function generateSpaceName() {
 // Space NPC Generator
 function generateSpaceNPC() {
     const personalities = [
-        'Calculating', 'Impulsive', 'Logical', 'Intuitive', 'Confident',
-        'Anxious', 'Optimistic', 'Pessimistic', 'Friendly', 'Hostile',
-        'Curious', 'Indifferent', 'Honest', 'Deceptive', 'Brave',
-        'Cautious', 'Patient', 'Arrogant', 'Humble', 'Generous',
-        'Greedy', 'Loyal', 'Treacherous', 'Witty', 'Serious',
-        'Playful', 'Stoic', 'Emotional', 'Creative', 'Traditional',
-        'Rebellious', 'Obedient', 'Suspicious', 'Trusting', 'Ambitious', 'Methodical'
+        'Ambitious', 'Anxious', 'Arrogant', 'Brave', 'Calculating',
+        'Cautious', 'Confident', 'Creative', 'Curious', 'Deceptive',
+        'Emotional', 'Friendly', 'Generous', 'Greedy', 'Honest',
+        'Hostile', 'Humble', 'Impulsive', 'Indifferent', 'Intuitive',
+        'Logical', 'Loyal', 'Methodical', 'Obedient', 'Optimistic',
+        'Patient', 'Pessimistic', 'Playful', 'Rebellious', 'Serious',
+        'Stoic', 'Suspicious', 'Traditional', 'Treacherous', 'Trusting', 'Witty'
     ];
     
     const descriptors = [
-        'Tall', 'Short', 'Slender', 'Stocky', 'Muscular',
-        'Lean', 'Broad-shouldered', 'Petite', 'Lanky', 'Stout',
-        'Bald', 'Short-haired', 'Slick-haired', 'Bearded', 'Clean-shaven',
-        'Scarred', 'Tattooed', 'Pale', 'Tanned', 'Freckled',
-        'Aged', 'Youthful', 'Middle-aged', 'Elderly', 'Vibrant',
-        'Weathered', 'Graceful', 'Clumsy', 'Agile', 'Imposing',
-        'Unassuming', 'Striking', 'Plain', 'Elegant', 'Rugged', 'Enhanced'
+        'Aged', 'Agile', 'Bald', 'Bearded', 'Broad-shouldered',
+        'Clean-shaven', 'Clumsy', 'Elderly', 'Elegant', 'Enhanced',
+        'Freckled', 'Graceful', 'Imposing', 'Lanky', 'Lean',
+        'Middle-aged', 'Muscular', 'Pale', 'Petite', 'Plain',
+        'Rugged', 'Scarred', 'Short', 'Short-haired', 'Slender',
+        'Slick-haired', 'Stocky', 'Stout', 'Striking', 'Tall',
+        'Tanned', 'Tattooed', 'Unassuming', 'Vibrant', 'Weathered', 'Youthful'
     ];
     
     const roles = [
-        'Captain', 'Pilot', 'Engineer', 'Scientist', 'Medic',
-        'Soldier', 'Marine', 'Security', 'Diplomat', 'Ambassador',
-        'Merchant', 'Trader', 'Smuggler', 'Bounty Hunter', 'Pirate',
-        'Explorer', 'Scout', 'Surveyor', 'Colonist', 'Settler',
-        'Technician', 'Mechanic', 'Programmer', 'Hacker', 'Cyberneticist',
-        'Xenobiologist', 'Astrophysicist', 'Psychic', 'Telepath', 'Precog',
-        'Android', 'Cyborg', 'Alien', 'Mutant', 'Augmented', 'Specialist'
+        'Alien', 'Ambassador', 'Android', 'Astrophysicist', 'Augmented',
+        'Bounty Hunter', 'Captain', 'Colonist', 'Cyberneticist', 'Cyborg',
+        'Diplomat', 'Engineer', 'Explorer', 'Hacker', 'Marine',
+        'Mechanic', 'Medic', 'Merchant', 'Mutant', 'Pilot',
+        'Pirate', 'Precog', 'Programmer', 'Psychic', 'Scientist',
+        'Scout', 'Security', 'Settler', 'Smuggler', 'Soldier',
+        'Specialist', 'Surveyor', 'Technician', 'Telepath', 'Trader', 'Xenobiologist'
     ];
     
     const name = generateSpaceName();
@@ -304,93 +324,78 @@ function generateSpaceNPC() {
 function generateFantasyEvent() {
     // Subjects for encounters
     const encounterSubjects = [
-        'Bandits', 'Friendly merchant', 'Lost child', 'Rival adventuring party',
-        'Wandering minstrel', 'Pilgrims', 'Bounty hunter', 'Patrol',
-        'Mysterious hermit', 'Refugees', 'Traveling healer', 'Noble with entourage',
-        'Locals', 'Messenger', 'Mage', 'Smugglers',
-        'Lost scholar', 'Bards', 'Knight', 'Suspicious merchant',
-        'Cultists', 'Ranger', 'Escaped prisoners', 'Entertainment troupe',
-        'Mysterious fortune teller', 'Pilgrims on holy quest', 'Thief', 'Mercenaries',
-        'Monk', 'Alchemist', 'Rebels', 'Lone survivor',
-        'Traveling diplomat', 'Workers', 'Shapeshifter', 'Locals with discovery'
+        'Alchemist', 'Bandits', 'Bards', 'Bounty hunter', 'Cultists',
+        'Entertainment troupe', 'Escaped prisoners', 'Friendly merchant',
+        'Knight', 'Locals', 'Locals with discovery', 'Lone survivor',
+        'Lost child', 'Lost scholar', 'Mage', 'Mercenaries',
+        'Messenger', 'Monk', 'Mysterious fortune teller', 'Mysterious hermit',
+        'Noble with entourage', 'Patrol', 'Pilgrims', 'Pilgrims on holy quest',
+        'Ranger', 'Rebels', 'Refugees', 'Rival adventuring party',
+        'Shapeshifter', 'Smugglers', 'Suspicious merchant', 'Thief',
+        'Traveling diplomat', 'Traveling healer', 'Wandering minstrel', 'Workers'
     ];
     
     // Additional info for encounters
     const encounterInfo = [
-        'ambush?', 'offering goods?', 'needing help?', 'intimidating?',
-        'sharing news?', 'seeking protection?', 'tracking someone?', 'asking questions?',
-        'offering wisdom?', 'offering services?', 'just passing by?',
-        'sharing findings?', 'recounting urgent news?', 'working?',
-        'seeking knowledge?', 'local?', 'offering assistance?', 'with rare goods?',
-        'performing ritual?', 'escaped?', 'resting?', 'eating?',
-        'on a quest?', 'trying to steal?', 
-        'with potions?', 'planning something?', 'attacks?',
-        'needing escort?', 'secretive?', 'wanting help with a quest?',
+        'ambush?', 'asking questions?', 'attacks?', 'eating?',
+        'escaped?', 'intimidating?', 'just passing by?', 'local?',
+        'needing escort?', 'needing help?', 'offering assistance?',
+        'offering goods?', 'offering services?', 'offering wisdom?',
+        'on a quest?', 'performing ritual?', 'planning something?',
+        'recounting urgent news?', 'resting?', 'seeking knowledge?',
+        'seeking protection?', 'secretive?', 'sharing findings?',
+        'sharing news?', 'tracking someone?', 'trying to steal?',
+        'wanting help with a quest?', 'with potions?', 'with rare goods?', 'working?'
     ];
     
     // Subjects for obstructions
     const obstructionSubjects = [
-        'Collapsed bridge', 'Hidden pit trap', 'Magical barrier', 'Complex lock',
-        'Hidden door', 'Hidden compartment', 'False floor', 'Secret passage', 
-        'Riddle', 'Pressure plate', 'Complex mechanism', 'Tripwire', 
-        'Maze of corridors', 'Portcullis', 
-        'Swinging blade trap', 'Rolling boulder', 'Poison dart trap', 
-        'Net trap', 'Spike pit', 'Falling ceiling trap', 
-        'False treasure', 
-        'Magical illusion', 'Magical glyph', 'Magical statue',
-        'Magical lock/barrier',
+        'Collapsed bridge', 'Complex lock', 'Complex mechanism',
+        'False floor', 'False treasure', 'Falling ceiling trap',
+        'Hidden compartment', 'Hidden door', 'Hidden pit trap',
+        'Magical barrier', 'Magical glyph', 'Magical illusion',
+        'Magical lock/barrier', 'Magical statue', 'Maze of corridors',
+        'Net trap', 'Poison dart trap', 'Portcullis', 'Pressure plate',
+        'Riddle', 'Rolling boulder', 'Secret passage', 'Spike pit',
+        'Swinging blade trap', 'Tripwire'
     ];
     
     // Additional info for obstructions
     const obstructionInfo = [
-        'discovered?', 'invisible?', 'triggers a memory?', 
-        'chain reaction?','found?', 'poorly crafted?', 
-        'causes confusion?', 'suddenly appears?', 
-        'activates?', 'looks fake?', 
-        'captures someone?', 'revealed?', 'requires sacrifice?',
-        'requires specific item?', 'triggers alarm?', 
+        'activates?', 'captures someone?', 'causes confusion?',
+        'chain reaction?', 'discovered?', 'found?', 'invisible?',
+        'looks fake?', 'poorly crafted?', 'requires sacrifice?',
+        'requires specific item?', 'revealed?', 'suddenly appears?',
+        'triggers a memory?', 'triggers alarm?'
     ];
     
     // Hazards
     const hazards = [
-        'Sudden rockslide', 'Magical storm',
-        'Sinkhole', 'Flash flood',
-        'Fire', 'Fog/mist',
-        'Earthquake',
-        'Swarm of insects', 'Poisonous plant',
-        'Cursed area',
-        'Lightning',
-        'Geyser', 'Magical field',
-        'Sudden temperature drop', 'Magical silence',
-        'Magical darkness',
-        'Magical field causes memory loss',
-        'Gust of wind', 
-        'Sleep spell'
+        'Cursed area', 'Earthquake', 'Fire', 'Flash flood',
+        'Fog/mist', 'Geyser', 'Gust of wind', 'Lightning',
+        'Magical darkness', 'Magical field', 'Magical field causes memory loss',
+        'Magical silence', 'Magical storm', 'Poisonous plant',
+        'Sinkhole', 'Sleep spell', 'Sudden rockslide',
+        'Sudden temperature drop', 'Swarm of insects'
     ];
     
     // Miscellaneous (36: 12 good, 12 neutral, 12 bad/scary)
     const goodEvents = [
-        'Hidden cache of supplies', 'Friendly animal',
-        'Forgotten shrine', 'Lucky find',
-        'Helpful NPC', 
-        'Helpful spirit',
-        'Magical blessing', 'Surprising ally',
-        'Sudden insight'
+        'Forgotten shrine', 'Friendly animal', 'Helpful NPC',
+        'Helpful spirit', 'Hidden cache of supplies', 'Lucky find',
+        'Magical blessing', 'Sudden insight', 'Surprising ally'
     ];
     
     const neutralEvents = [
-        'Strange omen', 'Mysterious note',
-        'Recall a forgotten memory', 'Strange coincidence',
-        'Sudden realization', 'Meaningful vision',
+        'Meaningful vision', 'Mysterious note', 'Recall a forgotten memory',
+        'Strange coincidence', 'Strange omen', 'Sudden realization'
     ];
     
     const badEvents = [
-        'Foreboding vision',
-        'Mysterious illness', 'Bad omen',
-        'Something goes missing', 'Something gets damaged',
-        'Feeling of unease', 'Ally behaves oddly',
-        'Terrible nightmare', 'Discover a dangerous secret',
-        'Shadowy figure in the distance'
+        'Ally behaves oddly', 'Bad omen', 'Discover a dangerous secret',
+        'Feeling of unease', 'Foreboding vision', 'Mysterious illness',
+        'Shadowy figure in the distance', 'Something gets damaged',
+        'Something goes missing', 'Terrible nightmare'
     ];
     
     const miscellaneous = [...goodEvents, ...neutralEvents, ...badEvents];
@@ -434,60 +439,51 @@ function generateFantasyEvent() {
 // Fantasy Plot Hook Generator
 function generateFantasyPlotHook() {
     const verbs = [
-        'Rescue', 'Retrieve', 'Stop', 'Investigate', 'Protect',
-        'Sabotage', 'Decode', 'Survive', 'Negotiate', 'Find',
-        'Destroy', 'Explore', 'Defend', 'Uncover', 'Escape',
-        'Awaken', 'Break', 'Steal', 'Deliver', 'Hunt',
-        'Recover', 'Defeat', 'Banish',
-        'Heal', 'Cure', 'Repair',
-        'Persuade', 'Infiltrate', 'Capture', 
-        'Discover', 'Guard', 'Follow', 'Transport', 'Break'
+        'Awaken', 'Banish', 'Break', 'Capture', 'Cure',
+        'Decode', 'Defeat', 'Defend', 'Deliver', 'Destroy',
+        'Discover', 'Escape', 'Explore', 'Find', 'Follow',
+        'Guard', 'Heal', 'Hunt', 'Infiltrate', 'Investigate',
+        'Negotiate', 'Persuade', 'Protect', 'Recover', 'Repair',
+        'Rescue', 'Retrieve', 'Sabotage', 'Steal', 'Stop',
+        'Survive', 'Transport', 'Uncover'
     ];
     
     const adjectives = [
-        'kidnapped', 'ancient', 'ritual', 'mysterious', 'frontier',
-        'enemy', 'cryptic', 'magical', 'peace', 'lost',
-        'corrupted', 'forgotten', 'sacred', 'royal', 'cursed',
-        'sleeping', 'ancient', 'legendary', 'vital', 'rogue',
-        'stolen', 'demonic', 'magical', 'elemental', 'shadow',
-        'poisoned', 'magical', 'defensive', 'broken', 'forbidden',
-        'hidden', 'royal', 'prophetic', 'cursed', 'sacred',
-        'haunted', 'captured', 'lost', 'undead', 'dragon',
-        'mountain', 'spy', 'collapsing', 'stone', 'magical',
-        'enemy', 'secret', 'monstrous', 'sunken', 'rival',
-        'peace', 'celestial', 'dark', 'wounded', 'mind',
-        'magical', 'time', 'ancient', 'secret', 'magical',
-        'star', 'evil', 'oracle', 'strange', 'enslaved',
-        'philosopher', 'blood', 'stolen', 'crystal', 'hidden',
-        'labyrinth', 'forest', 'mind', 'magic', 'peace',
-        'ghostly', 'family', 'rival', 'protective', 'weather',
-        'plague', 'cursed', 'magical', 'underground', 'magical',
-        'secret', 'hidden', 'sacred', 'ancient', 'cursed',
-        'magical', 'time', 'trapped', 'legendary', 'planar',
-        'stolen', 'holy', 'lost', 'dream', 'mountain', 'soul'
+        'ancient', 'blood', 'broken', 'captured', 'celestial',
+        'collapsing', 'corrupted', 'cryptic', 'crystal', 'cursed',
+        'dark', 'defensive', 'demonic', 'dragon', 'dream',
+        'elemental', 'enemy', 'enslaved', 'evil', 'family',
+        'forbidden', 'forgotten', 'forest', 'frontier', 'ghostly',
+        'haunted', 'hidden', 'holy', 'kidnapped', 'labyrinth',
+        'legendary', 'lost', 'magic', 'magical', 'mind',
+        'monstrous', 'mountain', 'mysterious', 'oracle', 'peace',
+        'philosopher', 'planar', 'plague', 'poisoned', 'prophetic',
+        'protective', 'ritual', 'rogue', 'royal', 'rival',
+        'sacred', 'secret', 'shadow', 'sleeping', 'soul',
+        'spy', 'star', 'stone', 'stolen', 'strange',
+        'sunken', 'time', 'trapped', 'undead', 'underground',
+        'vital', 'weather', 'wounded'
     ];
     
     const nouns = [
-        'heir', 'artifact', 'summoning', 'disappearances', 'settlement',
-        'weapon', 'message', 'storm', 'treaty', 'colony',
-        'creature', 'temple', 'city', 'conspiracy', 'prison',
-        'god', 'curse', 'relic', 'message', 'beast',
-        'crown', 'lord', 'amulet', 'spirit', 'creature',
-        'king', 'plague', 'wall', 'seal', 'spell',
-        'library', 'wedding', 'dream', 'idol', 'grove',
-        'ruins', 'villagers', 'prophecy', 'invasion', 'egg',
-        'pass', 'network', 'mine', 'guardian', 'barrier',
-        'plans', 'weapon', 'predator', 'treasure', 'champion',
-        'offering', 'being', 'presence', 'dragon', 'control',
-        'bridge', 'portal', 'language', 'passage', 'fountain',
-        'map', 'cult', 'oracle', 'lights', 'tribe',
-        'stone', 'ritual', 'knowledge', 'cave', 'identity',
-        'labyrinth', 'spirit', 'control', 'crystal', 'terms',
-        'apparition', 'heirloom', 'mage', 'ward', 'spirit',
-        'demon', 'land', 'corruption', 'sanctuary', 'device',
-        'technique', 'city', 'ritual', 'map', 'tree',
-        'creature', 'anomaly', 'spirits', 'sword', 'breach',
-        'throne', 'site', 'history', 'realm', 'giant', 'contract'
+        'amulet', 'anomaly', 'apparition', 'artifact', 'barrier',
+        'beast', 'being', 'breach', 'bridge', 'cave',
+        'champion', 'city', 'colony', 'contract', 'control',
+        'conspiracy', 'corruption', 'creature', 'crown', 'cult',
+        'curse', 'demon', 'device', 'disappearances', 'dragon',
+        'dream', 'egg', 'fountain', 'giant', 'god',
+        'grove', 'guardian', 'heir', 'heirloom', 'history',
+        'identity', 'idol', 'invasion', 'king', 'knowledge',
+        'laborinth', 'land', 'language', 'library', 'lights',
+        'lord', 'mage', 'map', 'message', 'mine',
+        'network', 'offering', 'oracle', 'pass', 'passage',
+        'plague', 'plans', 'portal', 'predator', 'presence',
+        'prison', 'prophecy', 'realm', 'relic', 'ritual',
+        'ruins', 'sanctuary', 'seal', 'settlement', 'site',
+        'spell', 'spirit', 'stone', 'storm', 'summoning',
+        'sword', 'technique', 'temple', 'terms', 'throne',
+        'treaty', 'tree', 'tribe', 'treasure', 'villagers',
+        'wall', 'ward', 'weapon', 'wedding'
     ];
     
     const verb = verbs[Math.floor(Math.random() * verbs.length)];
@@ -500,59 +496,50 @@ function generateFantasyPlotHook() {
 // Space Plot Hook Generator
 function generateSpacePlotHook() {
     const verbs = [
-        'Rescue', 'Retrieve', 'Stop', 'Investigate', 'Protect',
-        'Sabotage', 'Decode', 'Survive', 'Negotiate', 'Find',
-        'Destroy', 'Explore', 'Defend', 'Uncover', 'Escape',
-        'Awaken', 'Steal', 'Deliver', 'Hunt', 'Recover',
-        'Defeat', 'Banish', 'Heal',
-        'Cure', 'Repair', 'Discover',
-        'Guard', 'Follow', 'Transport', 'Break'
+        'Awaken', 'Banish', 'Break', 'Cure', 'Decode',
+        'Defeat', 'Defend', 'Deliver', 'Destroy', 'Discover',
+        'Escape', 'Explore', 'Find', 'Follow', 'Guard',
+        'Heal', 'Hunt', 'Investigate', 'Negotiate', 'Protect',
+        'Recover', 'Repair', 'Rescue', 'Retrieve', 'Sabotage',
+        'Steal', 'Stop', 'Survive', 'Transport', 'Uncover'
     ];
     
     const adjectives = [
-        'captured', 'stolen', 'pirate', 'derelict', 'mining',
-        'enemy', 'alien', 'solar', 'trade', 'lost',
-        'rogue', 'asteroid', 'space', 'corporate', 'hostile',
-        'cryo-sleep', 'prototype', 'medical', 'space', 'black',
-        'rival', 'distant', 'alien', 'cosmic', 'plague',
-        'nanite', 'orbital', 'interstellar', 'alien', 'wormhole',
-        'diplomatic', 'distress', 'pirate', 'terraforming', 'ghost',
-        'stranded', 'ancient', 'superweapon', 'stolen', 'research',
-        'spy', 'gravity', 'dormant', 'security', 'star',
-        'peace', 'rogue', 'stolen', 'rival', 'planetary',
-        'rescue', 'energy', 'radiation', 'memory', 'space',
-        'life support', 'hacking', 'hidden', 'fuel', 'energy',
-        'smuggling', 'ambassador', 'time', 'captured', 'quantum',
-        'medical', 'reactor', 'genetic', 'false',
-        'nebula', 'terraforming', 'encryption', 'military', 'emergency',
-        'rogue', 'alien', 'rival', 'diplomatic', 'trading',
-        'parasitic', 'ecosystem', 'cybernetic', 'deep space', 'sensor',
-        'alien', 'hidden', 'cargo', 'comet', 'listening',
-        'generation', 'signal', 'captured', 'lost', 'asteroid',
-        'stolen', 'comms', 'hidden', 'black', 'ancient', 'illegal'
+        'alien', 'ambassador', 'ancient', 'asteroid', 'black',
+        'captured', 'cargo', 'comet', 'comms', 'corporate',
+        'cosmic', 'cryo-sleep', 'cybernetic', 'deep space', 'derelict',
+        'diplomatic', 'distant', 'dormant', 'ecosystem', 'emergency',
+        'encryption', 'energy', 'false', 'fuel', 'generation',
+        'genetic', 'ghost', 'gravity', 'hacking', 'hidden',
+        'hostile', 'illegal', 'interstellar', 'life support', 'listening',
+        'lost', 'medical', 'memory', 'military', 'mining',
+        'nanite', 'nebula', 'orbital', 'parasitic', 'peace',
+        'pirate', 'planetary', 'plague', 'prototype', 'quantum',
+        'radiation', 'reactor', 'rescue', 'research', 'rival',
+        'rogue', 'security', 'sensor', 'signal', 'smuggling',
+        'solar', 'space', 'star', 'stolen', 'stranded',
+        'superweapon', 'terraforming', 'time', 'trade', 'trading',
+        'wormhole'
     ];
     
     const nouns = [
-        'diplomat', 'data core', 'raid', 'starship', 'colony',
-        'battlecruiser', 'transmission', 'flare', 'agreement', 'generation ship',
-        'AI', 'asteroid field', 'space station', 'conspiracy', 'sector',
-        'crew', 'weapon', 'supplies', 'anomaly', 'black box',
-        'mercenaries', 'gate', 'fleet', 'entity', 'outbreak',
-        'infection', 'defense', 'drive', 'language', 'wormhole',
-        'summit', 'signal', 'base', 'project', 'ship',
-        'colonists', 'artifact', 'activation', 'tech', 'outpost',
-        'satellite', 'well', 'AI', 'system', 'charts',
-        'envoy', 'asteroid', 'ship', 'corporation', 'shield',
-        'fleet', 'being', 'sickness', 'wipe', 'elevator',
-        'system', 'protocol', 'base', 'depot', 'signature',
-        'ring', 'ambassador', 'dilation', 'scientist', 'computer',
-        'supplies', 'relic', 'meltdown', 'samples', 'point',
-        'identity', 'storm', 'AI', 'code', 'plans',
-        'supplies', 'drone swarm', 'specimen', 'captain', 'channel',
-        'convoy', 'organism', 'ecosystem', 'virus', 'relay',
-        'array', 'technology', 'colony', 'shipment', 'trail',
-        'post', 'ship', 'source', 'crew', 'probe',
-        'impact', 'research', 'satellite', 'agenda', 'hole', 'starship', 'blockade'
+        'agenda', 'agreement', 'AI', 'ambassador', 'anomaly',
+        'array', 'artifact', 'asteroid', 'asteroid field', 'base',
+        'battlecruiser', 'being', 'black box', 'blockade', 'captain',
+        'channel', 'charts', 'code', 'colony', 'colonists',
+        'computer', 'conspiracy', 'convoy', 'corporation', 'crew',
+        'data core', 'defense', 'depot', 'diplomat', 'dilation',
+        'drone swarm', 'drive', 'ecosystem', 'elevator', 'entity',
+        'envoy', 'fleet', 'flare', 'gate', 'generation ship',
+        'hole', 'identity', 'impact', 'infection', 'language',
+        'meltdown', 'mercenaries', 'organism', 'outbreak', 'outpost',
+        'plans', 'point', 'post', 'project', 'protocol',
+        'raid', 'relay', 'relic', 'research', 'ring',
+        'samples', 'satellite', 'scientist', 'sector', 'shield',
+        'ship', 'shipment', 'sickness', 'signal', 'source',
+        'space station', 'specimen', 'starship', 'storm', 'summit',
+        'supplies', 'system', 'tech', 'technology', 'trail',
+        'transmission', 'virus', 'weapon', 'well', 'wipe', 'wormhole'
     ];
     
     const verb = verbs[Math.floor(Math.random() * verbs.length)];
@@ -575,97 +562,90 @@ function generatePlotHook(theme = 'fantasy') {
 function generateSpaceEvent() {
     // Subjects for encounters
     const encounterSubjects = [
-        'Pirates', 'Friendly trader', 'Distress call', 'Bounty hunter',
-        'Merchant', 'Refugees', 'Security patrol', 'Lone explorer',
-        'Alien/stranger', 'Smugglers', 'Medics', 'Diplomatic envoy',
-        'Laborers', 'Messenger drone', 'Rivals', 'Scavengers',
-        'Lost scientist', 'Colonists', 'Suspicious dealer', 'Wormhole', 
-        'Cult ship', 'Lone scout', 'Escaped prisoners', 'Entertainers',
-        'Pilgrims', 'Spy', 'Mercenaries', 'Suspicious character',
-        'Spiritual practitioner', 'Scientist', 'Rebel cell', 'Lone survivor',
-        'Diplomatic ship', 'Shapeshifter/master of disguise', 'Researchers', 'Hidden data cache', 
+        'Alien/stranger', 'Bounty hunter', 'Colonists', 'Cult ship',
+        'Diplomatic envoy', 'Diplomatic ship', 'Distress call',
+        'Entertainers', 'Escaped prisoners', 'Friendly trader',
+        'Hidden data cache', 'Laborers', 'Lone explorer', 'Lone scout',
+        'Lone survivor', 'Lost scientist', 'Medics', 'Mercenaries',
+        'Merchant', 'Messenger drone', 'Pilgrims', 'Pirates',
+        'Rebel cell', 'Refugees', 'Researchers', 'Rivals',
+        'Scavengers', 'Scientist', 'Security patrol', 'Shapeshifter/master of disguise',
+        'Smugglers', 'Spiritual practitioner', 'Spy', 'Suspicious character',
+        'Suspicious dealer', 'Wormhole'
     ];
     
     // Additional info for encounters
     const encounterInfo = [
-        'demands surrender?', 'offers supplies?', 'from civilian ship?', 'crosses paths?',
-        'with rare tech?', 'needs rescue?', 'has questions?', 'shares discoveries?',
-        'offers help?', 'at work?', 'wants assistance?', 'needs escort?',
-        'has strange ore?', 'has urgent data?', 'makes threats?', 'scavenging debris?',
-        'seeks protection?', 'celebrating?', 'offers services?', 'with illegal tech?',
-        'performing rituals?', 'tracking something?', 'escaped?', 'on a mission?',
-        'suddenly appears?', 'on spiritual quest?', 'infiltrating?', 
-        'shares wisdom?', 'performing experiments?', 'planning an operation?', 'attacking?',
-        'makes a discovery?'
+        'at work?', 'attacking?', 'celebrating?', 'crosses paths?',
+        'demands surrender?', 'escaped?', 'from civilian ship?',
+        'has questions?', 'has strange ore?', 'has urgent data?',
+        'infiltrating?', 'makes a discovery?', 'makes threats?',
+        'needs escort?', 'needs rescue?', 'offers help?',
+        'offers services?', 'offers supplies?', 'on a mission?',
+        'on spiritual quest?', 'performing experiments?', 'performing rituals?',
+        'planning an operation?', 'scavenging debris?', 'seeks protection?',
+        'shares discoveries?', 'shares wisdom?', 'suddenly appears?',
+        'tracking something?', 'wants assistance?', 'with illegal tech?', 'with rare tech?'
     ];
     
     // Subjects for obstructions
     const obstructionSubjects = [
-        'Debris field', 'Hidden minefield', 'Energy barrier', 'Complex security system',
-        'Computer malfunction', 'Proximity sensor', 'Hidden compartment',
-        'Tricky maze/asteroid field', 'Logic puzzle', 'Security door', 'Force field',
-        'False floor', 'Holographic illusion', 'Laser grid trap', 'Data encryption',
-        'Collapsing tunnel', 'Security drone', 'Gas trap', 'Biometric lock',
-        'Honeypot', 'Voice recognition system', 'Pressure plate', 'Neural interface',
-        'Falling ceiling', 'Quantum encryption', 'Motion sensor', 'DNA lock',
-        'False data package', 'Psychic barrier', 'Technological test',
-        'Secret passage', 'Robotic guardian', 'Complex circuit', 'Cloaking field',
-        'Malfunctioning robot',
+        'Biometric lock', 'Cloaking field', 'Collapsing tunnel',
+        'Complex circuit', 'Complex security system', 'Computer malfunction',
+        'Data encryption', 'Debris field', 'DNA lock', 'Energy barrier',
+        'False data package', 'False floor', 'Falling ceiling',
+        'Force field', 'Gas trap', 'Hidden compartment', 'Hidden minefield',
+        'Holographic illusion', 'Honeypot', 'Laser grid trap',
+        'Logic puzzle', 'Malfunctioning robot', 'Motion sensor',
+        'Neural interface', 'Pressure plate', 'Proximity sensor',
+        'Psychic barrier', 'Quantum encryption', 'Robotic guardian',
+        'Secret passage', 'Security door', 'Security drone',
+        'Technological test', 'Tricky maze/asteroid field', 'Voice recognition system'
     ];
     
     // Additional info for obstructions
     const obstructionInfo = [
-        'suddenly appears?', 'detected?', 'activates?', 'triggers defenses?',
-        'confusing?', 'is broken?', 'sabotage?', 'double-cross?', 
-        'fails?', 'needs repair?', 'blocks the way?', 'fake?', 
+        'activates?', 'blocks the way?', 'confusing?', 'detected?',
+        'double-cross?', 'fails?', 'fake?', 'is broken?',
+        'needs repair?', 'sabotage?', 'suddenly appears?', 'triggers defenses?'
     ];
     
     // Hazards
     const hazards = [
-        'Solar flare', 'Meteor swarm',
-        'Gravity well', 'Radiation storm',
-        'Sensor interference', 
-        'Sudden ion storm (damages electronics)', 'Plasma discharge',
-        'Rogue asteroid field', 'Confusing quantum anomaly',
-        'Temporal distortion field', 'Spatial rift opens nearby',
-        'Sudden EMP blast disables systems',
-        'Dark matter cloud obscures sensors', 
-        'Sudden temperature fluctuation', 'Magnetic field disruption',
-        'Subspace interference pattern', 'Reality distortion field',
-        'Sudden pressure change', 'Radiation spike (leak?)',
-        'Dimensional instability',
-        'Psychic energy field',
-        'Gravitational anomaly', 
-        'Sudden energy drain', 
-        'Subspace rift appears',
-        'Sudden system overload',
+        'Confusing quantum anomaly', 'Dark matter cloud obscures sensors',
+        'Dimensional instability', 'Gravitational anomaly', 'Gravity well',
+        'Magnetic field disruption', 'Meteor swarm', 'Plasma discharge',
+        'Psychic energy field', 'Radiation spike (leak?)', 'Radiation storm',
+        'Reality distortion field', 'Rogue asteroid field', 'Sensor interference',
+        'Solar flare', 'Spatial rift opens nearby', 'Subspace interference pattern',
+        'Subspace rift appears', 'Sudden EMP blast disables systems',
+        'Sudden energy drain', 'Sudden ion storm (damages electronics)',
+        'Sudden pressure change', 'Sudden system overload',
+        'Sudden temperature fluctuation', 'Temporal distortion field'
     ];
     
     // Miscellaneous (36: 12 good, 12 neutral, 12 bad/scary)
     const goodEvents = [
-        'Hidden supply cache', 'Friendly alien/stranger',
-        'Unexpected resources', 'Valuable data',
-        'Helpful AI', 'Advanced technology',
-        'Hidden skill revealed', 'Helpful hologram appears',
-        'Ally ship appears', 'Ally offers help', 
-        'Sudden research breakthrough', 'Sudden insight', 
-        'Stroke of cosmic luck', 'Sudden realization', 'Helpful dream',
-        'Helpful signal appears', 'Found a shortcut',
+        'Advanced technology', 'Ally offers help', 'Ally ship appears',
+        'Found a shortcut', 'Friendly alien/stranger', 'Helpful AI',
+        'Helpful dream', 'Helpful hologram appears', 'Helpful signal appears',
+        'Hidden skill revealed', 'Hidden supply cache', 'Stroke of cosmic luck',
+        'Sudden insight', 'Sudden realization', 'Sudden research breakthrough',
+        'Unexpected resources', 'Valuable data'
     ];
     
     const neutralEvents = [
-        'Strange phenomenon appears', 'Mysterious data packet discovered',
-        'Sudden solar flare', 'The situation is not as it appeared',
-        'Forgotten memory returns',
+        'Forgotten memory returns', 'Mysterious data packet discovered',
+        'Strange phenomenon appears', 'Sudden solar flare',
+        'The situation is not as it appeared'
     ];
     
     const badEvents = [
-        'Data is corrupted', 'Terrifying vision', 'Alarms ring out',
-        'Mysterious system virus', 'Unwanted transmission received',
-        'Valuable component malfunctions', 'Ally acts strangely',
-        'Sensors show intermittent ghost blips', 'Something/someone disappears',
-        'Nightmares', 'Dangerous data found', 'Crew member feels sick',
-        'Frightening prophecy/news decoded', 'Shadowy threat follows at distance',
+        'Alarms ring out', 'Ally acts strangely', 'Crew member feels sick',
+        'Dangerous data found', 'Data is corrupted', 'Frightening prophecy/news decoded',
+        'Mysterious system virus', 'Nightmares', 'Sensors show intermittent ghost blips',
+        'Shadowy threat follows at distance', 'Something/someone disappears',
+        'Terrifying vision', 'Unwanted transmission received', 'Valuable component malfunctions'
     ];
     
     const miscellaneous = [...goodEvents, ...neutralEvents, ...badEvents];
