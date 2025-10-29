@@ -1,16 +1,5 @@
 // Shared NPC data
-const sharedPersonalities = [
-    'Ambitious', 'Anxious', 'Arrogant', 'Brave', 'Calculating',
-    'Cautious', 'Chivalrous', 'Common', 'Confident', 'Content',
-    'Cowardly', 'Creative', 'Cunning', 'Curious', 'Deceitful',
-    'Deceptive', 'Emotional', 'Foolish', 'Friendly', 'Generous',
-    'Greedy', 'Heretical', 'Honest', 'Hostile', 'Humble',
-    'Impulsive', 'Indifferent', 'Intuitive', 'Logical', 'Loyal',
-    'Methodical', 'Mystical', 'Noble', 'Obedient', 'Optimistic',
-    'Patient', 'Pessimistic', 'Pious', 'Playful', 'Practical',
-    'Rebellious', 'Serious', 'Stoic', 'Suspicious', 'Traditional',
-    'Treacherous', 'Trusting', 'Wanderlust', 'Wise', 'Witty'
-];
+// Note: Personality traits have been removed and are now available through the dedicated personality oracle
 
 const sharedDescriptors = [
     'Aged', 'Agile', 'Bald', 'Bearded', 'Broad-shouldered',
@@ -249,7 +238,6 @@ function generateSpaceLocation() {
 
 // Fantasy NPC Generator
 function generateFantasyNPC() {
-    const personalities = sharedPersonalities;
     const descriptors = sharedDescriptors;
     
     const roles = [
@@ -263,11 +251,10 @@ function generateFantasyNPC() {
     ];
     
     const name = generateFantasyName();
-    const personality = personalities[Math.floor(Math.random() * personalities.length)];
     const descriptor = descriptors[Math.floor(Math.random() * descriptors.length)];
     const role = roles[Math.floor(Math.random() * roles.length)];
     
-    return { name, personality, descriptor, role };
+    return { name, descriptor, role };
 }
 
 // Space Name Generator (100 syllables)
@@ -314,7 +301,6 @@ function generateSpaceName() {
 
 // Space NPC Generator
 function generateSpaceNPC() {
-    const personalities = sharedPersonalities;
     const descriptors = sharedDescriptors;
     
     const roles = [
@@ -328,11 +314,10 @@ function generateSpaceNPC() {
     ];
     
     const name = generateSpaceName();
-    const personality = personalities[Math.floor(Math.random() * personalities.length)];
     const descriptor = descriptors[Math.floor(Math.random() * descriptors.length)];
     const role = roles[Math.floor(Math.random() * roles.length)];
     
-    return { name, personality, descriptor, role };
+    return { name, descriptor, role };
 }
 
 // Fantasy Random Event Generator

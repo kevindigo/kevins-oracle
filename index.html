@@ -519,8 +519,8 @@
 
         // Fantasy NPC Generator (now imported from generators.js)
         function showFantasyNPC() {
-            const { name, descriptor, personality, role } = window.generateFantasyNPC();
-            showResultWithFlash('Fantasy NPC', name, `${descriptor} ${personality} ${role}`);
+            const { name, descriptor, role } = window.generateFantasyNPC();
+            showResultWithFlash('Fantasy NPC', name, `${descriptor} ${role}`);
         }
 
 
@@ -540,8 +540,8 @@
 
         // Space NPC Generator (now imported from generators.js)
         function showSpaceNPC() {
-            const { name, descriptor, personality, role } = window.generateSpaceNPC();
-            showResultWithFlash('Space NPC', name, `${descriptor} ${personality} ${role}`);
+            const { name, descriptor, role } = window.generateSpaceNPC();
+            showResultWithFlash('Space NPC', name, `${descriptor} ${role}`);
         }
 
 
