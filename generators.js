@@ -131,13 +131,13 @@ function generateFantasyPlaceName() {
         ' city', ' cliff', ' colony', 'crag', ' crossing',
         ' dock', ' estate', ' farm', ' fen', ' field',
         'ford', ' forest', ' fort', ' forge', ' garden',
-        ' gate', ' glade', ' grotto', ' grove', 'hall',
+        'gate', ' glade', ' grotto', ' grove', 'hall',
         ' harbor', 'hill', ' hollow', 'keep', ' lake',
         ' manor', ' marsh', ' meadow', ' mill', ' mine',
         ' monastery', ' mountain', ' park', ' pass', ' peak',
         ' pier', ' plain', 'port', ' prairie', ' quarry',
         'ridge', ' river', ' sanctuary', ' shore', ' shrine',
-        ' spring', ' stone', ' stream', ' swamp', ' temple',
+        ' spring', 'stone', ' stream', ' swamp', ' temple',
         'ton', ' tower', 'town', 'vale', ' valley',
         ' vineyard', 'ville', ' warren', 'way', 'wood'
     ];
@@ -151,8 +151,8 @@ function generateFantasyPlaceName() {
 // Fantasy Location Generator
 function generateFantasyLocation() {
     const locations = [
-        'Abandoned temple', 'Alchemist lab', 'Ancient battlefield', 'Ancient ruins',
-        'Arctic outpost', 'Astral sea', 'Bard college', 'Border fort',
+        'Abandoned outpost', 'Abandoned temple', 'Alchemist lab', 'Ancient battlefield', 'Ancient ruins',
+        'Astral sea', 'Bard college', 'Border fort',
         'Bustling market', 'Celestial realm', 'Cleric cathedral', 'Cloud palace',
         'Coastal city', 'Common village', 'Crystal cave', 'Crystal palace',
         'Cursed swamp', 'Desert caravan', 'Desert oasis', 'Dimension rift',
@@ -171,7 +171,7 @@ function generateFantasyLocation() {
         'Royal court', 'Sacred temple', 'Secluded forest', 'Seer tower',
         'Shadow realm', 'Shadowfell', 'Silver lake', 'Sorcerer sanctum',
         'Squire training ground', 'Sun altar', 'Sunken city', 'Time-lost library',
-        'Trading post', 'Underground cavern', 'Undersea city', 'Volcanic forge',
+        'Trading post', 'Underground cavern', 'Underwater city', 'Volcanic forge',
         'Volcano crater', 'Warlock pact', 'Warrior guild', 'Whispering woods',
         'Witch hut', 'Wizard tower'
     ];
