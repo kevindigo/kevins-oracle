@@ -657,6 +657,23 @@ function generateSpaceEvent() {
     return { mainText, extraText, type: eventType };
 }
 
+// Personality Generator
+function generatePersonality() {
+    const personalities = [
+        'Ambitious', 'Anxious', 'Arrogant', 'Brave', 'Calculating',
+        'Cautious', 'Chivalrous', 'Common', 'Confident', 'Content',
+        'Cowardly', 'Creative', 'Cunning', 'Curious', 'Deceitful',
+        'Deceptive', 'Emotional', 'Foolish', 'Friendly', 'Generous',
+        'Greedy', 'Heretical', 'Honest', 'Hostile', 'Humble',
+        'Impulsive', 'Indifferent', 'Intuitive', 'Logical', 'Loyal',
+        'Methodical', 'Mystical', 'Noble', 'Obedient', 'Optimistic',
+        'Patient', 'Pessimistic', 'Pious', 'Playful', 'Practical',
+        'Rebellious', 'Serious', 'Stoic', 'Suspicious', 'Traditional',
+        'Treacherous', 'Trusting', 'Wanderlust', 'Wise', 'Witty'
+    ];
+    return personalities[Math.floor(Math.random() * personalities.length)];
+}
+
 // Attach functions to window object for global access
 window.generatePlotHook = generatePlotHook;
 window.generateFantasyPlotHook = generateFantasyPlotHook;
@@ -669,3 +686,4 @@ window.generateFantasyEvent = generateFantasyEvent;
 window.generateSpaceEvent = generateSpaceEvent;
 window.getRandomAction = getRandomAction;
 window.getRandomTheme = getRandomTheme;
+window.generatePersonality = generatePersonality;

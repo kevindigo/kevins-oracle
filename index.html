@@ -380,7 +380,7 @@
                 <div class="feature-card">
                     <h3>Personality</h3>
                     <div class="button-group mt-8">
-                        <button onclick="generatePersonality()" class="btn-small">Generate</button>
+                        <button onclick="showPersonality()" class="btn-small">Generate</button>
                     </div>
                 </div>
             </div>
@@ -561,21 +561,9 @@
             }
         }
 
-        // Personality Generator
-        function generatePersonality() {
-            const personalities = [
-                'Ambitious', 'Anxious', 'Arrogant', 'Brave', 'Calculating',
-                'Cautious', 'Chivalrous', 'Common', 'Confident', 'Content',
-                'Cowardly', 'Creative', 'Cunning', 'Curious', 'Deceitful',
-                'Deceptive', 'Emotional', 'Foolish', 'Friendly', 'Generous',
-                'Greedy', 'Heretical', 'Honest', 'Hostile', 'Humble',
-                'Impulsive', 'Indifferent', 'Intuitive', 'Logical', 'Loyal',
-                'Methodical', 'Mystical', 'Noble', 'Obedient', 'Optimistic',
-                'Patient', 'Pessimistic', 'Pious', 'Playful', 'Practical',
-                'Rebellious', 'Serious', 'Stoic', 'Suspicious', 'Traditional',
-                'Treacherous', 'Trusting', 'Wanderlust', 'Wise', 'Witty'
-            ];
-            const personality = personalities[Math.floor(Math.random() * personalities.length)];
+        // Personality Generator (imported from generators.js)
+        function showPersonality() {
+            const personality = window.generatePersonality();
             showResultWithFlash('Personality', personality, '');
         }
 
