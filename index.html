@@ -563,8 +563,8 @@
 
         // Personality Generator (imported from generators.js)
         function showPersonality() {
-            const personality = window.generatePersonality();
-            showResultWithFlash('Personality', personality, '');
+            const { personality, extraText } = window.generatePersonality();
+            showResultWithFlash('Personality', personality, extraText);
         }
 
 

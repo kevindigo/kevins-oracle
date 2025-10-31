@@ -661,17 +661,44 @@ function generateSpaceEvent() {
 function generatePersonality() {
     const personalities = [
         'Ambitious', 'Anxious', 'Arrogant', 'Brave', 'Calculating',
-        'Cautious', 'Chivalrous', 'Common', 'Confident', 'Content',
+        'Cautious', 'Chivalrous', 'Common', 'Confident', 
         'Cowardly', 'Creative', 'Cunning', 'Curious', 'Deceitful',
         'Deceptive', 'Emotional', 'Foolish', 'Friendly', 'Generous',
         'Greedy', 'Heretical', 'Honest', 'Hostile', 'Humble',
         'Impulsive', 'Indifferent', 'Intuitive', 'Logical', 'Loyal',
         'Methodical', 'Mystical', 'Noble', 'Obedient', 'Optimistic',
-        'Patient', 'Pessimistic', 'Pious', 'Playful', 'Practical',
-        'Rebellious', 'Serious', 'Stoic', 'Suspicious', 'Traditional',
+        'Patient', 'Peaceful', 'Pessimistic', 'Pious', 'Playful', 
+        'Practical', 'Quirky', 'Rebellious', 'Serene', 'Serious', 
+        'Stoic', 'Suspicious', 'Traditional',
         'Treacherous', 'Trusting', 'Wanderlust', 'Wise', 'Witty'
     ];
-    return personalities[Math.floor(Math.random() * personalities.length)];
+    
+    // Action verbs for motivation
+    const actionVerbs = [
+        'acquire', 'avenge', 'destroy', 'protect', 'create',
+        'conquer', 'discover', 'master', 'preserve', 'liberate',
+        'control', 'escape', 'build', 'reveal', 'defend',
+        'transform', 'eliminate', 'achieve', 'explore', 'reclaim',
+        'eliminate', 'heal', 'promote', 'augment', 'increase', 
+        'hide', 'transform', 'transcend', 'avoid', 
+    ];
+    
+    // Objects for motivation
+    const motivationObjects = [
+        'wealth', 'evil', 'suffering', 'knowledge', 'power',
+        'freedom', 'justice', 'peace', 'glory', 'wisdom', 
+        'beauty', 'truth', 'order', 'chaos', 'balance',
+        'innocence', 'corruption', 'legacy', 'love', 'hope',
+        'family', 'friends', 'commerce', 'conflict', 'religion',
+        'hierarchy', 'logic', 'weakness', 'strength', 
+    ];
+    
+    const personality = personalities[Math.floor(Math.random() * personalities.length)];
+    const actionVerb = actionVerbs[Math.floor(Math.random() * actionVerbs.length)];
+    const motivationObject = motivationObjects[Math.floor(Math.random() * motivationObjects.length)];
+    const extraText = `Motivation: ${actionVerb} ${motivationObject}`;
+    
+    return { personality, extraText };
 }
 
 // Attach functions to window object for global access
