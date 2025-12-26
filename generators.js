@@ -701,6 +701,31 @@ function generatePersonality() {
     return { personality, extraText };
 }
 
+function generateSpell() {
+    const verbs = [
+        'Create', 'Destroy', 
+        'Heal/mend', 'Degrade', 
+        'Reshape', 'Transform', 
+        'Perceive', 'Control', 
+    ];
+
+    const nouns = [
+        'Body/flesh/leather', 'Plant material', 
+        'Metal', 'Gems/minerals',
+        'Water/liquid', 'Stone/dirt/earth', 
+        'Wind/air', 'Heat/fire', 'Cold',
+        'Visual effects', 'Auditory effects', 'Thoughts/emotions'];
+
+
+    const verb = verbs[Math.floor(Math.random() * verbs.length)];
+    const noun = nouns[Math.floor(Math.random() * nouns.length)];
+
+    const spell = `${verb} ${noun}`;
+    const extraText = '';
+    return {spell, extraText};
+}
+
+
 // Attach functions to window object for global access
 window.generatePlotHook = generatePlotHook;
 window.generateFantasyPlotHook = generateFantasyPlotHook;
@@ -714,3 +739,4 @@ window.generateSpaceEvent = generateSpaceEvent;
 window.getRandomAction = getRandomAction;
 window.getRandomTheme = getRandomTheme;
 window.generatePersonality = generatePersonality;
+window.generateSpell = generateSpell;

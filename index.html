@@ -348,7 +348,7 @@
                     </div>
                 </div>
                 <div class="feature-card">
-                    <h3>Inspiration Seeds</h3>
+                    <h3>Inspiration</h3>
                     <div class="button-group mt-8">
                         <button onclick="generateAction()" class="btn-small">Action & Theme</button>
                     </div>
@@ -372,15 +372,21 @@
                     </div>
                 </div>
                 <div class="feature-card">
+                    <h3>Personality</h3>
+                    <div class="button-group mt-8">
+                        <button onclick="showPersonality()" class="btn-small">Generate</button>
+                    </div>
+                </div>
+                <div class="feature-card">
                     <h3>Random Event</h3>
                     <div class="button-group mt-8">
                         <button onclick="generateEvent()" class="btn-small">Generate</button>
                     </div>
                 </div>
                 <div class="feature-card">
-                    <h3>Personality</h3>
+                    <h3>Magical effect</h3>
                     <div class="button-group mt-8">
-                        <button onclick="showPersonality()" class="btn-small">Generate</button>
+                        <button onclick="showSpell()" class="btn-small">Generate</button>
                     </div>
                 </div>
             </div>
@@ -567,6 +573,10 @@
             showResultWithFlash('Personality', personality, extraText);
         }
 
+        function showSpell() {
+            const { spell, extraText } = window.generateSpell();
+            showResultWithFlash('Magical effect', spell, extraText);
+        }
 
 
         // Scene Alteration Oracle
