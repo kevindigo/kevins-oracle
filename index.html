@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="teal">
+    <meta name="description" content="Inspiration for solo RPG play - dice rolling, yes/no oracles, and creative generators">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Kevin's Oracle">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/svg+xml" href="icons/icon-192x192.svg">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.svg">
+    <title>Kevin's Oracle</title>
+    <script src="generators.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --button-color: teal;
+            --button-hover: darkcyan;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #1a1a1a;
+            color: white;
+            min-height: 100vh;
+            padding: 10px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(40, 40, 40, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.8;
+        }
+
+        .main-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .section-card {
+            background: rgba(50, 50, 50, 0.8);
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+
+
+        .theme-selector-section {
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        .theme-selector {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(50, 50, 50, 0.8);
+            border-radius: 25px;
+            padding: 5px 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .theme-selector label {
+            font-weight: bold;
+            font-size: 1em;
+            opacity: 0.9;
+        }
+
+        .theme-selector select {
+            /* Minimal styling - let browser handle most of it */
+            background: var(--button-color);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 4px 8px;
+            font-size: 1em;
+            cursor: pointer;
+            /* Use default browser styling for popup */
+            -webkit-appearance: menulist;
+            -moz-appearance: menulist;
+            appearance: menulist;
+        }
+
+        .theme-selector select:hover {
+            background: var(--button-hover);
+            transform: translateY(-1px);
+        }
+
+        .theme-selector select:focus {
+            outline: none;
+            background: var(--button-hover);
+        }
+
+        .theme-selector select:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .theme-selector select:focus {
+            outline: none;
+            transform: translateY(0);
+        }
+
+        .shared-result-section {
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+            margin: 10px 0;
+        }
+
+        .shared-result {
+            height: 100px;
+            background: rgba(60, 60, 60, 0.8);
+            border-radius: 8px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            backdrop-filter: blur(10px);
+        }
+
+        .result-header {
+            font-size: 1em;
+            font-weight: bold;
+            text-align: left;
+            opacity: 0.9;
+        }
+
+        .result-content {
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: right;
+            line-height: 1.3;
+        }
+
+        .extra-text {
+            margin-top: 5px;
+            text-align: right;
+            line-height: 1.2;
+        }
+
+        .dice-rolls {
+            margin-top: 5px;
+        }
+
+
+
+        .button-group {
+            display: flex;
+            gap: 5px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .button-group button {
+            padding: 4px 8px;
+            font-size: 0.85em;
+            min-width: auto;
+            white-space: nowrap;
+        }
+
+        button {
+            background: var(--button-color);
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: var(--button-hover);
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        /* Common button variations */
+        .btn-small {
+            padding: 3px 6px !important;
+            font-size: 0.75em !important;
+        }
+
+        .feature-section {
+            margin-top: 15px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .feature-card {
+            background: rgba(50, 50, 50, 0.8);
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            background: rgba(70, 70, 70, 0.8);
+            transform: translateY(-2px);
+        }
+
+        .feature-card h3 {
+            font-size: 1em;
+            margin-bottom: 6px;
+        }
+
+        .feature-card p {
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+
+        .mt-8 {
+            margin-top: 6px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 15px;
+            opacity: 0.7;
+            font-size: 0.9em;
+        }
+
+        .text-small {
+            font-size: 0.8em;
+        }
+
+        .opacity-6 {
+            opacity: 0.6;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .button-group {
+                flex-direction: column;
+            }
+
+            .main-section {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎲 Kevin's Oracle</h1>
+            <p class="subtitle">Inspiration for solo RPG play</p>
+        </header>
+
+        <section class="theme-selector-section">
+            <div class="theme-selector">
+                <label for="theme-select">Theme:</label>
+                <select id="theme-select">
+                    <option value="fantasy">Fantasy</option>
+                    <option value="space">Space</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="shared-result-section">
+            <div class="shared-result" id="sharedResult">
+                <div class="result-header">Ready for adventure</div>
+                <div class="result-content">Ask a question or roll some dice...</div>
+            </div>
+        </section>
+
+        <div class="main-section">
+            <section class="section-card">
+                <h2>Yes/No Oracle</h2>
+                <div class="button-group">
+                    <button onclick="askYesNoUnlikely()">Unlikely</button>
+                    <button onclick="askYesNoEven()">Even</button>
+                    <button onclick="askYesNoLikely()">Likely</button>
+                </div>
+            </section>
+
+            <section class="section-card">
+                <h2>Dice Roller</h2>
+                <div class="button-group">
+                    <button onclick="rollD4()">d4</button>
+                    <button onclick="roll1d6()">1d6</button>
+                    <button onclick="roll2d6()">2d6</button>
+                    <button onclick="roll3d6()">3d6</button>
+                    <button onclick="rollD8()">d8</button>
+                    <button onclick="rollD10()">d10</button>
+                    <button onclick="rollD12()">d12</button>
+                    <button onclick="rollD20()">d20</button>
+                    <button onclick="rollD100()">d100</button>
+                </div>
+            </section>
+        </div>
+
+        <section class="feature-section">
+            <h2>Additional Oracles</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>Start Scene</h3>
+                    <div class="button-group mt-8">
+                        <button onclick="alterScene()" class="btn-small">Alteration</button>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <h3>Inspiration</h3>
+                    <div class="button-group mt-8">
+                        <button onclick="generateAction()" class="btn-small">Action & Theme</button>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <h3>Plot Hook</h3>
+                    <div class="button-group mt-8">
+                        <button onclick="generatePlotHook()" class="btn-small">Generate</button>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <h3>Location</h3>
+                    <div class="button-group mt-8">
+                        <button onclick="generateLocation()" class="btn-small">Generate</button>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <h3>NPC</h3>
+                    <div class="button-group mt-8">
+                        <button onclick="generateNPC()" class="btn-small">Generate</button>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <h3>Personality</h3>
+                    <div class="button-group mt-8">
+                        <button onclick="showPersonality()" class="btn-small">Generate</button>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <h3>Random Event</h3>
+                    <div class="button-group mt-8">
+                        <button onclick="generateEvent()" class="btn-small">Generate</button>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <h3>Magical effect</h3>
+                    <div class="button-group mt-8">
+                        <button onclick="showSpell()" class="btn-small">Generate</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2025 Kevin B. Smith</p>
+            <p>Dual licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" style="color: mediumturquoise">CC BY 4.0</a> or <a href="https://opensource.org/licenses/MIT" target="_blank" style="color: mediumturquoise">MIT License</a></p>
+            <p class="text-small opacity-6">This page was created with AI assistance</p>
+        </footer>
+    </div>
+
+    <script>
+        // Helper function to show result with flash effect
+        function showResultWithFlash(header, content, extraText = '') {
+            const resultDiv = document.getElementById('sharedResult');
+            
+            // Clear the content (flash effect)
+            resultDiv.innerHTML = 
+                `<div class="result-header">${header}</div>
+                 <div class="result-content">&nbsp;</div>`;
+            
+            // Wait 100ms (1/10 second) then show the actual result
+            setTimeout(() => {
+                resultDiv.innerHTML = 
+                    `<div class="result-header">${header}</div>
+                     <div class="result-content">${content}</div>
+                     ${extraText ? `<div class="extra-text">${extraText}</div>` : '&nbsp;'}`;
+            }, 100);
+        }
+
+
+
+        // Helper function to get twist text
+        function getTwistText() {
+            const twistRoll = Math.floor(Math.random() * 10) + 1;
+            if (twistRoll === 1) {
+                const action = getRandomAction();
+                const theme = getRandomTheme();
+                return `Twist: ${action} ${theme}`;
+            }
+            return '';
+        }
+
+        // Shared Yes/No Oracle Response Generator
+        function generateYesNoResponse(probabilityType) {
+            // Define probability configurations
+            const probabilityConfigs = {
+                'likely': { yesCount: 14, noCount: 6 },
+                'unlikely': { yesCount: 6, noCount: 14 },
+                'even': { yesCount: 10, noCount: 10 }
+            };
+            
+            // Get configuration for the requested probability type
+            const config = probabilityConfigs[probabilityType] || probabilityConfigs.even;
+            
+            // Build the results array dynamically
+            const results = [
+                // Special yes responses (always included)
+                'Strong yes', 'Yes, and...', 'Yes, but...',
+                // Regular yes responses
+                ...Array(config.yesCount - 3).fill('Yes'),
+                // Special no responses (always included)
+                'Strong no', 'No, and...', 'No, but...',
+                // Regular no responses
+                ...Array(config.noCount - 3).fill('No')
+            ];
+            
+            const result = results[Math.floor(Math.random() * results.length)];
+            const twistText = getTwistText();
+            
+            return { result, twistText };
+        }
+
+        // Yes/No Oracle
+        function askYesNoEven() {
+            const { result, twistText } = generateYesNoResponse('even');
+            showResultWithFlash('Yes/No Oracle (even)', result, twistText);
+        }
+
+        function askYesNoLikely() {
+            const { result, twistText } = generateYesNoResponse('likely');
+            showResultWithFlash('Yes/No Oracle (likely)', result, twistText);
+        }
+
+        function askYesNoUnlikely() {
+            const { result, twistText } = generateYesNoResponse('unlikely');
+            showResultWithFlash('Yes/No Oracle (unlikely)', result, twistText);
+        }
+
+        // Action & Theme Generator
+        function generateAction() {
+            const action = getRandomAction();
+            const theme = getRandomTheme();
+            
+            showResultWithFlash('Action & Theme', `${action} ${theme}`, '');
+        }
+
+        // Plot Hook / Quest Generator
+        function generatePlotHook() {
+            const themeSelect = document.getElementById('theme-select');
+            const selectedTheme = themeSelect.value;
+            const quest = selectedTheme === 'space' ? window.generateSpacePlotHook() : window.generateFantasyPlotHook();
+            const themeLabel = selectedTheme === 'space' ? 'Space' : 'Fantasy';
+            showResultWithFlash(`${themeLabel} Plot Hook`, quest.mainText, quest.extraText);
+        }
+
+
+
+        // Fantasy Location Generator (now uses imported function from generators.js)
+        function showFantasyLocation() {
+            const { location, placeName } = window.generateFantasyLocation();
+            showResultWithFlash('Fantasy Location', location, `at ${placeName}`);
+        }
+
+        // Location Generator
+        function generateLocation() {
+            const themeSelect = document.getElementById('theme-select');
+            const selectedTheme = themeSelect.value;
+            
+            if (selectedTheme === 'space') {
+                showSpaceLocation();
+            } else {
+                // Default to fantasy
+                showFantasyLocation();
+            }
+        }
+
+        // Space Location Generator (now uses imported function from generators.js)
+        function showSpaceLocation() {
+            const { location, placeName } = window.generateSpaceLocation();
+            showResultWithFlash('Space Location', location, `at ${placeName}`);
+        }
+
+
+
+        // Fantasy NPC Generator (now imported from generators.js)
+        function showFantasyNPC() {
+            const { name, descriptor, role } = window.generateFantasyNPC();
+            showResultWithFlash('Fantasy NPC', name, `${descriptor} ${role}`);
+        }
+
+
+
+        // NPC Generator
+        function generateNPC() {
+            const themeSelect = document.getElementById('theme-select');
+            const selectedTheme = themeSelect.value;
+            
+            if (selectedTheme === 'space') {
+                showSpaceNPC();
+            } else {
+                // Default to fantasy
+                showFantasyNPC();
+            }
+        }
+
+        // Space NPC Generator (now imported from generators.js)
+        function showSpaceNPC() {
+            const { name, descriptor, role } = window.generateSpaceNPC();
+            showResultWithFlash('Space NPC', name, `${descriptor} ${role}`);
+        }
+
+
+
+        // Random Event Generator
+        function generateEvent() {
+            const themeSelect = document.getElementById('theme-select');
+            const selectedTheme = themeSelect.value;
+            
+            if (selectedTheme === 'space') {
+                const event = window.generateSpaceEvent();
+                showResultWithFlash(event.type, event.mainText, event.extraText);
+            } else {
+                // Default to fantasy
+                const event = window.generateFantasyEvent();
+                showResultWithFlash(event.type, event.mainText, event.extraText);
+            }
+        }
+
+        // Personality Generator (imported from generators.js)
+        function showPersonality() {
+            const { personality, extraText } = window.generatePersonality();
+            showResultWithFlash('Personality', personality, extraText);
+        }
+
+        function showSpell() {
+            const { spell, extraText } = window.generateSpell();
+            showResultWithFlash('Magical effect', spell, extraText);
+        }
+
+
+        // Scene Alteration Oracle
+        function alterScene() {
+            // Scene alteration types
+            const alterationTypes = ['Alter', 'Interrupt'];
+            
+            // Mythic GM Emulator scene alteration topics
+            const topics = [
+                'NPC action', 'NPC action', 'NPC action', 
+                'NPC negative', 'NPC positive', 
+                'PC negative', 'PC positive', 
+                'Remote event', 'Ambiguous event',
+                'Move toward a thread', 'Move away from or close a thread', 
+                'Introduce a new NPC', 'Introduce a new thread'
+            ];
+            
+            const alterationType = alterationTypes[Math.floor(Math.random() * alterationTypes.length)];
+            const topic = topics[Math.floor(Math.random() * topics.length)];
+            
+            showResultWithFlash('Scene Alteration', alterationType, topic);
+        }
+
+        // Generic Dice Roller Function
+        function rollDice(sides, count = 1) {
+            let total = 0;
+            let rolls = [];
+            
+            for (let i = 0; i < count; i++) {
+                const roll = Math.floor(Math.random() * sides) + 1;
+                rolls.push(roll);
+                total += roll;
+            }
+            
+            return { total, rolls };
+        }
+
+        // Individual dice functions become simple wrappers
+        function rollD4() {
+            const { total } = rollDice(4);
+            showResultWithFlash('d4 Dice Roll', `${total}`, '');
+        }
+
+        function roll1d6() {
+            const { total } = rollDice(6);
+            showResultWithFlash('1d6 Dice Roll', `${total}`, '');
+        }
+
+        function roll2d6() {
+            const { total, rolls } = rollDice(6, 2);
+            showResultWithFlash('2d6 Dice Roll', `${total}`, rolls.join(' + '));
+        }
+
+        function roll3d6() {
+            const { total, rolls } = rollDice(6, 3);
+            showResultWithFlash('3d6 Dice Roll', `${total}`, rolls.join(' + '));
+        }
+
+        function rollD8() {
+            const { total } = rollDice(8);
+            showResultWithFlash('d8 Dice Roll', `${total}`, '');
+        }
+
+        function rollD10() {
+            const { total } = rollDice(10);
+            showResultWithFlash('d10 Dice Roll', `${total}`, '');
+        }
+
+        function rollD12() {
+            const { total } = rollDice(12);
+            showResultWithFlash('d12 Dice Roll', `${total}`, '');
+        }
+
+        function rollD20() {
+            const { total } = rollDice(20);
+            showResultWithFlash('d20 Dice Roll', `${total}`, '');
+        }
+
+        function rollD100() {
+            const { total } = rollDice(100);
+            showResultWithFlash('d100 Dice Roll', `${total}`, '');
+        }
+
+        // PWA Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('sw.js')
+                    .then(function(registration) {
+                        console.log('Service Worker registered with scope:', registration.scope);
+                        
+                        // Auto-reload when new service worker activates
+                        navigator.serviceWorker.addEventListener('controllerchange', () => {
+                            window.location.reload();
+                        });
+                    })
+                    .catch(function(error) {
+                        console.log('Service Worker registration failed:', error);
+                    });
+            });
+        }
+
+        // PWA Install Prompt Handling
+        let deferredPrompt;
+        const installButton = document.createElement('button');
+        
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // Prevent the mini-infobar from appearing on mobile
+            e.preventDefault();
+            // Stash the event so it can be triggered later
+            deferredPrompt = e;
+            
+            // Create and show install button
+            installButton.textContent = '📱 Install App';
+            installButton.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background: teal;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 25px;
+                font-weight: bold;
+                cursor: pointer;
+                z-index: 1000;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+                transition: all 0.3s ease;
+            `;
+            
+            installButton.addEventListener('mouseenter', () => {
+                installButton.style.background = 'darkcyan';
+                installButton.style.transform = 'translateY(-2px)';
+            });
+            
+            installButton.addEventListener('mouseleave', () => {
+                installButton.style.background = 'teal';
+                installButton.style.transform = 'translateY(0)';
+            });
+            
+            document.body.appendChild(installButton);
+            
+            installButton.addEventListener('click', async () => {
+                // Hide the install button
+                installButton.style.display = 'none';
+                // Show the install prompt
+                deferredPrompt.prompt();
+                // Wait for the user to respond to the prompt
+                const { outcome } = await deferredPrompt.userChoice;
+                console.log(`User response to the install prompt: ${outcome}`);
+                // We've used the prompt, and can't use it again, throw it away
+                deferredPrompt = null;
+            });
+        });
+
+        window.addEventListener('appinstalled', () => {
+            // Hide the install button after successful installation
+            if (installButton.parentNode) {
+                installButton.parentNode.removeChild(installButton);
+            }
+            console.log('PWA was installed');
+        });
+
+        // Check if app is already installed
+        window.addEventListener('load', () => {
+            if (window.matchMedia('(display-mode: standalone)').matches) {
+                console.log('App is running in standalone mode');
+                // App is already installed, don't show install button
+                if (installButton.parentNode) {
+                    installButton.parentNode.removeChild(installButton);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
