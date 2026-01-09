@@ -12,9 +12,19 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
-      - name: Update Service Worker Cache Version
+      - name: Update all versions
         run: |
-          sed -i "s/const CACHE_VERSION = '[^']*'/const CACHE_VERSION = 'v$(date +%s)'/" sw.js
+          # Generate a unique version based on timestamp
+          VERSION=$(date +%s)
+          
+          # Update cache version in sw.js
+          sed -i "s/const CACHE_VERSION = '[^']*'/const CACHE_VERSION = 'v${VERSION}'/" sw.js
+          
+          # Update JS version in index.html
+          sed -i "s/generators.js?v=[^'\"]*/generators.js?v=${VERSION}/g" index.html
+          
+          # Update service worker version in index.html
+          sed -i "s/sw.js?v=[^'\"]*/sw.js?v=${VERSION}/g" index.html
           
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
