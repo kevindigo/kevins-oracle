@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="teal">
-    <meta name="description" content="Inspiration for solo RPG play - dice rolling, yes/no oracles, and creative generators">
+    <meta name="description"
+        content="Inspiration for solo RPG play - dice rolling, yes/no oracles, and creative generators">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Kevin's Oracle">
@@ -13,7 +15,7 @@
     <link rel="icon" type="image/svg+xml" href="icons/icon-192x192.svg">
     <link rel="apple-touch-icon" href="icons/icon-192x192.svg">
     <title>Kevin's Oracle</title>
-    <script src="generators.js"></script>
+    <script src="generators.js?v=1767975156"></script> <!-- Version auto-updated by deploy.yml -->
     <style>
         * {
             margin: 0;
@@ -273,11 +275,11 @@
             .container {
                 padding: 10px;
             }
-            
+
             h1 {
                 font-size: 2em;
             }
-            
+
             .button-group {
                 flex-direction: column;
             }
@@ -288,6 +290,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <header>
@@ -394,7 +397,9 @@
 
         <footer>
             <p>© 2025 Kevin B. Smith</p>
-            <p>Dual licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" style="color: mediumturquoise">CC BY 4.0</a> or <a href="https://opensource.org/licenses/MIT" target="_blank" style="color: mediumturquoise">MIT License</a></p>
+            <p>Dual licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"
+                    style="color: mediumturquoise">CC BY 4.0</a> or <a href="https://opensource.org/licenses/MIT"
+                    target="_blank" style="color: mediumturquoise">MIT License</a></p>
             <p class="text-small opacity-6">This page was created with AI assistance</p>
         </footer>
     </div>
@@ -403,15 +408,15 @@
         // Helper function to show result with flash effect
         function showResultWithFlash(header, content, extraText = '') {
             const resultDiv = document.getElementById('sharedResult');
-            
+
             // Clear the content (flash effect)
-            resultDiv.innerHTML = 
+            resultDiv.innerHTML =
                 `<div class="result-header">${header}</div>
                  <div class="result-content">&nbsp;</div>`;
-            
+
             // Wait 100ms (1/10 second) then show the actual result
             setTimeout(() => {
-                resultDiv.innerHTML = 
+                resultDiv.innerHTML =
                     `<div class="result-header">${header}</div>
                      <div class="result-content">${content}</div>
                      ${extraText ? `<div class="extra-text">${extraText}</div>` : '&nbsp;'}`;
@@ -439,10 +444,10 @@
                 'unlikely': { yesCount: 6, noCount: 14 },
                 'even': { yesCount: 10, noCount: 10 }
             };
-            
+
             // Get configuration for the requested probability type
             const config = probabilityConfigs[probabilityType] || probabilityConfigs.even;
-            
+
             // Build the results array dynamically
             const results = [
                 // Special yes responses (always included)
@@ -454,10 +459,10 @@
                 // Regular no responses
                 ...Array(config.noCount - 3).fill('No')
             ];
-            
+
             const result = results[Math.floor(Math.random() * results.length)];
             const twistText = getTwistText();
-            
+
             return { result, twistText };
         }
 
@@ -481,7 +486,7 @@
         function generateAction() {
             const action = getRandomAction();
             const theme = getRandomTheme();
-            
+
             showResultWithFlash('Action & Theme', `${action} ${theme}`, '');
         }
 
@@ -506,7 +511,7 @@
         function generateLocation() {
             const themeSelect = document.getElementById('theme-select');
             const selectedTheme = themeSelect.value;
-            
+
             if (selectedTheme === 'space') {
                 showSpaceLocation();
             } else {
@@ -535,7 +540,7 @@
         function generateNPC() {
             const themeSelect = document.getElementById('theme-select');
             const selectedTheme = themeSelect.value;
-            
+
             if (selectedTheme === 'space') {
                 showSpaceNPC();
             } else {
@@ -556,7 +561,7 @@
         function generateEvent() {
             const themeSelect = document.getElementById('theme-select');
             const selectedTheme = themeSelect.value;
-            
+
             if (selectedTheme === 'space') {
                 const event = window.generateSpaceEvent();
                 showResultWithFlash(event.type, event.mainText, event.extraText);
@@ -583,20 +588,20 @@
         function alterScene() {
             // Scene alteration types
             const alterationTypes = ['Alter', 'Interrupt'];
-            
+
             // Mythic GM Emulator scene alteration topics
             const topics = [
-                'NPC action', 'NPC action', 'NPC action', 
-                'NPC negative', 'NPC positive', 
-                'PC negative', 'PC positive', 
+                'NPC action', 'NPC action', 'NPC action',
+                'NPC negative', 'NPC positive',
+                'PC negative', 'PC positive',
                 'Remote event', 'Ambiguous event',
-                'Move toward a thread', 'Move away from or close a thread', 
+                'Move toward a thread', 'Move away from or close a thread',
                 'Introduce a new NPC', 'Introduce a new thread'
             ];
-            
+
             const alterationType = alterationTypes[Math.floor(Math.random() * alterationTypes.length)];
             const topic = topics[Math.floor(Math.random() * topics.length)];
-            
+
             showResultWithFlash('Scene Alteration', alterationType, topic);
         }
 
@@ -604,13 +609,13 @@
         function rollDice(sides, count = 1) {
             let total = 0;
             let rolls = [];
-            
+
             for (let i = 0; i < count; i++) {
                 const roll = Math.floor(Math.random() * sides) + 1;
                 rolls.push(roll);
                 total += roll;
             }
-            
+
             return { total, rolls };
         }
 
@@ -662,17 +667,17 @@
 
         // PWA Service Worker Registration
         if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
-                navigator.serviceWorker.register('sw.js')
-                    .then(function(registration) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('sw.js?v=1767975156') // Version auto-updated by deploy.yml
+                    .then(function (registration) {
                         console.log('Service Worker registered with scope:', registration.scope);
-                        
+
                         // Auto-reload when new service worker activates
                         navigator.serviceWorker.addEventListener('controllerchange', () => {
                             window.location.reload();
                         });
                     })
-                    .catch(function(error) {
+                    .catch(function (error) {
                         console.log('Service Worker registration failed:', error);
                     });
             });
@@ -681,13 +686,13 @@
         // PWA Install Prompt Handling
         let deferredPrompt;
         const installButton = document.createElement('button');
-        
+
         window.addEventListener('beforeinstallprompt', (e) => {
             // Prevent the mini-infobar from appearing on mobile
             e.preventDefault();
             // Stash the event so it can be triggered later
             deferredPrompt = e;
-            
+
             // Create and show install button
             installButton.textContent = '📱 Install App';
             installButton.style.cssText = `
@@ -705,19 +710,19 @@
                 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
                 transition: all 0.3s ease;
             `;
-            
+
             installButton.addEventListener('mouseenter', () => {
                 installButton.style.background = 'darkcyan';
                 installButton.style.transform = 'translateY(-2px)';
             });
-            
+
             installButton.addEventListener('mouseleave', () => {
                 installButton.style.background = 'teal';
                 installButton.style.transform = 'translateY(0)';
             });
-            
+
             document.body.appendChild(installButton);
-            
+
             installButton.addEventListener('click', async () => {
                 // Hide the install button
                 installButton.style.display = 'none';
@@ -751,4 +756,5 @@
         });
     </script>
 </body>
+
 </html>
