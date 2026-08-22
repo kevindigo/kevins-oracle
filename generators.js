@@ -487,7 +487,7 @@ function generateSpacePlotHook() {
         'Escape', 'Explore', 'Find', 'Follow', 'Guard',
         'Heal', 'Hunt', 'Investigate', 'Negotiate', 'Protect',
         'Recover', 'Repair', 'Rescue', 'Retrieve', 'Sabotage',
-        'Steal', 'Stop', 'Survive', 'Transport', 'Uncover'
+        'Stop', 'Survive', 'Transport', 'Uncover'
     ];
     
     const nouns = [
