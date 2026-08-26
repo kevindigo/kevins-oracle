@@ -447,7 +447,7 @@ function generateFantasyPlotHook() {
         'Discover', 'Escape', 'Explore', 'Find', 'Follow',
         'Guard', 'Heal', 'Hunt', 'Infiltrate', 'Investigate',
         'Negotiate', 'Persuade', 'Protect', 'Recover', 'Repair',
-        'Rescue', 'Retrieve', 'Sabotage', 'Steal', 'Stop',
+        'Rescue', 'Retrieve', 'Sabotage', 'Stop',
         'Survive', 'Transport', 'Uncover'
     ];
     
