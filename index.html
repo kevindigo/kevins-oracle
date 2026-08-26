@@ -15,7 +15,7 @@
     <link rel="icon" type="image/svg+xml" href="icons/icon-192x192.svg">
     <link rel="apple-touch-icon" href="icons/icon-192x192.svg">
     <title>Kevin's Oracle</title>
-    <script src="generators.js?v=1787388287"></script> <!-- Version auto-updated by deploy.yml -->
+    <script src="generators.js?v=1787783832"></script> <!-- Version auto-updated by deploy.yml -->
     <style>
         * {
             margin: 0;
@@ -174,13 +174,17 @@
             margin-top: 5px;
         }
 
-
-
         .button-group {
             display: flex;
             gap: 5px;
-            justify-content: center;
-            flex-wrap: wrap;
+            flex-direction: row;
+        }
+
+        .button-column {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            justify-content: flex-start;
         }
 
         .button-group button {
@@ -328,15 +332,34 @@
             <section class="section-card">
                 <h2>Dice Roller</h2>
                 <div class="button-group">
-                    <button onclick="rollD4()">d4</button>
-                    <button onclick="roll1d6()">1d6</button>
-                    <button onclick="roll2d6()">2d6</button>
-                    <button onclick="roll3d6()">3d6</button>
-                    <button onclick="rollD8()">d8</button>
-                    <button onclick="rollD10()">d10</button>
-                    <button onclick="rollD12()">d12</button>
-                    <button onclick="rollD20()">d20</button>
-                    <button onclick="rollD100()">d100</button>
+                    <div class="button-column">
+                        <button onclick="rollD4(1)">1d4</button>
+                        <button onclick="rollD4(2)">2d4</button>
+                    </div>
+                    <div class="button-column">
+                        <button onclick="roll1d6()">1d6</button>
+                        <button onclick="roll2d6()">2d6</button>
+                        <button onclick="roll3d6()">3d6</button>
+                    </div>
+                    <div class="button-column">
+                        <button onclick="rollD8(1)">1d8</button>
+                        <button onclick="rollD8(2)">2d8</button>
+                    </div>
+                    <div class="button-column">
+                        <button onclick="rollD10(1)">1d10</button>
+                        <button onclick="rollD10(2)">2d10</button>
+                    </div>
+                    <div class="button-column">
+                        <button onclick="rollD12(1)">1d12</button>
+                        <button onclick="rollD12(2)">2d12</button>
+                    </div>
+                    <div class="button-column">
+                        <button onclick="rollD20(1)">1d20</button>
+                        <button onclick="rollD20(2)">2d20</button>
+                    </div>
+                    <div class="button-column">
+                        <button onclick="rollD100()">d100</button>
+                    </div>
                 </div>
             </section>
         </div>
@@ -620,9 +643,10 @@
         }
 
         // Individual dice functions become simple wrappers
-        function rollD4() {
-            const { total } = rollDice(4);
-            showResultWithFlash('d4 Dice Roll', `${total}`, '');
+        function rollD4(count) {
+            const { total, rolls } = rollDice(4, count);
+            const details = (count > 1) ? rolls.join(', ') : '';
+            showResultWithFlash(`${count}d4 Dice Roll`, `${total}`, details);
         }
 
         function roll1d6() {
@@ -632,32 +656,36 @@
 
         function roll2d6() {
             const { total, rolls } = rollDice(6, 2);
-            showResultWithFlash('2d6 Dice Roll', `${total}`, rolls.join(' + '));
+            showResultWithFlash('2d6 Dice Roll', `${total}`, rolls.join(', '));
         }
 
         function roll3d6() {
             const { total, rolls } = rollDice(6, 3);
-            showResultWithFlash('3d6 Dice Roll', `${total}`, rolls.join(' + '));
+            showResultWithFlash('3d6 Dice Roll', `${total}`, rolls.join(', '));
         }
 
-        function rollD8() {
-            const { total } = rollDice(8);
-            showResultWithFlash('d8 Dice Roll', `${total}`, '');
+        function rollD8(count) {
+            const { total, rolls } = rollDice(8, count);
+            const details = (count > 1) ? rolls.join(', ') : '';
+            showResultWithFlash(`${count}d8 Dice Roll`, `${total}`, details);
         }
 
-        function rollD10() {
-            const { total } = rollDice(10);
-            showResultWithFlash('d10 Dice Roll', `${total}`, '');
+        function rollD10(count) {
+            const { total, rolls } = rollDice(10, count);
+            const details = (count > 1) ? rolls.join(', ') : '';
+            showResultWithFlash(`${count}d10 Dice Roll`, `${total}`, details);
         }
 
-        function rollD12() {
-            const { total } = rollDice(12);
-            showResultWithFlash('d12 Dice Roll', `${total}`, '');
+        function rollD12(count) {
+            const { total, rolls } = rollDice(12, count);
+            const details = (count > 1) ? rolls.join(', ') : '';
+            showResultWithFlash(`${count}d12 Dice Roll`, `${total}`, details);
         }
 
-        function rollD20() {
-            const { total } = rollDice(20);
-            showResultWithFlash('d20 Dice Roll', `${total}`, '');
+        function rollD20(count) {
+            const { total, rolls } = rollDice(20, count);
+            const details = (count > 1) ? rolls.join(', ') : '';
+            showResultWithFlash(`${count}d20 Dice Roll`, `${total}`, details);
         }
 
         function rollD100() {
@@ -668,7 +696,7 @@
         // PWA Service Worker Registration
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function () {
-                navigator.serviceWorker.register('sw.js?v=1787388287') // Version auto-updated by deploy.yml
+                navigator.serviceWorker.register('sw.js?v=1787783832') // Version auto-updated by deploy.yml
                     .then(function (registration) {
                         console.log('Service Worker registered with scope:', registration.scope);
 
