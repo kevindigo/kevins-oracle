@@ -15,7 +15,7 @@
     <link rel="icon" type="image/svg+xml" href="icons/icon-192x192.svg">
     <link rel="apple-touch-icon" href="icons/icon-192x192.svg">
     <title>Kevin's Oracle</title>
-    <script src="generators.js?v=1787783832"></script> <!-- Version auto-updated by deploy.yml -->
+    <script src="generators.js?v=1787837574"></script> <!-- Version auto-updated by deploy.yml -->
     <style>
         * {
             margin: 0;
@@ -333,29 +333,29 @@
                 <h2>Dice Roller</h2>
                 <div class="button-group">
                     <div class="button-column">
-                        <button onclick="rollD4(1)">1d4</button>
-                        <button onclick="rollD4(2)">2d4</button>
+                        <button onclick="rollAndShowDice(1, 4)">1d4</button>
+                        <button onclick="rollAndShowDice(2, 4)">2d4</button>
                     </div>
                     <div class="button-column">
-                        <button onclick="roll1d6()">1d6</button>
-                        <button onclick="roll2d6()">2d6</button>
-                        <button onclick="roll3d6()">3d6</button>
+                        <button onclick="rollAndShowDice(1, 6)">1d6</button>
+                        <button onclick="rollAndShowDice(2, 6)">2d6</button>
+                        <button onclick="rollAndShowDice(3, 6)">3d6</button>
                     </div>
                     <div class="button-column">
-                        <button onclick="rollD8(1)">1d8</button>
-                        <button onclick="rollD8(2)">2d8</button>
+                        <button onclick="rollAndShowDice(1, 8)">1d8</button>
+                        <button onclick="rollAndShowDice(2, 8)">2d8</button>
                     </div>
                     <div class="button-column">
-                        <button onclick="rollD10(1)">1d10</button>
-                        <button onclick="rollD10(2)">2d10</button>
+                        <button onclick="rollAndShowDice(1, 10)">1d10</button>
+                        <button onclick="rollAndShowDice(2, 10)">2d10</button>
                     </div>
                     <div class="button-column">
-                        <button onclick="rollD12(1)">1d12</button>
-                        <button onclick="rollD12(2)">2d12</button>
+                        <button onclick="rollAndShowDice(1, 12)">1d12</button>
+                        <button onclick="rollAndShowDice(2, 12)">2d12</button>
                     </div>
                     <div class="button-column">
-                        <button onclick="rollD20(1)">1d20</button>
-                        <button onclick="rollD20(2)">2d20</button>
+                        <button onclick="rollAndShowDice(1, 20)">1d20</button>
+                        <button onclick="rollAndShowDice(2, 20)">2d20</button>
                     </div>
                     <div class="button-column">
                         <button onclick="rollD100()">d100</button>
@@ -642,51 +642,12 @@
             return { total, rolls };
         }
 
-        // Individual dice functions become simple wrappers
-        function rollD4(count) {
-            const { total, rolls } = rollDice(4, count);
+        function rollAndShowDice(count, sides) {
+            const { total, rolls } = rollDice(sides, count);
             const details = (count > 1) ? rolls.join(', ') : '';
-            showResultWithFlash(`${count}d4 Dice Roll`, `${total}`, details);
+            showResultWithFlash(`${count}d${sides} Dice Roll`, `${total}`, details);
         }
 
-        function roll1d6() {
-            const { total } = rollDice(6);
-            showResultWithFlash('1d6 Dice Roll', `${total}`, '');
-        }
-
-        function roll2d6() {
-            const { total, rolls } = rollDice(6, 2);
-            showResultWithFlash('2d6 Dice Roll', `${total}`, rolls.join(', '));
-        }
-
-        function roll3d6() {
-            const { total, rolls } = rollDice(6, 3);
-            showResultWithFlash('3d6 Dice Roll', `${total}`, rolls.join(', '));
-        }
-
-        function rollD8(count) {
-            const { total, rolls } = rollDice(8, count);
-            const details = (count > 1) ? rolls.join(', ') : '';
-            showResultWithFlash(`${count}d8 Dice Roll`, `${total}`, details);
-        }
-
-        function rollD10(count) {
-            const { total, rolls } = rollDice(10, count);
-            const details = (count > 1) ? rolls.join(', ') : '';
-            showResultWithFlash(`${count}d10 Dice Roll`, `${total}`, details);
-        }
-
-        function rollD12(count) {
-            const { total, rolls } = rollDice(12, count);
-            const details = (count > 1) ? rolls.join(', ') : '';
-            showResultWithFlash(`${count}d12 Dice Roll`, `${total}`, details);
-        }
-
-        function rollD20(count) {
-            const { total, rolls } = rollDice(20, count);
-            const details = (count > 1) ? rolls.join(', ') : '';
-            showResultWithFlash(`${count}d20 Dice Roll`, `${total}`, details);
-        }
 
         function rollD100() {
             const { total } = rollDice(100);
@@ -696,7 +657,7 @@
         // PWA Service Worker Registration
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function () {
-                navigator.serviceWorker.register('sw.js?v=1787783832') // Version auto-updated by deploy.yml
+                navigator.serviceWorker.register('sw.js?v=1787837574') // Version auto-updated by deploy.yml
                     .then(function (registration) {
                         console.log('Service Worker registered with scope:', registration.scope);
 
