@@ -2,14 +2,16 @@
 // Note: Personality traits have been removed and are now available through the dedicated personality oracle
 
 const sharedDescriptors = [
-    'Aged', 'Agile', 'Bald', 'Bearded', 'Broad-shouldered',
-    'Clean-shaven', 'Clumsy', 'Curly-haired', 'Delicate', 'Elderly',
-    'Elegant', 'Enhanced', 'Freckled', 'Graceful', 'Imposing',
-    'Lanky', 'Lean', 'Long-haired', 'Middle-aged', 'Muscular',
-    'Pale', 'Petite', 'Plain', 'Rugged', 'Scarred',
-    'Short', 'Short-haired', 'Slender', 'Slick-haired', 'Stocky',
-    'Stout', 'Striking', 'Tall', 'Tanned', 'Tattooed',
-    'Unassuming', 'Vibrant', 'Weathered', 'Youthful'
+    'Aged', 'Elderly', 'Middle-aged', 'Youthful', 
+    'Agile', 'Clumsy', 'Graceful', 
+    'Bearded', 'Clean-shaven', 
+    'Bald', 'Curly-haired', 'Long-haired', 'Short-haired', 'Slick-haired', 
+    'Broad-shouldered', 'Lanky', 'Lean', 'Slender', 'Muscular', 'Stocky', 'Stout', 
+    'Tall', 'Short', 
+    'Petite', 'Delicate', 
+    'Elegant', 'Imposing', 'Plain', 'Rugged', 'Striking', 'Unassuming', 'Vibrant', 
+    'Enhanced', 
+    'Freckled', 'Pale', 'Scarred', 'Tanned', 'Tattooed', 'Weathered', 
 ];
 
 // Common word generators
