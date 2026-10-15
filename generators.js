@@ -3,19 +3,19 @@
 
 const sharedDescriptors = [
     // Choose at most one from each line:
-    'Lighter-skinned', 'Darker-skinned', 'Green-skinned', 'Blue-skinned', 'Purple-skinned',
     'Older', 'Middle-aged', 'Younger', 
     'Clumsy', 'Graceful', 
     'Bald', 'Curly-haired', 'Long-haired', 'Short-haired', 'Spikey-haired', 
     'Slender', 'Muscular', 'Stocky', 'Stout', 
     'Taller', 'Shorter', 
     'Delicate', 'Rugged', 'Coarse', 'Elegant', 'Plain', 
-    'Imposing', 'Low-energy', 'Bold', 'Unassuming', 'Vibrant', 
+    'Imposing', 'Bold', 'Unassuming', 'Vibrant', 
+    'Energetic', 'Low-energy', 
     'Enhanced', 
     'Freckled', 
     'Scarred', 
     'Tattooed', 
-    'Weathered', 
+    'Weathered', 'Leathery' 
 ];
 
 // Common word generators
