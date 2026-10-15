@@ -450,10 +450,10 @@ function generateFantasyPlotHook() {
     const verbs = [
         'Awaken', 'Banish', 'Break', 'Capture', 'Cure',
         'Decode', 'Defeat', 'Defend', 'Deliver', 'Destroy',
-        'Discover', 'Escape', 'Explore', 'Find', 'Follow',
-        'Guard', 'Heal', 'Hunt', 'Infiltrate', 'Investigate',
-        'Negotiate', 'Persuade', 'Protect', 'Recover', 'Repair',
-        'Rescue', 'Retrieve', 'Sabotage', 'Stop',
+        'Discover', 'Escape', 'Escort', 'Establish', 'Evacuate', 'Explore', 
+        'Find', 'Follow', 'Guard', 'Heal', 'Hunt', 
+        'Infiltrate', 'Investigate','Negotiate', 'Persuade', 'Protect', 
+        'Recover', 'Repair', 'Rescue', 'Retrieve', 'Sabotage', 'Stop',
         'Survive', 'Transport', 'Uncover'
     ];
     
