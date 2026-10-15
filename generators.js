@@ -2,14 +2,20 @@
 // Note: Personality traits have been removed and are now available through the dedicated personality oracle
 
 const sharedDescriptors = [
-    'Aged', 'Agile', 'Bald', 'Bearded', 'Broad-shouldered',
-    'Clean-shaven', 'Clumsy', 'Curly-haired', 'Delicate', 'Elderly',
-    'Elegant', 'Enhanced', 'Freckled', 'Graceful', 'Imposing',
-    'Lanky', 'Lean', 'Long-haired', 'Middle-aged', 'Muscular',
-    'Pale', 'Petite', 'Plain', 'Rugged', 'Scarred',
-    'Short', 'Short-haired', 'Slender', 'Slick-haired', 'Stocky',
-    'Stout', 'Striking', 'Tall', 'Tanned', 'Tattooed',
-    'Unassuming', 'Vibrant', 'Weathered', 'Youthful'
+    // Choose at most one from each line:
+    'Older', 'Middle-aged', 'Younger', 
+    'Clumsy', 'Graceful', 
+    'Bald', 'Curly-haired', 'Long-haired', 'Short-haired', 'Spikey-haired', 
+    'Slender', 'Muscular', 'Stocky', 'Stout', 
+    'Taller', 'Shorter', 
+    'Delicate', 'Rugged', 'Coarse', 'Elegant', 'Plain', 
+    'Imposing', 'Bold', 'Unassuming', 'Vibrant', 
+    'Energetic', 'Low-energy', 
+    'Enhanced', 
+    'Freckled', 
+    'Scarred', 
+    'Tattooed', 
+    'Weathered', 'Leathery' 
 ];
 
 // Common word generators
@@ -444,10 +450,10 @@ function generateFantasyPlotHook() {
     const verbs = [
         'Awaken', 'Banish', 'Break', 'Capture', 'Cure',
         'Decode', 'Defeat', 'Defend', 'Deliver', 'Destroy',
-        'Discover', 'Escape', 'Explore', 'Find', 'Follow',
-        'Guard', 'Heal', 'Hunt', 'Infiltrate', 'Investigate',
-        'Negotiate', 'Persuade', 'Protect', 'Recover', 'Repair',
-        'Rescue', 'Retrieve', 'Sabotage', 'Stop',
+        'Discover', 'Escape', 'Escort', 'Establish', 'Evacuate', 'Explore', 
+        'Find', 'Follow', 'Guard', 'Heal', 'Hunt', 
+        'Infiltrate', 'Investigate','Negotiate', 'Persuade', 'Protect', 
+        'Recover', 'Repair', 'Rescue', 'Retrieve', 'Sabotage', 'Stop',
         'Survive', 'Transport', 'Uncover'
     ];
     
