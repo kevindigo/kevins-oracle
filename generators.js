@@ -101,10 +101,10 @@ function generateFantasyPlaceName() {
     const prefixes = [
         'Abandoned ', 'Ancient ', 'Arcane ', 'Ash', 'Bear',
         'Birch', 'Black', 'Blessed', 'Blue', 'Bright',
-        'Cedar', 'Celestial ', 'Cloud', 'Common', 'Crystal',
-        'Cursed ', 'Dancing ', 'Dark', 'Deep', 'Deserted ',
+        'Cedar', 'Celestial ', 'Cloud', 'Common', 'Copper', 'Crystal',
+        'Cursed ', 'Dancing ', 'Dark', 'Deep', 'Deer',  'Deserted ',
         'Divine ', 'Dragon', 'Eagle', 'Echo', 'Eldritch',
-        'Elm', 'Enchanted ', 'Flying', 'Forest', 'Forgotten ',
+        'Elm', 'Enchanted ', 'Falcon', 'Flying', 'Forest', 'Forgotten ',
         'Forbidden ', 'Gold', 'Golden', 'Gray', 'Great', 'Green',
         'Griffin', 'Hawk', 'Hidden ', 'High', 'Hill',
         'Holy', 'Imperial', 'Infernal ', 'Iron', 'Lake',
