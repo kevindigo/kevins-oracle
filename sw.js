@@ -1,5 +1,5 @@
 // Service Worker with proper update handling
-const CACHE_VERSION = 'v1792478996'; // Auto-updated by deploy.yml
+const CACHE_VERSION = 'v1792521760'; // Auto-updated by deploy.yml
 const CACHE_NAME = `kevins-oracle-${CACHE_VERSION}`;
 
 // Cache ONLY the essential files for offline
