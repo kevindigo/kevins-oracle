@@ -727,7 +727,7 @@ function generatePersonality() {
         'conquer', 'discover', 'master', 'preserve', 'liberate',
         'control', 'escape', 'build', 'reveal', 'defend',
         'transform', 'eliminate', 'achieve', 'explore', 'reclaim',
-        'eliminate', 'heal', 'promote', 'augment', 'increase', 
+        'heal', 'promote', 'augment', 'increase', 
         'hide', 'transform', 'transcend', 'avoid', 
     ];
     
